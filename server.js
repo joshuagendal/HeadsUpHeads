@@ -13,9 +13,9 @@ var mongoose = require('mongoose');
 var app = express();
 
 mongoose.Promise = global.Promise;              
-mongoose.connect('mongodb://localhost/rateme'); //rateme is name of db
+mongoose.connect('mongodb://localhost/networking'); //rateme is name of db
 
-// require('./config/passport');
+require('./config/passport.js');
 
 app.use(express.static('public'));
 app.engine('ejs', engine);
@@ -38,9 +38,12 @@ app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.get('/test', function(req, res, next){
-    res.render('test');
-});
+//app.get('/test', function(req, res, next){
+//  res.render('test.ejs', {title: TEST});
+//});
+
+require('./routes/user')(app);
+require('./routes/messageBoard')(app);
 
 app.listen(3000, function(){
     console.log('App is listening on port 3000');

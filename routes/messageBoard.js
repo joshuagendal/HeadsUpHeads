@@ -11,22 +11,25 @@ module.exports = (app) => {
 		});
 	
 		app.post('/message-board/new-post', (req, res) =>{
-		  var newPost = new Post();
-			newPost.postHeading = req.body.postHeading;
-			newPost.postText = req.body.postText;
-			newPost.userPosting = {
+//		  var newPost = new Post();
+			var postHeading = req.body.postHeading;
+			var postText = req.body.postText;
+			var userPosting = {
 				id: req.user._id,
 				username: req.user.username
 			}
-			newPost.created = new Date();
-			
+			var created = new Date();
+			var newPost = {postHeading: postHeading, postText: postText, userPosting: userPosting, created: created}
 			console.log(newPost);
-			
-			newPost.save((err) => {
-				successRedirect: '/',
-				failureRedirect: '/login',
-				failureFlash: true
-			})
+			Post.create(newPost, function(err, newlyPosted){
+				if(err){
+					console.log(err);
+				} else {
+					console.log(newlyPosted);
+					res.redirect('/')
+				}
+			});
+		});
 				
 				
 //				if(err){
@@ -34,5 +37,4 @@ module.exports = (app) => {
 //					return done(err);
 //				}
 			
-			});
-		}
+			}

@@ -39,7 +39,7 @@ function signUpValidation(req, res, next){
 	req.checkBody('firstName', 'First name is required!').notEmpty();
 	req.checkBody('lastName', 'Last name is required!').notEmpty();
 	req.checkBody('email', 'Email is required!').notEmpty();
-    req.checkBody('email', 'This email already has an account!').isEmail();
+  req.checkBody('email', 'This email already has an account!').isEmail();
 	req.checkBody('password', 'Password is required!').notEmpty();
 	req.checkBody('password', 'Password must be more than 5 characters!').isLength({min:5});
 	req.checkBody('password', 'Password must contain at least 1 number!').matches(/^(?=.*\d)(?=.*[a-z])[0-9a-z]{5,}$/, "i");

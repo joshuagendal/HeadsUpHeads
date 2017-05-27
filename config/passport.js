@@ -52,9 +52,10 @@ passport.use('local.signup', new LocalStrategy({
 
         newUser.save((err, newUser) => {
           console.log('Error saving' + err);
+					return done(null, newUser);
         });
         console.log(user, 'Signup strategy');
-        return done(null, newUser);
+//        return done(null, newUser);
     });
 }));
 

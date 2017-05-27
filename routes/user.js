@@ -2,7 +2,7 @@ var passport = require('passport');
 
 module.exports = (app) => {
 
-    app.get('/signup', (req, res) => {
+  app.get('/signup', (req, res) => {
         var errors = req.flash('error');
         console.log(errors);
     	res.render('user/signup', {messages: errors, hasErrors: errors.length > 0});
@@ -14,13 +14,13 @@ module.exports = (app) => {
 		failureFlash: true
 	}));
 
-    app.get('/login', (req, res) => {
-        var errors = req.flash('error');
-        console.log(errors);
-        res.render('user/login', {messages: errors, hasErrors: errors.length > 0});
-    });
+  app.get('/login', (req, res) => {
+      var errors = req.flash('error');
+      console.log(errors);
+      res.render('user/login', {messages: errors, hasErrors: errors.length > 0});
+  });
 
-    app.post('/login', loginValidation, passport.authenticate('local.login', {
+  app.post('/login', loginValidation, passport.authenticate('local.login', {
       successRedirect: '/', // if user successfully signs up via passport
       failureRedirect: '/login',  // intention: to authenticate w/ Passport. Before authentication, you validate users info. GOAL is t
       failureFlash : true

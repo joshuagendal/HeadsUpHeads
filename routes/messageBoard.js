@@ -3,7 +3,14 @@ var Post = require('../models/post');
 
 module.exports = (app) => {
     app.get('/message-board', (req, res) => {
-    	res.render('messageBoard/message-board.ejs');
+			Post.find({}, function(err, allPosts){
+				if(err){
+					console.log(err);
+				} else {
+					res.render('messageBoard/message-board.ejs', {posts: allPosts});
+				}
+					
+			});
     });
 	
 		app.get('/message-board/new-post', (req, res) =>{

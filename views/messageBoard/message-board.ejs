@@ -10,7 +10,7 @@
 
     <link href="css/starter-template.css" rel="stylesheet">
 
-    
+
 </head>
 <body>
     <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -33,7 +33,7 @@
         </div><!--/.nav-collapse -->
       </div>
     </nav>
-    
+
 
 
     <div class="container">
@@ -42,17 +42,21 @@
       	<h1> Message Board </h1>
 				<a href="/message-board/new-post"><h1>Click here to post</h1></a>
 <!--        <a href="/message-board/post/"-->
-      </div>  
+      </div>
     </div>
-    
+
     <div class="container">
     	<% posts.forEach(function(post){ %>
     		<h3><%= post.postHeading %></h3>
     		<h3><%= post.postText %></h3>
     		<h3><%= post.userPosting.username %></h3>
     		<h3><%= post.created %></h3>
-    		<% }); %>
-    </div>
+        <h3><%= post._id %></h3>
+        <h3><a href="/message-board/<%=post._id%>" class="btn btn-primary">More Info</a></h3>
+
+    	<% }); %>
+
+
 
 <!--
     <div class="container">
@@ -64,7 +68,7 @@
             <div class="form-group col-xs-12">
                 <input id="postText" class="form-control" name="postText" type="text" autocomplete="on" placeholder="POST TEXT" style="margin-top: 20px; margin-bottom:20px;">
             </div>
-            
+
             <div class="form-group">
                 <input type="submit" id="submit" value="SUBMIT POST" class="form-control btn btn-primary" name="submit">
             </div>
@@ -72,6 +76,6 @@
 
 
       </form>
-    </div>  
+    </div>
 </body>
 </html>

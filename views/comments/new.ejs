@@ -4,7 +4,7 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-	  <title>New Post</title>
+	  <title>New Comment</title>
 
     <link href="css/bootstrap.css" rel="stylesheet">
 
@@ -32,17 +32,17 @@
       </div>
     </nav>
   <div class="container">
-		<h1> NEW POST PAGE</h1>
+		<h1> Comment page faggot</h1>
 
 		<div class="container">
-      <form method="POST" class="" id="signupForm" action="/message-board/new-post">
+      <form method="POST" class="" id="signupForm" action="/message-board/<%= post._id %>/new-comment">
       	<div class="form-group col-xs-12">
-        	<input id="postHeading" class="form-control" name="postHeading" type="text" autocomplete="on" placeholder="POST HEADING" style="margin-top: 20px; margin-bottom:20px;">
+        	<input id="commentText" class="form-control" name="commentText" type="text" autocomplete="on" placeholder="COMMENT TEXT" style="margin-top: 20px; margin-bottom:20px;">
        	</div>
 
-        <div class="form-group col-xs-12">
+        <!-- <div class="form-group col-xs-12">
         	<input id="postText" class="form-control" name="postText" type="text" autocomplete="on" placeholder="POST TEXT" style="margin-top: 20px; margin-bottom:20px;">
-        </div>
+        </div> -->
 
         <div class="form-group">
           <input type="submit" id="submit" value="SUBMIT POST" class="form-control btn btn-primary" name="submit">

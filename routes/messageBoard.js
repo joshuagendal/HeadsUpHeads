@@ -1,5 +1,7 @@
 var User = require('../models/user');
 var Post = require('../models/post');
+var Comment = require('../models/comment');
+var middleware = require('../middleware/functions.js');
 
 module.exports = (app) => {
     app.get('/message-board', (req, res) => {
@@ -9,14 +11,18 @@ module.exports = (app) => {
 				} else {
 					res.render('messageBoard/message-board.ejs', {posts: allPosts});
 				}
-					
+
 			});
     });
-	
-		app.get('/message-board/new-post', (req, res) =>{
+
+
+
+    // SHOW NEW POST FORM
+		app.get('/message-board/new-post', middleware.isUserLoggedIn, (req, res) =>{
 			res.render('messageBoard/new-post.ejs')
 		});
-	
+
+    // ADD NEW POST
 		app.post('/message-board/new-post', (req, res) =>{
 //		  var newPost = new Post();
 			var postHeading = req.body.postHeading;
@@ -37,11 +43,36 @@ module.exports = (app) => {
 				}
 			});
 		});
-				
-				
+
+    // DISPLAY INDIVIDUAL POSTS
+    app.get('/message-board/:id', (req, res) =>{
+      Post.findById(req.params.id).populate('comments').exec(function(err, queriedPost){
+        if(err){
+          console.log(err);
+        } else {
+          res.render('messageBoard/view-post.ejs', {queriedPost: queriedPost});
+        }
+      });
+    });
 //				if(err){
 //					console.log(err);
 //					return done(err);
 //				}
-			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			}

@@ -46,6 +46,7 @@ app.use(passport.session());
 require('./routes/user')(app);
 require('./routes/messageBoard')(app);
 require('./routes/comment')(app);
+require('./routes/event')(app);
 
 app.listen(3000, function(){
     console.log('App is listening on port 3000');

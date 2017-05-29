@@ -4,16 +4,17 @@ var Comment = require('../models/comment');
 var middleware = require('../middleware/functions.js');
 
 module.exports = (app) => {
-    app.get('/message-board', (req, res) => {
-			Post.find({}, function(err, allPosts){
-				if(err){
-					console.log(err);
-				} else {
-					res.render('messageBoard/message-board.ejs', {posts: allPosts});
-				}
+	app.get('/message-board', (req, res) => {
+		Post.find({}, function(err, allPosts){
+			if(err){
+				console.log(err);
+				res.redirect('/');
+			} else {
+				res.render('messageBoard/message-board.ejs', {posts: allPosts});
+			}
 
-			});
-    });
+		});
+  });
 
 
 

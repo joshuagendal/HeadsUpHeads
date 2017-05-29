@@ -1,0 +1,10 @@
+<h1>EVENTS PAGE</h1>
+
+<div class="container">
+	<% events.forEach(function(event){ %>
+		<h3><%= event.eventTitle %></h3>
+		<h3><%= event.eventDescription %></h3>
+		<h3><%= event.userThatAddedEvent.username %></h3>
+		<h3><%= event.created %></h3>
+	<% }); %>	
+</div>

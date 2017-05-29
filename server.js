@@ -7,6 +7,7 @@ var engine = require('ejs-mate');
 var session = require('express-session');
 var MongoStore = require('connect-mongo')(session);
 var passport = require('passport');
+var methodOverride = require('method-override');
 var flash = require('connect-flash');
 var mongoose = require('mongoose');
 
@@ -21,6 +22,7 @@ require('./config/passport.js');
 app.use(express.static('public'));
 app.engine('ejs', engine);
 app.set('view engine', 'ejs');
+app.use(methodOverride('_method'));
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());

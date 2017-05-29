@@ -4,6 +4,7 @@ var Comment = require('../models/comment');
 var middleware = require('../middleware/functions.js');
 
 module.exports = (app) => {
+	// GET MESSAGE BOARD W/ ALL POSTS
 	app.get('/message-board', (req, res) => {
 		Post.find({}, function(err, allPosts){
 			if(err){
@@ -15,8 +16,6 @@ module.exports = (app) => {
 
 		});
   });
-
-
 
     // SHOW NEW POST FORM
 		app.get('/message-board/new-post', middleware.isUserLoggedIn, (req, res) =>{
@@ -45,6 +44,10 @@ module.exports = (app) => {
 			});
 		});
 
+		app.get('/message-board/:id/edit', function(req, res){
+			res.send('EDIT CAMPGROUND ROUTE');
+		});		
+
     // DISPLAY INDIVIDUAL POSTS
     app.get('/message-board/:id', (req, res) =>{
       Post.findById(req.params.id).populate('comments').exec(function(err, queriedPost){
@@ -60,6 +63,7 @@ module.exports = (app) => {
 //					return done(err);
 //				}
 
+		// EDIT POST
 
 
 
@@ -72,8 +76,4 @@ module.exports = (app) => {
 
 
 
-
-
-
-
-			}
+}

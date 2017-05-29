@@ -1,11 +1,12 @@
 var User = require('../models/user');
 var Post = require('../models/post');
 var Comment = require('../models/comment');
+var middleware = require('../middleware/functions.js');
 
 module.exports = (app) => {
 
 	// GO TO PAGE WITH COMMENT FORM
-	app.get('/message-board/:id/new-comment', (req, res) => {
+	app.get('/message-board/:id/new-comment', middleware.isUserLoggedIn, (req, res) => {
 		console.log('Param: ' + req.params.id);
 		Post.findById(req.params.id, function(err, post){
 			if(err){

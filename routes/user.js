@@ -5,7 +5,7 @@ module.exports = (app) => {
   app.get('/signup', (req, res) => {
         var errors = req.flash('error');
         console.log(errors);
-    	res.render('user/signup', {messages: errors, hasErrors: errors.length > 0});
+    	res.render('/signup', {messages: errors, hasErrors: errors.length > 0});
     });
 
 	app.post('/signup', signUpValidation, passport.authenticate('local.signup', {
@@ -17,7 +17,7 @@ module.exports = (app) => {
   app.get('/login', (req, res) => {
       var errors = req.flash('error');
       console.log(errors);
-      res.render('user/login', {messages: errors, hasErrors: errors.length > 0});
+      res.render('/login', {messages: errors, hasErrors: errors.length > 0});
   });
 
   app.post('/login', loginValidation, passport.authenticate('local.login', {
@@ -28,9 +28,9 @@ module.exports = (app) => {
 
 
 
-	app.get('/', (req, res) => {
-		res.render('user/index');
-	});
+	// app.get('/', (req, res) => {
+	// 	res.render('user/index');
+	// });
 }
 
 // =============== USER SIGN UP VALIDATION ============================

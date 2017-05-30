@@ -2,8 +2,8 @@ var express = require('express');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var validator = require('express-validator');
-var ejs = require('ejs');
-var engine = require('ejs-mate');
+// var ejs = require('ejs');
+// var engine = require('ejs-mate');
 var session = require('express-session');
 var MongoStore = require('connect-mongo')(session);
 var passport = require('passport');
@@ -20,7 +20,7 @@ require('./config/passport.js');
 
 
 app.use(express.static('public'));
-app.engine('ejs', engine);
+// app.engine('ejs', engine);
 app.set('view engine', 'ejs');
 app.use(methodOverride('_method'));
 app.use(cookieParser());
@@ -41,10 +41,9 @@ app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
 
-//app.get('/test', function(req, res, next){
-//  res.render('test.ejs', {title: TEST});
-//});
 
+
+require('./routes/index')(app);
 require('./routes/user')(app);
 require('./routes/messageBoard')(app);
 require('./routes/comment')(app);

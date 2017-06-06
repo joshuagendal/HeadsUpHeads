@@ -5,7 +5,7 @@ module.exports = (app) => {
   app.get('/signup', (req, res) => {
         var errors = req.flash('error');
         console.log(errors);
-    	res.render('/signup', {messages: errors, hasErrors: errors.length > 0});
+    	res.render('user/signup.ejs', {messages: errors, hasErrors: errors.length > 0});
     });
 
 	app.post('/signup', signUpValidation, passport.authenticate('local.signup', {
@@ -17,7 +17,7 @@ module.exports = (app) => {
   app.get('/login', (req, res) => {
       var errors = req.flash('error');
       console.log(errors);
-      res.render('/login', {messages: errors, hasErrors: errors.length > 0});
+      res.render('user/login.ejs', {messages: errors, hasErrors: errors.length > 0});
   });
 
   app.post('/login', loginValidation, passport.authenticate('local.login', {

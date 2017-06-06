@@ -19,3 +19,7 @@ var postSchema = mongoose.Schema({
 });
 
 module.exports = mongoose.model('Post', postSchema);
+
+// USE EXPRESS VALIDATION 
+
+// CONVERT EVERYTHING TO CONTROLLERS

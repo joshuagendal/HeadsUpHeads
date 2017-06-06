@@ -23,6 +23,7 @@ module.exports = (app) => {
 		});
 
     // ADD NEW POST
+		// app.get('path', controller)
 		app.post('/message-board/new-post', (req, res) =>{
 //		  var newPost = new Post();
 			var postHeading = req.body.postHeading;

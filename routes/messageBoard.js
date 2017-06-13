@@ -45,26 +45,65 @@ module.exports = (app) => {
 			});
 		});
 
-		app.get('/message-board/:id/edit', function(req, res){
-			res.send('EDIT CAMPGROUND ROUTE');
-		});		
+
+
+
+
+		// app.get('/message-board/:id/edit', function(req, res){
+		// 	Post.findById(req.params.id, function(err, queriedPostToEdit){
+		// 		if(err){
+		// 			res.redirect('/')
+		// 		} else {
+		// 			res.render('messageBoard/edit-post.ejs', {queriedPostToEdit: queriedPostToEdit});
+		// 		}
+		// 	});
+		// });		
+
+		// app.put('/message_board/:id', function(req, res){
+
+		// })
 
     // DISPLAY INDIVIDUAL POSTS
     app.get('/message-board/:id', (req, res) =>{
       Post.findById(req.params.id).populate('comments').exec(function(err, queriedPost){
         if(err){
           console.log(err);
+          res.redirect("/");
         } else {
           res.render('messageBoard/view-post.ejs', {queriedPost: queriedPost});
         }
       });
     });
-//				if(err){
-//					console.log(err);
-//					return done(err);
-//				}
 
-		// EDIT POST
+
+    		// EDIT POST
+	app.get("/message-board/:id/edit", function(req, res){
+        Post.findById(req.params.id, function(err, queriedPostToEdit){
+            if(err){
+                res.redirect("/");
+            } else {
+                res.render("messageBoard/edit-post.ejs", {queriedPostToEdit: queriedPostToEdit});
+            }
+        });
+	});
+
+    // UPDATE POST
+            // below if where req.params.id come from
+    app.put("/message-board/:id", function(req, res){
+        var data = {
+            postHeading: req.body.postHeading,
+            postText: req.body.postText
+        }
+        Post.findByIdAndUpdate(req.params.id, data, function(err, updatedPost){
+            if(err){
+                res.redirect("/")
+            } else {
+                res.redirect("/message-board/" + req.params.id);
+            }
+        });
+
+    });
+
 
 
 

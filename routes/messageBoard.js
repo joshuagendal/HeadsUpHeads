@@ -24,7 +24,7 @@ module.exports = (app) => {
 
     // ADD NEW POST
 		// app.get('path', controller)
-		app.post('/message-board/new-post', (req, res) =>{
+		app.post('/message-board/new-post', middleware.isUserLoggedIn, (req, res) =>{
 //		  var newPost = new Post();
 			var postHeading = req.body.postHeading;
 			var postText = req.body.postText;
@@ -77,19 +77,15 @@ module.exports = (app) => {
 
 
     		// EDIT POST
-	app.get("/message-board/:id/edit", function(req, res){
+	app.get("/message-board/:id/edit", middleware.checkPostOwnership, function(req, res){
         Post.findById(req.params.id, function(err, queriedPostToEdit){
-            if(err){
-                res.redirect("/");
-            } else {
-                res.render("messageBoard/edit-post.ejs", {queriedPostToEdit: queriedPostToEdit});
-            }
+            res.render("messageBoard/edit-post.ejs", {queriedPostToEdit: queriedPostToEdit});
         });
 	});
 
     // UPDATE POST
             // below if where req.params.id come from
-    app.put("/message-board/:id", function(req, res){
+    app.put("/message-board/:id", middleware.checkPostOwnership, function(req, res){
         var data = {
             postHeading: req.body.postHeading,
             postText: req.body.postText
@@ -102,6 +98,17 @@ module.exports = (app) => {
             }
         });
 
+    });
+
+    // DESTROY POST ROUTE
+    app.delete("/message-board/:id", middleware.checkPostOwnership, function(req, res){
+        Post.findByIdAndRemove(req.params.id, function(err){
+            if(err){
+                res.redirect('/');
+            } else {
+                res.redirect('/message-board');
+            }
+        });
     });
 
 

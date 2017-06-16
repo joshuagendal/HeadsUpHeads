@@ -19,7 +19,7 @@ module.exports = (app) => {
 
 	// POST COMMENT (LOGGED IN USERS ONLY)			********* FIGURE OUT HOW TO PROPERLY CONFIGURE ROUTES TO INDUSTRY STANDARDS
 	app.post('/message-board/:id/new-comment', (req, res) => {
-		Post.findById(req.params.id, middleware.isUserLoggedIn, function(err, postToCommentOn){
+		Post.findById(req.params.id, function(err, postToCommentOn){
 			if(err){
 				console.log(err);
 				res.redirect('/');

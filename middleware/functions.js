@@ -1,3 +1,5 @@
+var Post = require('../models/post');
+
 module.exports = {
   // FUNCTION TO CHECK IF USER IS LOGGED IN
   isUserLoggedIn: function(req, res, next){
@@ -6,6 +8,27 @@ module.exports = {
     } else {
       res.redirect('/login');
     }
+  },
+
+  // FUNCTION TO CHECK IF A) USER IS LOGGED IN AND B) POST TO BE EDITED/DELETED IS 'OWNED' BY USER WHO IS TRYING TO DO SAID FUNCTIONS
+  checkPostOwnership: function(req, res, next){
+      if(req.isAuthenticated){
+          Post.findById(req.params.id, function(err, queriedPostToEdit){
+              if(err){
+                  res.redirect("back");
+              } else {
+                  if(queriedPostToEdit.userPosting.id.equals(req.user._id)) {
+                      next();
+                  } else {
+                    res.redirect("back");
+                  }
+              }});        
+      } else {
+          res.redirect("back");
+      }
+
+
+
   }
 
 }

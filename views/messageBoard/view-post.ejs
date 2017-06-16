@@ -10,6 +10,10 @@
 
 <h3><a href="/message-board/<%= queriedPost._id %>/edit">Edit This Post</a></h3>
 
+<form action="/message-board/<%= queriedPost._id %>?_method=DELETE" method="POST">
+    <button class="btn btn-danger">Delete</button>
+</form>
+
 
 <h3> <a href="/message-board/<%= queriedPost._id %>/new-comment">Comment on this post</a> </h3>
 

@@ -46,7 +46,7 @@ module.exports = (app) => {
 	});
 
 	// EDIT COMMENT (USER WHO POSTED COMMENT ONLY)
-	app.get('/message-board/:id/comments/:comment_id/edit', (req, res) => {
+	app.get('/message-board/:id/comments/:comment_id/edit', middleware.checkCommentOwnership, (req, res) => {
 		Comment.findById(req.params.comment_id, function(err, comment){
 			if(err){
 				res.redirect("back");
@@ -57,7 +57,7 @@ module.exports = (app) => {
 	});
 
 	// UPDATE COMMENT ROUTE
-	app.put("/message-board/:id/comments/:comment_id", (req, res) => {
+	app.put("/message-board/:id/comments/:comment_id", middleware.checkCommentOwnership, (req, res) => {
 		var data = {commentText: req.body.commentText}
 
 		Comment.findByIdAndUpdate(req.params.comment_id, data, function(err, updatedComment){
@@ -69,8 +69,8 @@ module.exports = (app) => {
 		});
 	});
 
-	// DEESTROY COMMENT ROUTE
-	app.delete("/message-board/:id/comments/:comment_id", (req, res) => {
+	// DESTROY COMMENT ROUTE
+	app.delete("/message-board/:id/comments/:comment_id", middleware.checkCommentOwnership, (req, res) => {
 		Comment.findByIdAndRemove(req.params.comment_id, function(err){
 			if(err){
 				console.log(err);

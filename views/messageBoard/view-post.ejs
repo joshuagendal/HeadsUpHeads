@@ -18,13 +18,17 @@
 <% } %>
 
 
-<h3> <a href="/message-board/<%= queriedPost._id %>/new-comment">Comment on this post</a> </h3>
+<h3> <a href="/message-board/<%= queriedPost._id %>/new-comment">Comment on this post</a></h3>
 
 <h3>COMMENTS</h3>
 
 <% queriedPost.comments.forEach(function(comment){ %>
   <h3><%= comment.userCommenting.username %></h3>
   <h3><%= comment.commentText %></h3>
+  <h3><a href="/message-board/<%= queriedPost._id %>/comments/<%= comment._id %>/edit">Edit</a></h3>
+  <form action="/message-board/<%= queriedPost._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
+      <input type="submit" class="btn btn-danger" value="DELETE">
+  </form>  
   <h3>_______________________________________</h3>
 
 <% }) %>

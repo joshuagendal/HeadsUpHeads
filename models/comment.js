@@ -12,4 +12,4 @@ var commentSchema = mongoose.Schema({
 	created: {type: Date, required: true, default: Date.now}
 });
 
-module.exports = mongoose.model('Comment', commentSchema);
+module.exports = mongoose.model("Comment", commentSchema);

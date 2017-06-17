@@ -22,13 +22,13 @@ module.exports = {
                   } else {
                     res.redirect("back");
                   }
-              }});        
+              }
+            });        
       } else {
           res.redirect("back");
       }
-
-
-
   }
+
+//   checkCommentOwnership: function(req, res,)
 
 }

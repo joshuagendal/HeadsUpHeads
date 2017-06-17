@@ -1,1 +1,46 @@
 <h1>Edit Comment Page</h1>
+
+<% include ../partials/header %>
+
+<div class="container">
+
+    <h1>Edit <%= comment.commentText %> by <%= comment.userCommenting.username %></h1>
+
+      <form method="POST" class="" id="editCommentForm" action="/message-board/<%= post_id %>/comments/<%= comment._id %>?_method=PUT">
+      	<div class="form-group col-xs-12">
+        	<input id="commentText" class="form-control" name="commentText" type="text" autocomplete="on" value="<%= comment.commentText %>" style="margin-top: 20px; margin-bottom:20px;">
+       	</div>
+
+
+
+        <div class="form-group">
+          <input type="submit" id="submit" value="SUBMIT EDIT" class="form-control btn btn-primary" name="submit">
+        </div>
+	  </form>
+
+
+
+
+</div>    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<% include ../partials/footer %>

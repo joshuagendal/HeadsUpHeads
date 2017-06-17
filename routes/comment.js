@@ -46,9 +46,41 @@ module.exports = (app) => {
 	});
 
 	// EDIT COMMENT (USER WHO POSTED COMMENT ONLY)
-	// app.get('/')
+	app.get('/message-board/:id/comments/:comment_id/edit', (req, res) => {
+		Comment.findById(req.params.comment_id, function(err, comment){
+			if(err){
+				res.redirect("back");
+			} else {
+				res.render("comments/edit-comment.ejs", {post_id: req.params.id, comment: comment});
+			}
+		});
+	});
 
-	// UPDATE CAMPGROUND ROUTE
+	// UPDATE COMMENT ROUTE
+	app.put("/message-board/:id/comments/:comment_id", (req, res) => {
+		var data = {commentText: req.body.commentText}
+
+		Comment.findByIdAndUpdate(req.params.comment_id, data, function(err, updatedComment){
+			if(err){
+				res.redirect("/");
+			} else {
+				res.redirect("/message-board/" + req.params.id);
+			}
+		});
+	});
+
+	// DEESTROY COMMENT ROUTE
+	app.delete("/message-board/:id/comments/:comment_id", (req, res) => {
+		Comment.findByIdAndRemove(req.params.comment_id, function(err){
+			if(err){
+				console.log(err);
+				res.redirect('back');
+			} else {
+				res.redirect('/message-board/' + req.params.id);
+			}
+		});
+	});
+	
 
 
 }

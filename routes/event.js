@@ -1,4 +1,5 @@
 var Event = require('../models/event');
+var middleware = require('../middleware/functions.js');
 
 module.exports = (app) => {
 	app.get('/events', (req, res) => {
@@ -11,13 +12,12 @@ module.exports = (app) => {
 			}
 		});
 	});	
-	;
-
-	app.get('/events/new-event', (req, res) => {
+	
+	app.get('/events/new-event', middleware.isUserLoggedIn, (req, res) => {
 		res.render('events/new-event.ejs')
 	});
 
-	app.post('/events/new-event', (req, res) => {
+	app.post('/events/new-event', middleware.isUserLoggedIn, (req, res) => {
 		var eventTitle = req.body.eventTitle;
 		var eventDescription = req.body.eventDescription;
 		var userThatAddedEvent = {
@@ -34,8 +34,6 @@ module.exports = (app) => {
 				res.redirect('/events');
 			}
 		});
-
-
 	});
 }
 

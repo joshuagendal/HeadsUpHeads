@@ -10,8 +10,10 @@ var passport = require('passport');
 var methodOverride = require('method-override');
 var flash = require('connect-flash');
 var mongoose = require('mongoose');
+var path = require('path');
 
 var app = express();
+
 
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost/networking'); //rateme is name of db
@@ -19,7 +21,7 @@ mongoose.connect('mongodb://localhost/networking'); //rateme is name of db
 require('./config/passport.js');
 
 
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, 'public')));
 // app.engine('ejs', engine);
 app.set('view engine', 'ejs');
 app.use(methodOverride('_method'));
@@ -46,11 +48,7 @@ app.use(function(req, res, next){
     next();
 });
 
-require('./routes/index')(app);
-require('./routes/user')(app);
-require('./routes/messageBoard')(app);
-require('./routes/comment')(app);
-require('./routes/event')(app);
+require('./routes')(app);
 
 app.listen(3000, function(){
     console.log('App is listening on port 3000');

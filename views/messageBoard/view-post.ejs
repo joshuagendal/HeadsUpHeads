@@ -1,37 +1,46 @@
-<% include ../partials/header %>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <% include ../partials/header %>
+  </head>
+  <body>
+        <% include ../partials/nav %>
+        <div class="container">    
+            <h1>POSTS ARE FUN YAY!!!!! :)</h1>
 
-<h1>POSTS ARE FUN YAY!!!!! :)</h1>
-
-<h3><%= queriedPost.postHeading %></h3>
-<h3><%= queriedPost.postText %></h3>
-<h3><%= queriedPost.userPosting.username %></h3>
-<h3><%= queriedPost.created %></h3>
-
-
-<% if(currentUser && queriedPost.userPosting.id.equals(currentUser._id)){ %>
-<h3><a href="/message-board/<%= queriedPost._id %>/edit">Edit This Post</a></h3>
-
-<form action="/message-board/<%= queriedPost._id %>?_method=DELETE" method="POST">
-    <button class="btn btn-danger">Delete</button>
-</form>
-
-<% } %>
+            <h3><%= queriedPost.postHeading %></h3>
+            <h3><%= queriedPost.postText %></h3>
+            <h3><%= queriedPost.userPosting.username %></h3>
+            <h3><%= queriedPost.created %></h3>
 
 
-<h3> <a href="/message-board/<%= queriedPost._id %>/new-comment">Comment on this post</a></h3>
+            <% if(currentUser && queriedPost.userPosting.id.equals(currentUser._id)){ %>
+            <h3><a href="/message-board/<%= queriedPost._id %>/edit">Edit This Post</a></h3>
 
-<h3>COMMENTS</h3>
+            <form action="/message-board/<%= queriedPost._id %>?_method=DELETE" method="POST">
+                <button class="btn btn-danger">Delete</button>
+            </form>
 
-<% queriedPost.comments.forEach(function(comment){ %>
-  <h3><%= comment.userCommenting.username %></h3>
-  <h3><%= comment.commentText %></h3>
-  <h3><a href="/message-board/<%= queriedPost._id %>/comments/<%= comment._id %>/edit">Edit</a></h3>
-  <form action="/message-board/<%= queriedPost._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
-      <input type="submit" class="btn btn-danger" value="DELETE">
-  </form>  
-  <h3>_______________________________________</h3>
-
-<% }) %>
+            <% } %>
 
 
-<% include ../partials/footer %>
+            <h3> <a href="/message-board/<%= queriedPost._id %>/new-comment">Comment on this post</a></h3>
+
+            <h3>COMMENTS</h3>
+
+            <% queriedPost.comments.forEach(function(comment){ %>
+            <h3><%= comment.userCommenting.username %></h3>
+            <h3><%= comment.commentText %></h3>
+            <h3><a href="/message-board/<%= queriedPost._id %>/comments/<%= comment._id %>/edit">Edit</a></h3>
+            <form action="/message-board/<%= queriedPost._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
+                <input type="submit" class="btn btn-danger" value="DELETE">
+            </form>  
+            <h3>_______________________________________</h3>
+
+            <% }) %>
+
+        </div>
+
+        <% include ../partials/footer %>
+    </body>
+</html>

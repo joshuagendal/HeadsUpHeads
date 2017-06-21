@@ -1,83 +1,31 @@
-<!--<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>MSG BRD</title>
-
-    <link href="css/bootstrap.css" rel="stylesheet">
-
-    <link href="css/starter-template.css" rel="stylesheet">
-
-
-</head>
-<body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
+  <head>
+    <% include ../partials/header %>
+  </head>
+  <body>
+      <% include ../partials/nav %>    
       <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">Project name</a>
-        </div>
-        <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
+
+        <div class="starter-template">
+          <h1> Message Board </h1>
+          <a href="/message-board/new-post"><h1>Click here to post</h1></a>
+  <!--        <a href="/message-board/post/"-->
         </div>
       </div>
-    </nav>-->
-<% include ../partials/header %>    
 
+      <div class="container">
+        <% posts.forEach(function(post){ %>
+          <h3><%= post.postHeading %></h3>
+          <h3><%= post.postText %></h3>
+          <h3><%= post.userPosting.username %></h3>
+          <h3><%= post.created %></h3>
+          <h3><%= post._id %></h3>
+          <h3><a href="/message-board/<%=post._id%>" class="btn btn-primary">More Info</a></h3>
 
-
-    <div class="container">
-
-      <div class="starter-template">
-      	<h1> Message Board </h1>
-				<a href="/message-board/new-post"><h1>Click here to post</h1></a>
-<!--        <a href="/message-board/post/"-->
+        <% }); %>
+        </form>
       </div>
-    </div>
-
-    <div class="container">
-    	<% posts.forEach(function(post){ %>
-    		<h3><%= post.postHeading %></h3>
-    		<h3><%= post.postText %></h3>
-    		<h3><%= post.userPosting.username %></h3>
-    		<h3><%= post.created %></h3>
-        <h3><%= post._id %></h3>
-        <h3><a href="/message-board/<%=post._id%>" class="btn btn-primary">More Info</a></h3>
-
-    	<% }); %>
-
-
-
-<!--
-    <div class="container">
-      <form method="POST" class="" id="signupForm" action="/signup">
-            <div class="form-group col-xs-12">
-                <input id="postHeading" class="form-control" name="postHeading" type="text" autocomplete="on" placeholder="POST HEADING" style="margin-top: 20px; margin-bottom:20px;">
-            </div>
-
-            <div class="form-group col-xs-12">
-                <input id="postText" class="form-control" name="postText" type="text" autocomplete="on" placeholder="POST TEXT" style="margin-top: 20px; margin-bottom:20px;">
-            </div>
-
-            <div class="form-group">
-                <input type="submit" id="submit" value="SUBMIT POST" class="form-control btn btn-primary" name="submit">
-            </div>
--->
-
-
-      </form>
-    </div>
-
-
-<% include ../partials/footer %>
+      <% include ../partials/footer %>
+  </body>
+</html>

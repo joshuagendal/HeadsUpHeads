@@ -1,5 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/header %>
+</head>    
 
-<% include ../partials/header %>
+<body>
+
+<% include ../partials/nav %>
+
+    <div class="row">
+      <% if(hasErrors) {%>
+        <% for(var i=0; i < messages.length; i++) {%>
+          <div class="alert alert-danger"> 
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">
+              &time;
+            </a>
+            <%= messages[i] %>  <!-- when adding the equal sign to these tags, able to call                     a variable that is passed from backend -->
+          </div>
+        <% } %> 
+      <% } %>   
 
     <div class="container">
       <h1>LOGIN</h1>
@@ -18,8 +37,11 @@
             <div class="form-group">
                 <input type="submit" id="login" value="LOGIN" class="form-control btn btn-primary" name="login" style="">
             </div>
-
+        </form>
+    </div>        
 
 
 
 <% include ../partials/footer %>
+</body>
+</html>

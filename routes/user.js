@@ -10,14 +10,14 @@ module.exports = (app) => {
 
 	app.post('/signup', actions.signUpValidation, passport.authenticate('local.signup', {
 		successRedirect: '/',
-		failureRedirect: '/login',
+		failureRedirect: '/signup',
 		failureFlash: true
 	}));
 
     app.get('/login', (req, res) => {
-        var errors = req.flash('error');
-        console.log(errors);
-        res.render('user/login.ejs', {messages: errors, hasErrors: errors.length > 0});
+        var loginErrors = req.flash('error');
+        console.log(loginErrors);
+        res.render('user/login.ejs', {messages: loginErrors, hasErrors: loginErrors.length > 0});
     });
 
     app.post('/login', actions.loginValidation, passport.authenticate('local.login', {

@@ -1,9 +1,9 @@
-var User = require('../models/user');
-var Post = require('../models/post');
-var Comment = require('../models/comment');
+const User = require('../models/user');
+const Post = require('../models/post');
+const Comment = require('../models/comment');
 
-var actions = require('../controllers/messageBoardController');
-var middleware = require('../middleware/functions.js');
+const actions = require('../controllers/messageBoardController');
+const middleware = require('../middleware/functions.js');
 
 module.exports = (app) => {
 
@@ -12,11 +12,11 @@ module.exports = (app) => {
 
     // SHOW NEW POST FORM
 	app.get('/message-board/new-post', middleware.isUserLoggedIn, (req, res) => {
-		res.render('messageBoard/new-post.ejs');
+		res.render('messageBoard/new-post.ejs', {messages: errors, hasErrors: errors.length > 0});
 	});
 
     // ADD NEW POST
-	app.post('/message-board/new-post', middleware.isUserLoggedIn, actions.postMessageBoard);
+	app.post('/message-board/new-post', middleware.isUserLoggedIn, actions.messageBoardPostValidation, actions.postMessageBoard);
 
     // DISPLAY INDIVIDUAL POSTS
     app.get('/message-board/:id', actions.getIndividualPostById);

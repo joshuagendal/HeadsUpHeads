@@ -51,11 +51,9 @@ passport.use('local.signup', new LocalStrategy({
 //        newUser.encryptPassword(password); 
 
         newUser.save((err, newUser) => {
-          console.log('Error saving' + err);
-					return done(null, newUser);
+            console.log('Error saving' + err);
+		    return done(null, newUser);
         });
-        console.log(user, 'Signup strategy');
-//        return done(null, newUser);
     });
 }));
 

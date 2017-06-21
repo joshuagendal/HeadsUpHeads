@@ -1,86 +1,22 @@
-var User = require('../models/user');
-var Post = require('../models/post');
-var Comment = require('../models/comment');
-var middleware = require('../middleware/functions.js');
+const User = require('../models/user');
+const Post = require('../models/post');
+const Comment = require('../models/comment');
+const middleware = require('../middleware/functions.js');
+const actions = require('../controllers/commentController.js');
 
 module.exports = (app) => {
-
 	// GO TO PAGE WITH COMMENT FORM
-	app.get('/message-board/:id/new-comment', middleware.isUserLoggedIn, (req, res) => {
-		console.log('Param: ' + req.params.id);
-		Post.findById(req.params.id, function(err, post){
-			if(err){
-				console.log(err);
-			} else {
-				res.render('comments/new.ejs', {post: post});
-			}
-		});
-	});
+	app.get('/message-board/:id/new-comment', middleware.isUserLoggedIn, actions.getCommentForm); 
 
-	// POST COMMENT (LOGGED IN USERS ONLY)			********* FIGURE OUT HOW TO PROPERLY CONFIGURE ROUTES TO INDUSTRY STANDARDS
-	app.post('/message-board/:id/new-comment', (req, res) => {
-		Post.findById(req.params.id, function(err, postToCommentOn){
-			if(err){
-				console.log(err);
-				res.redirect('/');
-			} else {
-				var commentText = req.body.commentText;
-				var userCommenting = {
-					id: req.user._id,
-					username: req.user.username
-				}
-				var created = new Date();
-				var newComment = {commentText: commentText, userCommenting: userCommenting, created: created}
-				Comment.create(newComment, function(err, newlyAddedComment){
-					if(err){
-						console.log(err);
-						res.redirect('/');
-					} else {
-						postToCommentOn.comments.push(newlyAddedComment);
-						postToCommentOn.save();
-						res.redirect('/message-board/' + postToCommentOn._id);
-					}
-				});
-			}
-		});
-	});
+	// POST COMMENT (LOGGED IN USERS ONLY)			
+	app.post('/message-board/:id/new-comment', middleware.isUserLoggedIn, actions.postComment); 
 
-	// EDIT COMMENT (USER WHO POSTED COMMENT ONLY)
-	app.get('/message-board/:id/comments/:comment_id/edit', middleware.checkCommentOwnership, (req, res) => {
-		Comment.findById(req.params.comment_id, function(err, comment){
-			if(err){
-				res.redirect("back");
-			} else {
-				res.render("comments/edit-comment.ejs", {post_id: req.params.id, comment: comment});
-			}
-		});
-	});
+	// GET EDIT COMMENT FORM (USER WHO POSTED COMMENT ONLY)
+	app.get('/message-board/:id/comments/:comment_id/edit', middleware.checkCommentOwnership, actions.getEditCommentForm);
 
 	// UPDATE COMMENT ROUTE
-	app.put("/message-board/:id/comments/:comment_id", middleware.checkCommentOwnership, (req, res) => {
-		var data = {commentText: req.body.commentText}
-
-		Comment.findByIdAndUpdate(req.params.comment_id, data, function(err, updatedComment){
-			if(err){
-				res.redirect("/");
-			} else {
-				res.redirect("/message-board/" + req.params.id);
-			}
-		});
-	});
+	app.put("/message-board/:id/comments/:comment_id", middleware.checkCommentOwnership, actions.putUpdateComment);
 
 	// DESTROY COMMENT ROUTE
-	app.delete("/message-board/:id/comments/:comment_id", middleware.checkCommentOwnership, (req, res) => {
-		Comment.findByIdAndRemove(req.params.comment_id, function(err){
-			if(err){
-				console.log(err);
-				res.redirect('back');
-			} else {
-				res.redirect('/message-board/' + req.params.id);
-			}
-		});
-	});
-	
-
-
+	app.delete("/message-board/:id/comments/:comment_id", middleware.checkCommentOwnership, actions.deleteComment);
 }

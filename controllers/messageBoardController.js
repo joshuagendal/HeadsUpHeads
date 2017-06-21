@@ -2,7 +2,7 @@ const User = require('../models/user');
 const Post = require('../models/post');
 const Comment = require('../models/comment');
 
-let getMessageBoard = (req, res, next) => {
+let getMessageBoard = (req, res) => {
    Post.find({}, function(err, allPosts) {
         if(err){
             console.log(err);
@@ -29,7 +29,7 @@ let postMessageBoard = (req, res) => {
             console.log(err);
         } else {
             console.log(newlyPosted);
-            res.redirect('/')
+            res.redirect('/', {messages: errors})
         }
     });
 }
@@ -75,6 +75,25 @@ let deletePost = (req, res) => {
     });
 }
 
+let messageBoardPostValidation = (req, res, next) => {
+    req.checkBody('postHeading', 'The post heading cannot be empty! Must have heading').notEmpty();
+    req.checkBody('postText', 'The post text cannot be empty! Must have text!').notEmpty();
+
+    var errors = req.validationErrors();
+
+    if(errors) {
+        var messages = [];
+        errors.forEach((error) => {
+            messages.push(error.msg);    
+        });
+
+        req.flash('error', messages);
+        res.redirect('/message-board/new-post');
+    } else {
+        return next();
+    }
+}
+
 
 
 
@@ -84,5 +103,6 @@ module.exports = {
     getIndividualPostById,
     getEditPostForm,
     putUpdateEditedPost,
-    deletePost
+    deletePost,
+    messageBoardPostValidation
 };

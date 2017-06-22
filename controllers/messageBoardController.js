@@ -79,11 +79,11 @@ let messageBoardPostValidation = (req, res, next) => {
     req.checkBody('postHeading', 'The post heading cannot be empty! Must have heading').notEmpty();
     req.checkBody('postText', 'The post text cannot be empty! Must have text!').notEmpty();
 
-    var errors = req.validationErrors();
+    var boardPostErrors = req.validationErrors();
 
-    if(errors) {
+    if(boardPostErrors) {
         var messages = [];
-        errors.forEach((error) => {
+        boardPostErrors.forEach((error) => {
             messages.push(error.msg);    
         });
 

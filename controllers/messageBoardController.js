@@ -29,7 +29,7 @@ let postMessageBoard = (req, res) => {
             console.log(err);
         } else {
             console.log(newlyPosted);
-            res.redirect('/', {messages: errors})
+            res.redirect('/message-board');
         }
     });
 }
@@ -70,29 +70,41 @@ let deletePost = (req, res) => {
         if(err){
             res.redirect('/');
         } else {
-            res.redirect('/message-board');
+            res.redirect('/message-board/new-post');
         }
     });
 }
 
 let messageBoardPostValidation = (req, res, next) => {
-    req.checkBody('postHeading', 'The post heading cannot be empty! Must have heading').notEmpty();
-    req.checkBody('postText', 'The post text cannot be empty! Must have text!').notEmpty();
-
-    var boardPostErrors = req.validationErrors();
-
-    if(boardPostErrors) {
-        var messages = [];
-        boardPostErrors.forEach((error) => {
-            messages.push(error.msg);    
-        });
-
-        req.flash('error', messages);
+    if(!req.body.postHeading.ValidatorError || !req.body.postText.ValidatorError) {
+        req.flash('messageBoardPostError', 'Your post must have a heading and a body!');
         res.redirect('/message-board/new-post');
     } else {
-        return next();
+        next();
     }
 }
+
+
+
+
+
+//     req.checkBody('postHeading', 'The post heading cannot be empty! Must have heading').notEmpty();
+//     req.checkBody('postText', 'The post text cannot be empty! Must have text!').notEmpty();
+
+//     var boardPostErrors = req.validationErrors();
+
+//     if(boardPostErrors) {
+//         var messages = [];
+//         boardPostErrors.forEach((error) => {
+//             messages.push(error.msg);    
+//         });
+
+//         req.flash('error', messages);
+//         res.redirect('/message-board/new-post');
+//     } else {
+//         return next();
+//     }
+// }
 
 
 

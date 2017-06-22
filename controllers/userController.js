@@ -16,7 +16,7 @@ function signUpValidation(req, res, next) {
 		});
 
 		req.flash('error', messages);
-		res.redirect('/signup');
+		res.redirect('/signup'); // errors displayed on signup page
 	} else {
 		return next();
 	}	

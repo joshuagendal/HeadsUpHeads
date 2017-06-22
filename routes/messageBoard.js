@@ -12,11 +12,14 @@ module.exports = (app) => {
 
     // SHOW NEW POST FORM
 	app.get('/message-board/new-post', middleware.isUserLoggedIn, (req, res) => {
-		res.render('messageBoard/new-post.ejs', {messages: errors, hasErrors: errors.length > 0}); 
+		res.render('messageBoard/new-post.ejs', {messageBoardPostError: req.flash('messageBoardPostError')}); 
 	});
 
+
+	// {messages: errors, hasErrors: errors.length > 0} removed from above route
+
     // ADD NEW POST
-	app.post('/message-board/new-post', middleware.isUserLoggedIn, actions.postMessageBoard);
+	app.post('/message-board/new-post', middleware.isUserLoggedIn, actions.messageBoardPostValidation, actions.postMessageBoard);
 
     // DISPLAY INDIVIDUAL POSTS
     app.get('/message-board/:id', actions.getIndividualPostById);

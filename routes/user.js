@@ -17,7 +17,8 @@ module.exports = (app) => {
     app.get('/login', (req, res) => {
         var loginErrors = req.flash('error');
         console.log(loginErrors);
-        res.render('user/login.ejs', {messages: loginErrors, hasErrors: loginErrors.length > 0});
+        res.render('user/login.ejs', {loginErrorMessages: loginErrors, loginReqHasErrors: loginErrors.length > 0,
+        });
     });
 
     app.post('/login', actions.loginValidation, passport.authenticate('local.login', {

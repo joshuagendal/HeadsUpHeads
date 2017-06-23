@@ -1,6 +1,8 @@
 var passport = require('passport');
 var User = require('../models/user');
 var LocalStrategy = require('passport-local').Strategy;
+const emailController = require('../controllers/emailController');
+const shortid = require('shortid');
 
 passport.serializeUser((user, done) => {
     done(null, user.id);
@@ -25,12 +27,14 @@ passport.use('local.signup', new LocalStrategy({
         if(user){
             return done(null, false, req.flash('error', 'User with email already exists'));
         }
+         
+        const userShortId  = shortid.generate();
 
         const {username, firstName, lastName, email, password, company, professionalTitle, jobDescription, role, business, 
-          cell, firstPhishShow, lastPhishShow, firstDeadShowWithJerry, lastDeadShowWithJerry, topThreeFavLiveExp } = req.body;
+          cell, firstPhishShow, lastPhishShow, firstDeadShowWithJerry, lastDeadShowWithJerry, topThreeFavLiveExp} = req.body;
         const newUser = new User({                        // js destructuring assignment: have object, instead of doing object.field, extracting info from body
           username,
-					firstName,
+	      firstName,
           lastName,
           password,
           email,
@@ -46,13 +50,28 @@ passport.use('local.signup', new LocalStrategy({
           lastPhishShow,
           firstDeadShowWithJerry,
           lastDeadShowWithJerry,
-          topThreeFavLiveExp                                                       // stuff inside request body
+          topThreeFavLiveExp,
+          userEmailKey: userShortId,    
+          userEmailVerified: false,
+          userVerifiedByAdmin: false,
         });
-//        newUser.encryptPassword(password); 
 
         newUser.save((err, newUser) => {
-            console.log('Error saving' + err);
-		    return done(null, newUser);
+            if(err) {
+                console.log('Error saving' + err);
+                return done(true);
+            } else {
+                let htmlData = `
+                   <b>
+                       Hello ${username} please verify your account by clicking this link
+                       <a href="http://localhost:3000/verifyuser?token=${userShortId}">here</a>
+                   </b>
+                `;
+                let subject = "Please verify your email";
+                emailController.sendEmail(htmlData, email, subject, (err, stat) => {
+                    return done(null, newUser);
+                });
+            }
         });
     });
 }));

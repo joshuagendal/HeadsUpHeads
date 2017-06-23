@@ -15,11 +15,12 @@ module.exports = (app) => {
 	}));
 
     app.get('/login', (req, res) => {
+        var loginErrors = req.flash('loginErrorMessages');
         console.log('gets here');
-        res.render('user/login.ejs', {loginErrorMessages: req.flash('loginErrorMessages'), loginReqHasErrors: loginErrorMessages.length > 0,
-        mustBeLoggedInError: req.flash('mustBeLoggedInError')});
+        console.log('ERRORS: ' + loginErrors);
+        res.render('user/login.ejs', {loginErrorMessages: loginErrors, loginReqHasErrors: loginErrors.length > 0});
     });
-
+    // mustBeLoggedInError: req.flash('mustBeLoggedInError')
     app.post('/login', actions.loginValidation, passport.authenticate('local.login', {
         successRedirect: '/', // if user successfully signs up via passport
         failureRedirect: '/login',  // intention: to authenticate w/ Passport. Before authentication, you validate users info. GOAL is t

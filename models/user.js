@@ -19,7 +19,10 @@ var userSchema = mongoose.Schema({
   lastPhishShow: {type: Date, required: false},
   firstDeadShowWithJerry: {type: Date, required: false},
   lastDeadShowWithJerry: {type: Date, required: false},
-  topThreeFavLiveExp: {type: Date, required: false}
+  topThreeFavLiveExp: {type: Date, required: false},
+  userEmailKey: {type: String, required: true},
+  userEmailVerified: {type: Boolean, required: false},
+  userVerifiedByAdmin: {type: Boolean, required: false}
 
 });
 

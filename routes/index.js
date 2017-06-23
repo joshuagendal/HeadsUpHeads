@@ -7,4 +7,5 @@ module.exports = (app) => {
 	require('./messageBoard')(app);
 	require('./comment')(app);
 	require('./event')(app);
+	require('./emailVerification')(app);
 } 

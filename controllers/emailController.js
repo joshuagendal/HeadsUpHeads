@@ -115,6 +115,12 @@ const verifyAdmin = (req, res) => {
                             if(err) {
                                 res.send('Cannot verify user');
                             } else {
+                                let htmlData = 'Congratulations! Welcome to Heads Up Heads!';
+                                let email = user.email;
+                                let subject = 'Welcome 2 Heads up Heads!';
+                                sendEmail(htmlData, email, subject, (err, stat) => {
+                                    console.log('Administrative email sent');
+                                });
                                 res.send('User verified successfully!');
                             }
                         }

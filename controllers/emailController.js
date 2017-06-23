@@ -50,18 +50,15 @@ const sendEmailToAdmin = (username, cb) => {
 // This method verifies a user by token sent to his email
 const verifyUser = (req, res) => {
     console.log(req.query);
-    if(req.query.token) {
+    if(req.query.token) {       // if there was token sent in request
         User.findOne({
-            "userEmailKey": req.query.token
+            "userEmailKey": req.query.token    // find user by token matching up w/ userEmail
         }, (err, user) => {
             if(err) {
                 res.send('Cannot verify email');
             } else {
-                if(user) {
-                    User.update(
-                        {
-                            username: user.username
-                        },
+                if(user) {                      // extra layer of security - ensure there is a user in database and someone isnt trying to hack into system
+                    User.update({username: user.username},
                         {
                             "$set": {                   // this is permanent: changes values of your property in your database within a function
                                 "userEmailKey": "",
@@ -72,7 +69,13 @@ const verifyUser = (req, res) => {
                             if(err) {       // problem w/ server
                                 res.send('Cannot verify email');
                             } else {
-                                // @TODO send verification email to admin
+                                let htmlData = '<b> The administrators have been sent an email and will decide whether or not to verify you </b>';
+                                let email = user.email;
+                                let subject = 'Administrators have been sent email';
+                                // @TODO send email to user telling them admins have been notified
+                                sendEmail(htmlData, email, subject, (err, stat) => {
+                                    console.log('Administrative email sent');
+                                });
                                 sendEmailToAdmin(user.username, (err, stat) => {
                                     res.send('Email verification successful');
                                 })

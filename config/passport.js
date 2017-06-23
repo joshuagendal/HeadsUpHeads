@@ -56,12 +56,13 @@ passport.use('local.signup', new LocalStrategy({
           userVerifiedByAdmin: false,
         });
 
+
         newUser.save((err, newUser) => {
             if(err) {
                 console.log('Error saving' + err);
                 return done(true);
-            } else {
-                let htmlData = `
+            } else {                // below call variables that will feed into sendEmail function
+                let htmlData = `            
                    <b>
                        Hello ${username} please verify your account by clicking this link
                        <a href="http://localhost:3000/verifyuser?token=${userShortId}">here</a>

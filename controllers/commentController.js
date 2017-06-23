@@ -1,6 +1,10 @@
+const nodemailer = require('nodemailer');
+const mg = require('nodemailer-mailgun-transport');
 const User = require('../models/user');
 const Post = require('../models/post');
 const Comment = require('../models/comment');
+
+// @TODO send email to user whose post is commented on
 
 let getCommentForm = (req, res) => {
     Post.findById(req.params.id, function(err, post){

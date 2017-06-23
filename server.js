@@ -46,7 +46,7 @@ app.use(passport.session());
 app.use(function(req, res, next){
     res.locals.currentUser = req.user;
     res.locals.mustBeLoggedInError = req.flash('mustBeLoggedInError');
-    res.locals.isVerifiedByAdmin = req.user.userVerifiedByAdmin;
+    // res.locals.isVerifiedByAdmin = req.user.userVerifiedByAdmin;
     next();
 });
 

@@ -76,7 +76,7 @@ let deletePost = (req, res) => {
 }
 
 let messageBoardPostValidation = (req, res, next) => {
-    if(!req.body.postHeading.ValidatorError || !req.body.postText.ValidatorError) {
+    if(!req.body.postHeading || !req.body.postText) {
         req.flash('messageBoardPostError', 'Your post must have a heading and a body!');
         res.redirect('/message-board/new-post');
     } else {

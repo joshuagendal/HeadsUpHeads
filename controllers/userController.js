@@ -31,12 +31,12 @@ function loginValidation(req, res, next) {
     var loginErrors = req.validationErrors();
 
     if(loginErrors){
-        var messages = [];
+        var loginErrorMessages = [];
         loginErrors.forEach((error) => {
-            messages.push(error.msg);
+            loginErrorMessages.push(error.msg);
         });
 
-        req.flash('error', messages);
+        req.flash('loginErrorMessages', loginErrorMessages);
         res.redirect('/login');
     } else {
         return next();

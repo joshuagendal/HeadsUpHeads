@@ -8,7 +8,7 @@ module.exports = {
         if(req.user) {
             next();
         } else {                                                        // FLASH SHOWS UP ON NEXT REQUEST 
-            req.flash('loginError', 'You must be logged in to do that!'); // this says in the flash, add Please login first for the NEXT REQUEST
+            req.flash('mustBeLoggedInError', 'You must be logged in to do that!'); // this says in the flash, add Please login first for the NEXT REQUEST
             res.redirect('/login');
         }
     },

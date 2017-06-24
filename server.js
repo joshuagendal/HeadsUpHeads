@@ -43,9 +43,14 @@ app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use(function(req, res, next){
-    res.locals.currentUser = req.user;
-    res.locals.mustBeLoggedInError = req.flash('mustBeLoggedInError');
+app.use(function(req, res, next){           
+    if(req.isAuthenticated()){
+        if(req.user.userVerifiedByAdmin === true) {
+            res.locals.currentUser = req.user; // only want this variable if user is logged in and verified by admin
+        }
+    }
+    res.locals.mustBeLoggedInErrMsg = req.flash('mustBeLoggedInError');
+    res.locals.notAuthorizedByAdminErrMsg = req.flash('notAuthorizedByAdmin');
     // res.locals.isVerifiedByAdmin = req.user.userVerifiedByAdmin;
     next();
 });

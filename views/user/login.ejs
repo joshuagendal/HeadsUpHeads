@@ -6,10 +6,10 @@
 
 <body>
 
-<% include ../partials/nav %>
+    <% include ../partials/nav %>
 
     <div class="row">
-      <% if(loginReqHasErrors) { %>
+      <% if(loginPostReqHasErrors) { %>
         <% for(var i=0; i < loginErrorMessages.length; i++) {%>
           <div class="alert alert-danger"> 
             <a href="#" class="close" data-dismiss="alert" aria-label="close">
@@ -20,11 +20,7 @@
         <% } %> 
       <% } %>   
 
-    <div class="row">
-      <% if(mustBeLoggedInError) { %>  
-        <h1> YOU MUST BE LOGGED IN TO DO THAT! </h1>
-      <% } %>
-    </div>      
+
 
     <div class="container">
       <h1>LOGIN</h1>

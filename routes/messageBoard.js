@@ -25,7 +25,7 @@ module.exports = (app) => {
     app.get('/message-board/:id', actions.getIndividualPostById);
 
     // EDIT POST
-	app.get("/message-board/:id/edit", middleware.checkPostOwnership, actions.getEditPostForm);
+	app.get("/message-board/:id/edit", middleware.isUserLoggedIn, middleware.checkPostOwnership, actions.getEditPostForm);
 
     // UPDATE POST
             // below if where req.params.id come from

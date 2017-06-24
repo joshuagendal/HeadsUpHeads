@@ -12,10 +12,10 @@ module.exports = (app) => {
 	app.post('/message-board/:id/new-comment', middleware.isUserLoggedIn, actions.postComment); 
 
 	// GET EDIT COMMENT FORM (USER WHO POSTED COMMENT ONLY)
-	app.get('/message-board/:id/comments/:comment_id/edit', middleware.checkCommentOwnership, actions.getEditCommentForm);
+	app.get('/message-board/:id/comments/:comment_id/edit', middleware.isUserLoggedIn, middleware.checkCommentOwnership, actions.getEditCommentForm);
 
 	// UPDATE COMMENT ROUTE
-	app.put("/message-board/:id/comments/:comment_id", middleware.checkCommentOwnership, actions.putUpdateComment);
+	app.put("/message-board/:id/comments/:comment_id", middleware.isUserLoggedIn, middleware.checkCommentOwnership, actions.putUpdateComment);
 
 	// DESTROY COMMENT ROUTE
 	app.delete("/message-board/:id/comments/:comment_id", middleware.checkCommentOwnership, actions.deleteComment);

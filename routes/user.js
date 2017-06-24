@@ -16,12 +16,15 @@ module.exports = (app) => {
 
     app.get('/login', (req, res) => {
         var loginErrors = req.flash('loginErrorMessages');
-        console.log('gets here');
-        console.log('ERRORS: ' + loginErrors);
-        res.render('user/login.ejs', {loginErrorMessages: loginErrors, loginReqHasErrors: loginErrors.length > 0});
+        console.log('LOGIN ERROR(S): ' + loginErrors);
+        res.render('user/login.ejs', {                  
+            loginErrorMessages: loginErrors,
+            loginPostReqHasErrors: loginErrors.length > 0,
+            });
     });
+    // error: req.flash('mustBeLoggedInError')
     // mustBeLoggedInError: req.flash('mustBeLoggedInError')
-    app.post('/login', actions.loginValidation, passport.authenticate('local.login', {
+    app.post('/login', actions.loginValidation, passport.authenticate('local.login', { // @TODO add in function to make sure user is verified by admin
         successRedirect: '/', // if user successfully signs up via passport
         failureRedirect: '/login',  // intention: to authenticate w/ Passport. Before authentication, you validate users info. GOAL is t
         failureFlash : true

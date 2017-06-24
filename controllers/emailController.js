@@ -102,14 +102,12 @@ const verifyAdmin = (req, res) => {
                 res.send('Cannot verify user');
             } else {
                 if(user) {
-                    User.update(
-                        {
+                    User.update({
                             "username": req.query.username
                         },
-                        {
-                            "$set": { 
+                        {"$set": { 
                                 "userVerifiedByAdmin": true
-                            }
+                                }
                         },
                         (err, stat) => {
                             if(err) {

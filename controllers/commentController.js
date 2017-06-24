@@ -1,5 +1,4 @@
-const nodemailer = require('nodemailer');
-const mg = require('nodemailer-mailgun-transport');
+const emailController = require('../controllers/emailController');
 const User = require('../models/user');
 const Post = require('../models/post');
 const Comment = require('../models/comment');
@@ -36,6 +35,7 @@ let postComment = (req, res) => {
                 } else {
                     postToCommentOn.comments.push(newlyAddedComment);
                     postToCommentOn.save();
+                    
                     res.redirect('/message-board/' + postToCommentOn._id);
                 }
             });

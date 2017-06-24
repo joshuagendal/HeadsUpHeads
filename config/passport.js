@@ -91,7 +91,7 @@ passport.use('local.login', new LocalStrategy({
         const loginPostReqErrMsgs = [];    
         
         if(!user){
-            loginPostReqErrMsgs.push('Email does not exist!');
+            loginPostReqErrMsgs.push('Email does not exist! Please try again');
             return done(null, false, req.flash('loginPostReqErrs', loginPostReqErrMsgs));
         }
         else if(user){

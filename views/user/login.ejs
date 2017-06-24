@@ -8,17 +8,20 @@
 
     <% include ../partials/nav %>
 
-    <div class="row">
-      <% if(loginValidationErrMsgs) { %>
-        <% for(var i=0; i < loginValidationErrMsgs.length; i++) {%>
-          <div class="alert alert-danger"> 
-            <a href="#" class="close" data-dismiss="alert" aria-label="close">
-              &time;
-            </a>
-            <%= loginValidationErrMsgs[i] %>  <!-- when adding the equal sign to these tags, able to call                     a variable that is passed from backend -->
-          </div>
+    <div>
+      <% if(loginValidationHasErrs) { %>
+        <% for(var i=0; i < loginValidationErrs.length; i++) {%>
+            <h1><%= loginValidationErrs[i] %></h1>  <!-- when adding the equal sign to these tags, able to call                     a variable that is passed from backend -->
         <% } %> 
-      <% } %>   
+      <% } %>  
+    </div>  
+ 
+
+      <% if(loginPostReqHasErrs) { %>
+        <% for(var i=0; i < loginPostReqErrs.length; i++) { %>
+          <h1><%= loginPostReqErrs[i] %></h1>  
+        <% } %>  
+      <% } %>
 
 
 

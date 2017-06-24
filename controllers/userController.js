@@ -36,7 +36,7 @@ function loginValidation(req, res, next) {
         loginErrors.forEach((error) => {
             loginValidationErrMsgs.push(error.msg);
         });
-        req.flash('loginErrorMessages', loginValidationErrMsgs);
+        req.flash('loginValidationErrs', loginValidationErrMsgs);
         res.redirect('/login');
     } else {
         return next();

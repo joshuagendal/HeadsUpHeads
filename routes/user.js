@@ -15,23 +15,25 @@ module.exports = (app) => {
 	}));
 
     app.get('/login', (req, res) => {
-        var loginValidationsErrs = [];
-        var loginPostReqErrs = [];
-        if(req.flash('loginValidationErrMsgs')){
-            loginPostRe
-            console.log('VALIDATION ERROR(S): ' + loginValidationErrs);
-        } if(req.flash('loginPostReqErrMsgs')){
-
+        var loginValidationErrors = req.flash('loginValidationErrs');;
+        var loginPostErrors = req.flash('loginPostReqErrs')
+        if(loginValidationErrors){
+            console.log('VALIDATION ERROR(S): ' + loginValidationErrors);
+        } 
+        if(loginPostErrors){
+            console.log('POST REQ ERRORS): ' + loginPostErrors);
         }  
-        
-        if(loginPostReqErrs) {
-            console.log('LOGIN POST REQ ERRORS')
-        }
         res.render('user/login.ejs', {                  
-            loginValidationErrMsgs: loginErrors,
-            loginValidationHasErrs: loginErrors.length > 0,
+            loginValidationErrs: loginValidationErrors,
+            loginValidationHasErrs: loginValidationErrors.length > 0,
+            loginPostReqErrs: loginPostErrors,  
+            loginPostReqHasErrs: loginPostErrors.length > 0 
             });
     });
+            
+        // if(loginPostReqErrs) {
+        //     console.log('LOGIN POST REQ ERRORS')
+        // }
     // error: req.flash('mustBeLoggedInError')
     // mustBeLoggedInError: req.flash('mustBeLoggedInError')
     app.post('/login', actions.loginValidation, passport.authenticate('local.login', { // @TODO add in function to make sure user is verified by admin

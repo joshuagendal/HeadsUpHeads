@@ -9,13 +9,13 @@
     <% include ../partials/nav %>
 
     <div class="row">
-      <% if(loginPostReqHasErrors) { %>
-        <% for(var i=0; i < loginErrorMessages.length; i++) {%>
+      <% if(loginValidationErrMsgs) { %>
+        <% for(var i=0; i < loginValidationErrMsgs.length; i++) {%>
           <div class="alert alert-danger"> 
             <a href="#" class="close" data-dismiss="alert" aria-label="close">
               &time;
             </a>
-            <%= loginErrorMessages[i] %>  <!-- when adding the equal sign to these tags, able to call                     a variable that is passed from backend -->
+            <%= loginValidationErrMsgs[i] %>  <!-- when adding the equal sign to these tags, able to call                     a variable that is passed from backend -->
           </div>
         <% } %> 
       <% } %>   

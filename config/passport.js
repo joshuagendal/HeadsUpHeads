@@ -85,15 +85,17 @@ passport.use('local.login', new LocalStrategy({
 }, (req, email, password, done) => {
     User.findOne({'email': email}, (err, user) => {
         if(err){
+            console.log('PASSPORT ERROR');
             return done(err);
         } 
-        const messages = [];    
+        const loginPostReqErrMsgs = [];    
         
         if(!user){
-            messages.push('Email does not exist!');
-            return done(null, false, req.flash('error', messages));
+            loginPostReqErrMsgs.push('Email does not exist!');
+            return done(null, false, req.flash('loginPostReqErrs', loginPostReqErrMsgs));
         }
-        else if(user){                     // if condition above is false and this condition is true
+        else if(user){
+            console.log('LOGIN SUCCESSFUL')                     // if condition above is false and this condition is true
             return done(null, user);
             
             

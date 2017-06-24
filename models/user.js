@@ -2,28 +2,31 @@ var mongoose = require('mongoose');
 var bcrypt = require('bcrypt-nodejs');    // npm encryption module
 
 var userSchema = mongoose.Schema({
-  username: {type: String, required: true},
-	firstName: {type: String, required: true},  
-  lastName: {type: String, required: true},
-  email: {type: String, required: true},
-  password: {type: String, required:true},
-  company: {type: String, required: true},          // where user works
-  professionalTitle: {type: String, required: false}, // ... if any
-  jobDescription: {type: String, required: false},
-  role: {type: String, required:false},
-  telephone: {
+    username: {type: String, required: true},
+    firstName: {type: String, required: true},  
+    lastName: {type: String, required: true},
+    email: {type: String, required: true},
+    password: {type: String, required:true},
+    company: {type: String, required: true},          // where user works
+    professionalTitle: {type: String, required: false}, // ... if any
+    jobDescription: {type: String, required: false},
+    role: {type: String, required:false},
+    telephone: {
     business: {type: String, required: false},
     cell: {type: String, required: false},  
-  },
-  firstPhishShow: {type: Date, required: false},
-  lastPhishShow: {type: Date, required: false},
-  firstDeadShowWithJerry: {type: Date, required: false},
-  lastDeadShowWithJerry: {type: Date, required: false},
-  topThreeFavLiveExp: {type: Date, required: false},
-  userEmailKey: {type: String, required: true},
-  userEmailVerified: {type: Boolean, required: false},
-  userVerifiedByAdmin: {type: Boolean, required: false}
-
+    },
+    firstPhishShow: {type: Date, required: false},
+    lastPhishShow: {type: Date, required: false},
+    firstDeadShowWithJerry: {type: Date, required: false},
+    lastDeadShowWithJerry: {type: Date, required: false},
+    topThreeFavLiveExp: {
+        firstFav: {type: String, required: false},
+        secondFav: {type: String, required: false},
+        thirdFav: {type: String, required: false}
+    },
+    userEmailKey: {type: String, required: true},
+    userEmailVerified: {type: Boolean, required: false},
+    userVerifiedByAdmin: {type: Boolean, required: false}
 });
 
 // below is are INSTANCE methods that you only have access to after instantiate new User object

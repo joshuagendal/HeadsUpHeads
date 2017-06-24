@@ -30,15 +30,13 @@ function loginValidation(req, res, next) {
 
     var loginErrors = req.validationErrors();
 
-    console.log('FIRST ERRORS: ' + loginErrors);
 
     if(loginErrors){
-        var loginErrorMessages = [];
+        var loginValidationErrMsgs = [];
         loginErrors.forEach((error) => {
-            loginErrorMessages.push(error.msg);
+            loginValidationErrMsgs.push(error.msg);
         });
-        console.log('SECOND ERRORS: ' + loginErrorMessages)
-        req.flash('loginErrorMessages', loginErrorMessages);
+        req.flash('loginErrorMessages', loginValidationErrMsgs);
         res.redirect('/login');
     } else {
         return next();

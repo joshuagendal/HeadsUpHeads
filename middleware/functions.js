@@ -9,13 +9,11 @@ module.exports = {
             if(req.user.userVerifiedByAdmin === true) {     // if user is verified by admin
                 next();
             } else {                                        // if user is logged in but not verified by amdin
-                console.log('LOGGED IN NOT VERIFIED BY AUTH CLAUSE - LOGGED IN: ' + req.isAuthenticated()
-                + 'AUTHBYADMIN: ' + req.user.userVerifiedByAdmin);
                 req.flash('notAuthorizedByAdmin', 'You have not been authorized by the admins!');
                 res.redirect('/login');
             }
         } else {                                            // user not logged in  
-            console.log('ELSE CLAUSE - loggedin: ' + req.isAuthenticated());                                                     // FLASH SHOWS UP ON NEXT REQUEST 
+                                                            // FLASH SHOWS UP ON NEXT REQUEST 
             req.flash('mustBeLoggedInError', 'You must be logged in to do that!');
              // this says in the flash, add Please login first for the NEXT REQUEST           
             res.redirect('/login');

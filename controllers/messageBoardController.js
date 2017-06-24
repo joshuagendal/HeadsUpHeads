@@ -8,7 +8,8 @@ let getMessageBoard = (req, res) => {
             console.log(err);
             res.redirect('/');
         } else {
-            res.render('messageBoard/message-board.ejs', {posts: allPosts});
+            res.render('messageBoard/message-board.ejs', {
+                posts: allPosts, postSuccessMessage: req.flash('postSuccessMsg')});
         }
     });
 }
@@ -23,12 +24,11 @@ let postMessageBoard = (req, res) => {
     }
     var created = new Date();
     var newPost = {postHeading: postHeading, postText: postText, userPosting: userPosting, created: created}
-    console.log(newPost);
     Post.create(newPost, function(err, newlyPosted){
         if(err){
             console.log(err);
         } else {
-            console.log(newlyPosted);
+            req.flash('msgBrdPostSuccessMsg', 'You have successfully posted to the message board!');
             res.redirect('/message-board');
         }
     });

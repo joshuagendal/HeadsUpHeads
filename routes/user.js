@@ -15,11 +15,21 @@ module.exports = (app) => {
 	}));
 
     app.get('/login', (req, res) => {
-        var loginErrors = req.flash('loginErrorMessages');
-        console.log('LOGIN ERROR(S): ' + loginErrors);
+        var loginValidationsErrs = [];
+        var loginPostReqErrs = [];
+        if(req.flash('loginValidationErrMsgs')){
+            loginPostRe
+            console.log('VALIDATION ERROR(S): ' + loginValidationErrs);
+        } if(req.flash('loginPostReqErrMsgs')){
+
+        }  
+        
+        if(loginPostReqErrs) {
+            console.log('LOGIN POST REQ ERRORS')
+        }
         res.render('user/login.ejs', {                  
-            loginErrorMessages: loginErrors,
-            loginPostReqHasErrors: loginErrors.length > 0,
+            loginValidationErrMsgs: loginErrors,
+            loginValidationHasErrs: loginErrors.length > 0,
             });
     });
     // error: req.flash('mustBeLoggedInError')

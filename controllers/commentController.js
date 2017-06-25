@@ -37,7 +37,24 @@ let postComment = (req, res) => {
                     postToCommentOn.comments.push(newlyAddedComment);
                     postToCommentOn.save();
                     // @TODO: send email to user whose post was commented on
-                    // let email = postToCommentOn.;
+
+                    let htmlData = `
+                        <h3>
+                            Hello ${postToCommentOn.userPosting.username}! ${newlyAddedComment.userCommenting.username}
+                            has commented on your post ${postToCommentOn.postHeading}. The comment is as
+                            follows: ${newlyAddedComment.commentText}
+                        </h3>
+                    `;
+                    let email = postToCommentOn.userPosting.email;
+                    let subject = `${postToCommentOn.userPosting.username}, you have a new comment on
+                    your post ${postToCommentOn.postHeading}`;
+                    emailController.sendEmail(htmlData, email, subject, (err, stat) => {
+                        if(err){
+                            console.log(err);
+                        } else {
+                            console.log('COMMENT EMAIL SUCCESS');
+                        }
+                    });
 
                     res.redirect('/message-board/' + postToCommentOn._id);
                 }

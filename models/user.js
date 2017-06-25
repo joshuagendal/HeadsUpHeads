@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-// var bcrypt = require('bcrypt-nodejs');    // npm encryption module
+// var bcrypt = require('bcrypt');    //    npm encryption module
 
 var userSchema = mongoose.Schema({
     username: {type: String, required: true},
@@ -31,6 +31,15 @@ var userSchema = mongoose.Schema({
     isAdmin: {type: Boolean, required: false}
 
 });
+
+
+// const saltRounds = 10;
+
+// bcrypt.genSalt(saltRounds, function(err, salt) {
+//     bcrypt.hash(password, salt, function(err, hash) {
+//         password = hash;       
+//     })
+// });
 
 // below is are INSTANCE methods that you only have access to after instantiate new User object
 //userSchema.methods.encryptPassword = function(password){

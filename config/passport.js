@@ -3,6 +3,7 @@ var User = require('../models/user');
 var LocalStrategy = require('passport-local').Strategy;
 const emailController = require('../controllers/emailController');
 const shortid = require('shortid');
+const bcrypt = require('bcrypt');
 
 passport.serializeUser((user, done) => {
     done(null, user.id);
@@ -32,6 +33,9 @@ passport.use('local.signup', new LocalStrategy({
 
         const {username, firstName, lastName, email, password, company, professionalTitle, jobDescription, role, business, 
           cell, firstPhishShow, lastPhishShow, firstDeadShowWithJerry, lastDeadShowWithJerry, topThreeFavLiveExp} = req.body;
+
+
+
         const newUser = new User({                        // js destructuring assignment: have object, instead of doing object.field, extracting info from body
           username,
 	      firstName,
@@ -55,6 +59,19 @@ passport.use('local.signup', new LocalStrategy({
           userEmailVerified: false,
           userVerifiedByAdmin: false,
         });
+
+        // BCRYPT PASSWORD HASHING AND SAVE TO DB
+
+        // const saltRounds = 10;
+
+        // bcrypt.genSalt(saltRounds, function(err, salt) {
+        //     bcrypt.hash(password, salt, function(err, hash) {
+        //         {password : hash}
+        //     });
+        // });
+
+
+
 
 
         newUser.save((err, newUser) => {
@@ -89,9 +106,12 @@ passport.use('local.login', new LocalStrategy({
             return done(err);
         } 
         const loginPostReqErrMsgs = [];    
-        
         if(!user){
             loginPostReqErrMsgs.push('Email does not exist! Please try again');
+            return done(null, false, req.flash('loginPostReqErrs', loginPostReqErrMsgs));
+        } 
+        if(user && (user.password !== password)){
+            loginPostReqErrMsgs.push('Invalid Password! Try Again!');
             return done(null, false, req.flash('loginPostReqErrs', loginPostReqErrMsgs));
         }
         else if(user){

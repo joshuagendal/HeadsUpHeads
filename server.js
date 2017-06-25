@@ -43,15 +43,28 @@ app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use(function(req, res, next){           
+app.use(function(req, res, next){                           
     if(req.isAuthenticated()){
-        if(req.user.userVerifiedByAdmin === true) {
-            res.locals.currentUser = req.user; // only want this variable if user is logged in and verified by admin
+        if(req.user.userVerifiedByAdmin === true) {         // LEVEL OF AUTHENTICATION:
+            res.locals.currentUser = req.user;              // 4. currentUser : signed up, email auth, admin auth
+            res.locals.notAuthByAdminUser = false;          // 3. notAuthByAdminUser: signed up, email auth, !admin auth
+            res.locals.notEmailAuthUser = false;            // 2. notEmailAuthUser: signed up, !email auth, !admin auth
+        } else {                                            // 1. notSignedUpUser: ! signed up, ! email auth, !admin auth
+            res.locals.notAuthByAdminUser = true; 
+            res.locals.currentUser = false;
+            res.locals.notEmailAuthUser = false;
         }
     }
+    else {
+        res.locals.notEmailAuthUser = true;
+        res.locals.currentUser = false;
+        res.locals.notAuthByAdminUser = false;    
+    }
+
     res.locals.mustBeLoggedInErrMsg = req.flash('mustBeLoggedInError');
     res.locals.notAuthorizedByAdminErrMsg = req.flash('notAuthorizedByAdmin');
     res.locals.postSuccessMessage = req.flash('msgBrdPostSuccessMsg');
+
     // res.locals.isVerifiedByAdmin = req.user.userVerifiedByAdmin;
     next();
 });

@@ -9,7 +9,7 @@ let getMessageBoard = (req, res) => {
             res.redirect('/');
         } else {
             res.render('messageBoard/message-board.ejs', {
-                posts: allPosts, postSuccessMessage: req.flash('postSuccessMsg')});
+                posts: allPosts});
         }
     });
 }
@@ -20,7 +20,8 @@ let postMessageBoard = (req, res) => {
     var postText = req.body.postText;
     var userPosting = {
         id: req.user._id,
-        username: req.user.username
+        username: req.user.username,
+        email: req.user.email
     }
     var created = new Date();
     var newPost = {postHeading: postHeading, postText: postText, userPosting: userPosting, created: created}
@@ -70,7 +71,7 @@ let deletePost = (req, res) => {
         if(err){
             res.redirect('/');
         } else {
-            res.redirect('/message-board/new-post');
+            res.redirect('/message-board');
         }
     });
 }

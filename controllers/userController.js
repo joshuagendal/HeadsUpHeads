@@ -1,3 +1,5 @@
+const User = require('../models/user')
+
 function signUpValidation(req, res, next) {
 	req.checkBody('firstName', 'First name is required!').notEmpty();
 	req.checkBody('lastName', 'Last name is required!').notEmpty();
@@ -43,7 +45,20 @@ function loginValidation(req, res, next) {
     }
 }
 
+function deleteUser(req, res) { 
+    User.findByIdAndRemove(req.params.id, function(err){
+        if(err){
+            console.log(err);
+            res.redirect('/');
+        } else {
+            res.send('USER DELETED');
+        }
+    });
+};
+
+
 module.exports = {
     signUpValidation,
-    loginValidation
+    loginValidation,
+    deleteUser
 }

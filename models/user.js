@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var bcrypt = require('bcrypt-nodejs');    // npm encryption module
+// var bcrypt = require('bcrypt-nodejs');    // npm encryption module
 
 var userSchema = mongoose.Schema({
     username: {type: String, required: true},
@@ -24,9 +24,12 @@ var userSchema = mongoose.Schema({
         secondFav: {type: String, required: false},
         thirdFav: {type: String, required: false}
     },
+    dateJoined: {type: Date, required: true, default: Date.now},
     userEmailKey: {type: String, required: true},
     userEmailVerified: {type: Boolean, required: false},
-    userVerifiedByAdmin: {type: Boolean, required: false}
+    userVerifiedByAdmin: {type: Boolean, required: false},
+    isAdmin: {type: Boolean, required: false}
+
 });
 
 // below is are INSTANCE methods that you only have access to after instantiate new User object

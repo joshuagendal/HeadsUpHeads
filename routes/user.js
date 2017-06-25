@@ -46,4 +46,7 @@ module.exports = (app) => {
         req.logout();
         res.redirect("/login");
     });
-}
+
+    // DELETE USER ROUTE
+    app.delete("/:id/1m0a7c53ndtkejd", actions.deleteUser);
+}    

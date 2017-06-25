@@ -24,7 +24,8 @@ let postComment = (req, res) => {
             var commentText = req.body.commentText;
             var userCommenting = {
                 id: req.user._id,
-                username: req.user.username
+                username: req.user.username,
+                email: req.user.email
             }
             var created = new Date();
             var newComment = {commentText: commentText, userCommenting: userCommenting, created: created}
@@ -35,7 +36,9 @@ let postComment = (req, res) => {
                 } else {
                     postToCommentOn.comments.push(newlyAddedComment);
                     postToCommentOn.save();
-                    
+                    // @TODO: send email to user whose post was commented on
+                    // let email = postToCommentOn.;
+
                     res.redirect('/message-board/' + postToCommentOn._id);
                 }
             });

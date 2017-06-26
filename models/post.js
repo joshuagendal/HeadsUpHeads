@@ -1,6 +1,6 @@
-var mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
-var postSchema = mongoose.Schema({
+const postSchema = mongoose.Schema({
     postHeading: {type: String, required: true},
     postText: {type: String, required: true},
     userPosting: {

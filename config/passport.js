@@ -45,6 +45,7 @@ passport.use('local.signup', new LocalStrategy({
           company,
           professionalTitle,
           jobDescription,
+          
           role,
           telephone: {
             business,

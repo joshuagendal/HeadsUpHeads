@@ -13,7 +13,7 @@ module.exports = {
                 res.redirect('/login');
             }
         } else {                                            // user not logged in  
-                                                            // FLASH SHOWS UP ON NEXT REQUEST 
+            console.log('DEBUGGING- GETS TO END OF LOGIN');                                                       // FLASH SHOWS UP ON NEXT REQUEST 
             req.flash('mustBeLoggedInError', 'You must be logged in to do that!');
              // this says in the flash, add Please login first for the NEXT REQUEST           
             res.redirect('/login');

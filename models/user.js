@@ -12,8 +12,8 @@ var userSchema = mongoose.Schema({
     jobDescription: {type: String, required: false},
     role: {type: String, required:false},
     telephone: {
-    business: {type: String, required: false},
-    cell: {type: String, required: false},  
+    business: {type: Number, required: false},
+    cell: {type: Number, required: false},  
     },
     firstPhishShow: {type: Date, required: false},
     lastPhishShow: {type: Date, required: false},
@@ -24,15 +24,15 @@ var userSchema = mongoose.Schema({
         secondFav: {type: String, required: false},
         thirdFav: {type: String, required: false}
     },
-    dateJoined: {type: Date, required: true, default: Date.now},
-    userEmailKey: {type: String, required: true},
+    dateJoined: {type: Date, required: false, default: Date.now},
+    userEmailKey: {type: String, required: false},
     userEmailVerified: {type: Boolean, required: false},
     userVerifiedByAdmin: {type: Boolean, required: false},
     isAdmin: {type: Boolean, required: false}
 
 });
 
-
+// @TODO: requiredL true is only necessary when it is true. false not needed
 // const saltRounds = 10;
 
 // bcrypt.genSalt(saltRounds, function(err, salt) {

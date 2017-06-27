@@ -9,9 +9,9 @@ const auth = {
     }
 };
 
-//
+
 const sendEmail = (htmlData, email, subject, cb) => {   // email is recipient cb = callback
-    //
+
     const nodemailerMailgun = nodemailer.createTransport(mg(auth));
     const options = {
         from: 'Heads Up Heads Administrator <joshgendal@gmail.com>',
@@ -114,13 +114,7 @@ const verifyAdmin = (req, res) => {
                 res.send('Cannot verify user');
             } else {
                 if(user) {
-                    User.update({
-                            "username": req.query.username
-                        },
-                        {"$set": { 
-                                "userVerifiedByAdmin": true
-                                }
-                        },
+                    User.update({"username": req.query.username}, {"$set": {"userVerifiedByAdmin": true}},
                         (err, stat) => {
                             if(err) {
                                 res.send('Cannot verify user');
@@ -133,8 +127,7 @@ const verifyAdmin = (req, res) => {
                                 });
                                 res.send('User verified successfully!');
                             }
-                        }
-                    );
+                        });
                 } else {
                      res.send('This user does not exist');
                 }

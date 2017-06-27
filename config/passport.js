@@ -117,9 +117,9 @@ passport.use('local.login', new LocalStrategy({
     usernameField: 'email',
     passwordField: 'password',
     passReqToCallback: true
-}, (req, email, password, done) => {
-    User.findOne({'email': email}, (err, user) => {
-        if(err){
+}, (req, email, password, done) => {                       
+    User.findOne({'email': email, 'userVerifiedByAdmin': true}, (err, user) => {
+        if(err){  // deal w/ error
             console.log('PASSPORT ERROR');
             return done(err);
         } 

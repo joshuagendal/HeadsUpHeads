@@ -48,7 +48,7 @@ function loginValidation(req, res, next) {
 }
 
 function deleteUser(req, res) { 
-    User.findByIdAndRemove(req.params.id, function(err){
+    User.findByIdAndRemove(req.params.id, function(err){  // request must come from admin
         if(err){
             console.log(err);
             res.redirect('/');

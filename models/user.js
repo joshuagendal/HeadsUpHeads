@@ -51,37 +51,4 @@ userSchema.pre('save', function(next) {
     });
 });
 
-userSchema.methods.comparePassword = function(password) {
-    bcrypt.compare(password, this.password, function(err, done) {
-        if(err) {
-            console.log(err);
-        } else {
-            cb(null, done);
-        }
-    });
-}
-
-
-
-
-
-// @TODO: requiredL true is only necessary when it is true. false not needed
-// const saltRounds = 10;
-// const plainTextPassword = password;
-
-// bcrypt.genSalt(saltRounds, function(err, salt) {
-//     bcrypt.hash(password, salt, function(err, hash) {
-//         password = hash;       
-//     })
-// });
-
-// below is are INSTANCE methods that you only have access to after instantiate new User object
-//userSchema.methods.encryptPassword = function(password){
-//  return bcrypt.hashSync(password, bcrypt.genSaltSync(10), null);
-//}
-//
-//userSchema.methods.validPassword = function(password) {
-//  return bcrypt.compareSync(password, this.password);
-//}
-
 module.exports = mongoose.model('User', userSchema);

@@ -27,7 +27,7 @@ let postMessageBoard = (req, res) => {
     var newPost = {postHeading: postHeading, postText: postText, userPosting: userPosting, created: created}
     Post.create(newPost, function(err, newlyPosted){
         if(err){
-            console.log(err); // turn these into errors user can see plz contact admin
+            
         } else {
             req.flash('msgBrdPostSuccessMsg', 'You have successfully posted to the message board!');
             res.redirect('/message-board');

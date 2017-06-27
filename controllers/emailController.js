@@ -47,7 +47,7 @@ const sendEmailToAdmin = (username, userId, cb) => {
         </b>
     `;
     let subject = "Please verify this user";
-    let adminEmail = 'joshgendal@gmail.com';
+    let adminEmail = 'joshgendal@yahoo.com';
 
     sendEmail(htmlData, adminEmail, subject, cb);
 }
@@ -69,18 +69,18 @@ const verifyUser = (req, res) => {
     console.log(req.query);
     if(req.query.token) {       // if there was token sent in request
         User.findOne({"userEmailKey": req.query.token}, (err, user) => {   // find user by token matching up w/ userEmail
-            if(err) {
-                res.send('Cannot verify email');
+            if(err) { // TEST: IF SEND REQUEST TWICE
+                res.send('Cannot verify email. Please contact the admins.');
             } else {
                 if(user) {                      // extra layer of security - ensure there is a user in database and someone isnt trying to hack into system
-                    User.update({username: user.username}, {
+                    User.update({username: user.username}, {        // ABSOLUTELY MUST VALIDATE USERNAME IS IN DB ONLY ONCE
                         "$set": {                   // this is permanent: changes values of your property in your database within a function
                             "userEmailKey": "",
                             "userEmailVerified": true
                         }
                     }, (err, stat) => {
                         if(err) {       // problem w/ server
-                            res.send('Cannot verify email');
+                            res.send('Cannot verify email. Please contact the admins');
                         } else {
                             let htmlData = '<b> The administrators have been sent an email and will decide whether or not to verify you </b>';
                             let email = user.email;

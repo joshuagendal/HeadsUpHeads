@@ -28,11 +28,28 @@ passport.use('local.signup', new LocalStrategy({
         if(user){
             return done(null, false, req.flash('error', 'User with email already exists'));
         }
+        console.log('GETS TO FIRST');
          
         const userShortId  = shortid.generate();
-
+                    // took password out of below
         const {username, firstName, lastName, email, password, company, professionalTitle, jobDescription, role, business, 
           cell, firstPhishShow, lastPhishShow, firstDeadShowWithJerry, lastDeadShowWithJerry, topThreeFavLiveExp} = req.body;
+        // var plainTxtPassword = password;
+
+        // console.log('GETS TO SECOND');  
+        // // const plainTextPassword = password;
+        // console.log('PLAIN TEXT!!!!: ', password);
+        // const saltRounds = 10;
+
+       
+
+        // bcrypt.genSalt(saltRounds, function(err, salt) {
+        //     bcrypt.hash(plainTxtPassword, salt, function(err, hash) {
+        //         plainTxtPassword = hash;
+        //     });    
+        // });
+
+        // console.log(plainTxtPassword);
 
 
 
@@ -111,7 +128,7 @@ passport.use('local.login', new LocalStrategy({
             loginPostReqErrMsgs.push('Email does not exist! Please try again');
             return done(null, false, req.flash('loginPostReqErrs', loginPostReqErrMsgs));
         } 
-        if(user && (user.password !== password)){
+        if(bcrypt.compareSync(password, user.password) === false){
             loginPostReqErrMsgs.push('Invalid Password! Try Again!');
             return done(null, false, req.flash('loginPostReqErrs', loginPostReqErrMsgs));
         }

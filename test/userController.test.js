@@ -4,39 +4,72 @@ const request = require('supertest')(app);
 const expect = require('expect');
 const User = require('../models/user');
 
-describe('UserLogin', () => {
-    before ((done)  => {
-        User.remove({}, () => {
-            done();
-        });
-    });
+describe('UserSignup', function() {
 
-    it('Should do this and that', () => {
-        expect(5).toBe(5);
-        expect(true).toBe(true);
-    });
-
-    it('Create new user', (done) => {  // done is callback
-        const newUser = {
-            username: 'test123',
-            firstName: 'Tseter',  // it block: defines what you want to test
-            lastName: 'McTester',
-            email: 'joshgendal@yahoo.com',
-            password: 'blahblah123',
-            company: 'Test Company',
-        }
-        request.post('/signup')
-            .send(newUser)    // sednign new user to the route- endpoint in request
-            .end((err, res) => {
-                // console.log('error ', err); console.log('response', res)
-                expect(res.text.message).toBe('Queued. Thank you.');
-                expect(err).toBeUndefined();
-                done();
-            });
+    // it('Create new user', function(done) {  // done is callback
+    //     const newUser = {
+    //         username: 'DUMMY USER',
+    //         firstName: 'DUMMY',  // it block: defines what you want to test
+    //         lastName: 'USER',
+    //         email: 'TEST@TEST.com',
+    //         password: 'blahblah123',
+    //         company: 'Test Company',
+    //     }
+    //     request.post('/signup')
+    //         .send(newUser)    // sednign new user to the route- endpoint in request
+    //         .end((err, res) => {
+    //             // console.log('error ', err); console.log('response', res)
+    //             done();
+    //         });
             
             
-             // request has callback that takes error and response
-    });
-});
+    //          // request has callback that takes error and response
+    // });
+
+//     it('Should give user already exists error', function(done) {
+//         const newUser = {
+//             username: 'DUMMY USER',
+//             firstName: 'DUMMY',  // it block: defines what you want to test
+//             lastName: 'USER',
+//             email: 'TEST@TEST.com',
+//             password: 'blahblah123',
+//             company: 'Test Company',
+//         }
+//         request.post('/signup')
+//             .send(newUser)
+//             .end((err, res) => {
+//                 expect(err).toBeUndefined;
+
+//             });
+//         const userWhoEmailTaken = {
+//         username: 'DUMMY USER',
+//         firstName: 'DUMMY',  // it block: defines what you want to test
+//         lastName: 'USER',
+//         email: 'TEST@TEST.com',
+//         password: 'blahblah123',
+//         company: 'Test Company',
+//         }    
+//         request.post('/signup')
+//             .send(userWhoEmailTaken)
+//             .end((err, res) => {
+//                 console.log('ERROR', err);
+//                 done();
+//             });
+
+//     });
+
+        
+
+
+
+
+
+//     after(function(done) {
+//         User.remove({}, function() {
+//             done();
+//     });
+// });
+
+// });
 
 

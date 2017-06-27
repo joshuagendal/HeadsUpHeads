@@ -5,6 +5,11 @@ var passport = require('passport');
 module.exports = {
   // FUNCTION TO CHECK IF USER IS LOGGED IN
     isUserLoggedIn: function(req, res, next) {
+        // !!!!!@TODO must have proper error if user hasn't signed up, hasnt authenticated email, hasnt been auth by admin
+        // if(req.isAuthenticated() === false && req.user.userVerifiedByAdmin ===false ) {
+
+        // }
+        
         if(req.isAuthenticated()) {                         // if user is logged in
             if(req.user.userVerifiedByAdmin === true) {     // if user is verified by admin
                 next();

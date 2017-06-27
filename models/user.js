@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-// var bcrypt = require('bcrypt');    //    npm encryption module
+var bcrypt = require('bcrypt');    //    npm encryption module
 
 var userSchema = mongoose.Schema({
     username: {type: String, required: true},
@@ -32,8 +32,42 @@ var userSchema = mongoose.Schema({
 
 });
 
+
+userSchema.pre('save', function(next) {
+    var user = this;
+    bcrypt.genSalt(10, function(err, salt) {
+        if(err) {
+            return next(err);
+        } else {
+            bcrypt.hash(user.password, salt, function(err, hash) {
+                if(err) {
+                    return next(err);
+                } else {
+                    user.password = hash;
+                    next();
+                }
+            });
+        }
+    });
+});
+
+userSchema.methods.comparePassword = function(password) {
+    bcrypt.compare(password, this.password, function(err, done) {
+        if(err) {
+            console.log(err);
+        } else {
+            cb(null, done);
+        }
+    });
+}
+
+
+
+
+
 // @TODO: requiredL true is only necessary when it is true. false not needed
 // const saltRounds = 10;
+// const plainTextPassword = password;
 
 // bcrypt.genSalt(saltRounds, function(err, salt) {
 //     bcrypt.hash(password, salt, function(err, hash) {

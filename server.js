@@ -46,10 +46,10 @@ app.use(passport.session());
 app.use(function(req, res, next){                           
     if(req.isAuthenticated()){
         if(req.user.userVerifiedByAdmin === true) {         // LEVEL OF AUTHENTICATION:
-            res.locals.currentUser = req.user;              // 4. currentUser : signed up, email auth, admin auth
-            res.locals.notAuthByAdminUser = false;          // 3. notAuthByAdminUser: signed up, email auth, !admin auth
-            res.locals.notEmailAuthUser = false;            // 2. notEmailAuthUser: signed up, !email auth, !admin auth
-        } else {                                            // 1. notSignedUpUser: ! signed up, ! email auth, !admin auth
+            res.locals.currentUser = req.user;              // 3. currentUser : signed up, email auth, admin auth
+            res.locals.notAuthByAdminUser = false;          // 2. notAuthByAdminUser: signed up, email auth, !admin auth
+            res.locals.notEmailAuthUser = false;            // 1. notEmailAuthUser: signed up, !email auth, !admin auth
+        } else {                                            
             res.locals.notAuthByAdminUser = true; 
             res.locals.currentUser = false;
             res.locals.notEmailAuthUser = false;

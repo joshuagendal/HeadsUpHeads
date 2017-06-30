@@ -31,8 +31,12 @@ body {
     background-image: url(../img/koa.png);
  }
 
+ .nav-font-size {
+     font-size: 1.3em;
+ }
 
-/*  */
+
+/* ================= ABOUT US =================== */
 
 .hero-image {
 		background-image: url(../img/phish_hero.jpg);
@@ -75,20 +79,31 @@ body {
 
 .all-about-music-box {
     background-image: url(../img/koa.png);
-    min-height: 30em;
+    min-height: 35em;
     margin-top: 5em;
+    text-align: center;
 }
 
 .about-us-box-header {
     padding: .5em;
     font-size: 2.5em;
+    margin-bottom: 0.3em;
 }
 
 .text-center {
     text-align: center;
 }
 
+.about-us-glyphs {
+    font-size: 7em;
+    /*position: center;*/
+    text-align: center;
+    margin-bottom: 0.3em;
+}
 
+.about-us-text {
+    font-size: 1.3em;
+}
 
 
 /*==============NEW POST PAGE=================*/
@@ -102,3 +117,54 @@ body {
     background-color: #188d18;
 }
 
+
+
+/* =============VIEW POST PAGE=============== */
+
+.view-post-container {
+    padding-top: 20px;
+    padding-bottom: 50px;
+}
+
+.post-heading {
+    height: 2.5em;
+    background-color: #188d18;
+    /*background-image: url(../img/threepnto.png);*/
+    color: #ffffff;
+    margin-bottom: 1em;
+    width: 100%;
+    padding-left: 1em;
+}
+
+.post-text-box {
+    width: 100%;
+    border: 1px solid black;
+    height: auto;
+    min-height: 15em;
+    /*padding-left: 1em;*/
+}
+
+.post-text-main-text {
+    margin: 0.4em 1em 0.4em 1em;
+}
+
+.click-to-comment {
+    padding: 0em 0em 0em 45em;
+}
+
+.message-board-text {
+    font-size: 1.2em;
+}
+
+.edit-delete-buttons-box {
+    margin: 0.5em;
+    height: 2em;
+}
+
+.edit-link-comments {
+    float: left !important;
+}
+
+.small-margin-top-bottom {
+    margin: 1em 0em 1em 0em;
+}

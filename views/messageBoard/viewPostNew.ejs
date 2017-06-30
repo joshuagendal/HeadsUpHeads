@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <% include ../partials/header %>
+  </head>
+  <body>
+        <% include ../partials/nav %>
+    <div class="col-md-10 margin-top-seventy-five">
+        <div class="container view-post-container">
+            <div class="post-heading">
+                <h2><%= queriedPost.postHeading %></h2>
+            </div>
+            <div class="post-text-box">
+                <div class="post-text-main-text">
+                    <p class="message-board-text"><%= queriedPost.postText %></p>
+                </div>
+            </div>   
+                <div class="click-to-comment">
+                    <p class="message-board-text"><a href="/message-board/<%= queriedPost._id %>/new-comment">Comment</a></p>
+                </div> 
+                
+
+                <!--<h3>COMMENTS</h3>-->
+                
+                <% queriedPost.comments.forEach(function(comment){ %>
+                    <div class="post-text-box small-margin-top-bottom">
+                        <div class="post-text-main-text">
+                            <h3><%= comment.userCommenting.username %></h3>
+                            <p class="message-board-text"><%= comment.commentText %></p>
+                        </div>
+                    </div>            
+                            <% if(notEmailAuthUser){ %>
+                                <% {} %>
+                            <% } else if(notAuthByAdminUser){ %>
+                                <% {} %>
+                            <%} else if(currentUser && comment.userCommenting.id.equals(currentUser._id)){ %>
+                            <div class="edit-delete-buttons-box">
+                                <form style="float: right;" action="/message-board/<%= queriedPost._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
+                                    <input type="submit" class="btn btn-danger" value="DELETE">
+                                </form>  
+                                <h4 style="float: right; padding-right: 1em;"><a href="/message-board/<%= queriedPost._id %>/comments/<%= comment._id %>/edit">EDIT</a></h3>
+                            </div>    
+                            <% } %>
+                            <% }) %>
+                        <!--</div>
+                    </div>-->
+            
+
+        </div>
+    </div>    

@@ -41,7 +41,7 @@ let getIndividualPostById = (req, res) => {
             console.log(err);
             res.redirect("/");
         } else {
-            res.render('messageBoard/view-post.ejs', {queriedPost: queriedPost});
+            res.render('messageBoard/viewPostNew.ejs', {queriedPost: queriedPost});
         }
     });
 }

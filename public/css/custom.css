@@ -62,3 +62,43 @@ body {
 .margin-top-fifty {
     margin-top: 50px;
 }
+
+.margin-top-seventy-five {
+    margin-top: 75px;
+}
+
+.margin-bottom-fifty {
+    margin-bottom: 50px;
+}
+
+
+
+.all-about-music-box {
+    background-image: url(../img/koa.png);
+    min-height: 30em;
+    margin-top: 5em;
+}
+
+.about-us-box-header {
+    padding: .5em;
+    font-size: 2.5em;
+}
+
+.text-center {
+    text-align: center;
+}
+
+
+
+
+/*==============NEW POST PAGE=================*/
+.new-post-text-box {
+    height: 200px;
+    padding: 0 0.4em 0.4em 0;
+
+}
+
+.site-green {
+    background-color: #188d18;
+}
+

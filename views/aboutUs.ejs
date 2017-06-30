@@ -1,15 +1,70 @@
 <!DOCTYPE html>
-<html lang="en">
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <% include partials/header %>
+    <meta charset="utf-8" />
+    <!--MAKE SURE THIS IS IN THE HEAD FOR STYLING ACROSS DEVICES-->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Heads Up Heads</title>
+
+    <!--Bootstrap and jQuery-->
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!--MY EXTERNAL STYLESHEETS-->
+    <link rel="stylesheet" href="/css/home.css" />
+    <link rel="stylesheet" href="/css/mediaStyles.css" />
+    <link rel="stylesheet" href="/css/custom.css">
+    <link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet">
+
+</head>
 </head>
   <body>
     <% include partials/nav %>
-    <% include partials/hero-image %>
+    <% include partials/aboutUsPicTxtSlider%>
+
+    <div class="container content">
+        <!--<div class="col-md-1">
+
+        </div>-->
+        
+        <div class="col-md-4 col-xs-12">
+            <div class="all-about-music-box">
+                <div class="about-us-box-header text-center">
+                    <span>All About Music</span>
+                </div>
+                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                <div class="box-body about-us-text">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris hendrerit blandit nunc nec tincidunt. Aliquam pellentesque velit eget libero venenatis interdum.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-xs-12">
+            <div class="all-about-music-box">
+                <div class="box-header text-center">
+                    <span>All About Music</span>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-4 col-xs-12">
+            <div class="all-about-music-box">
+                <div class="box-header text-center">
+                    <span>All About Music</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
     <!--<% include partials/marketing-content.ejs %>-->
     <!--<div class="container">
       <h1>THIS IS THE INDEX!!!!!</h1>
     </div> -->
+    <script src="/js/home.js"></script>
     <% include partials/footer %>
   <!--</body>
 </html>-->

@@ -1,0 +1,109 @@
+
+/*phones smaller than iphone 6s plus*/
+@media only screen and (max-width: 320px) {
+    .logo {
+        margin-top: 6em;
+        max-height: 15em;
+    }
+}
+
+@media only screen and (max-width: 414px) {
+
+    .logo {
+        max-height: 18em;
+    }
+
+    .logo-subtitle {
+        font-size: 1.5em;
+    }
+}
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+    .logo {
+        height: 35em;
+    }
+
+    .logo-subtitle {
+        font-size: 3em;
+    }
+
+    .scroll-btn {
+        font-size: 7em;
+    }
+
+    .box-header {
+        font-size: 3.2em;
+    }
+
+    .box-body ul {
+        padding-bottom: 2em;
+        padding-right: 1em;
+    }
+
+        .box-body ul li {
+            font-size: 1.8em;
+        }
+
+            .box-body ul li span {
+                font-size: .8em;
+            }
+    .content button {
+        font-size: 1.8em;
+    }
+}
+
+@media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) {
+    .content {
+        height: 90%;
+    }
+    .info-box {
+        min-height: 50em;
+        max-height: 66em;
+        overflow: hidden;
+    }
+    .box-header {
+        font-size: 3.8em;
+    }
+
+    .box-body ul {
+        padding-bottom: 2em;
+        padding-right: 1em;
+    }
+
+        .box-body ul li {
+            font-size: 2.1em;
+            margin-bottom: 1em;
+        }
+
+            .box-body ul li span {
+                font-size: .8em;
+            }
+    .content button {
+        font-size: 2.2em;
+    }
+}
+
+@media only screen and (min-width: 1366px) {
+    .info-box {
+        min-height: 30em;
+    }
+    .box-body ul {
+        padding-bottom: 2em;
+        padding-right: 1em;
+    }
+
+        .box-body ul li {
+            font-size: 1.8em;
+            margin-bottom: 1em;
+        }
+
+            .box-body ul li span {
+                font-size: .8em;
+            }
+    .content button {
+        font-size: 1.5em;
+    }
+}
+
+
+

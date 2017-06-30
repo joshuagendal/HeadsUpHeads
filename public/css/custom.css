@@ -1,19 +1,64 @@
 
 
 body {
-    font-family: sans-serif;
+    font-family: Karla;
 }
 
+/* ======= NAVBAR ======== */
 
-
-
+.navbar-default .navbar-brand {
+    color: #ffffff;
+}
 
 
 .navbar-default {
     background-image: url(../img/threepnto.png);
-    background-repeat: repeat;
+    background-repeat: repeat-x;
 }
 
 .navbar-default .navbar-nav > li > a {
     color: #ffffff;
+}
+
+ .navbar-default .navbar-nav > .active{
+    color: #ffffff;
+    background-image: url(../img/koa.png);
+ }
+ .navbar-default .navbar-nav > .active > a, 
+ .navbar-default .navbar-nav > .active > a:hover, 
+ .navbar-default .navbar-nav > .active > a:focus {
+    color: #ffffff;
+    background-image: url(../img/koa.png);
+ }
+
+
+/*  */
+
+.hero-image {
+		background-image: url(../img/phish_hero.jpg);
+		background-position: center;
+		background-size: cover;
+		height: 400px;
+		width: 100%;
+}
+
+.koa-marketing-main {
+    background-image: url(../img/koa.png);
+    height: 800px;
+}
+
+.hero-text {
+    color: #ffffff;
+    text-align: center;
+    margin: auto;
+    padding: 175px 175px;
+}
+
+.container-hero-image {
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.margin-top-fifty {
+    margin-top: 50px;
 }

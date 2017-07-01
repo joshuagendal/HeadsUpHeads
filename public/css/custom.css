@@ -108,13 +108,18 @@ body {
 
 /*==============NEW POST PAGE=================*/
 .new-post-text-box {
-    height: 200px;
+    height: 275px !important;
     padding: 0 0.4em 0.4em 0;
 
 }
 
 .site-green {
     background-color: #188d18;
+}
+
+.new-post-text-size-color {
+    font-size: 1.3em;
+    color: black;
 }
 
 
@@ -154,6 +159,7 @@ body {
 
 .message-board-text {
     font-size: 1.2em;
+    color: black;
 }
 
 .edit-delete-buttons-box {
@@ -167,4 +173,16 @@ body {
 
 .small-margin-top-bottom {
     margin: 1em 0em 1em 0em;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+.black-text {
+    color: black;
+}
+
+.margin-top-em {
+    margin-top: 1em;
 }

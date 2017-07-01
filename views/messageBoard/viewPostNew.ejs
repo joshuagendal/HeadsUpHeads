@@ -8,16 +8,16 @@
     <div class="col-md-10 margin-top-seventy-five">
         <div class="container view-post-container">
             <div class="post-heading">
-                <h2><%= queriedPost.postHeading %></h2>
+                <h2><%= queriedPost.postHeading %> || <%= queriedPost.created %></h2>
             </div>
             <div class="post-text-box">
                 <div class="post-text-main-text">
                     <p class="message-board-text"><%= queriedPost.postText %></p>
                 </div>
             </div>   
-                <div class="click-to-comment">
+                <!--<div class="click-to-comment">
                     <p class="message-board-text"><a href="/message-board/<%= queriedPost._id %>/new-comment">Comment</a></p>
-                </div> 
+                </div> -->
                 
 
                 <!--<h3>COMMENTS</h3>-->
@@ -25,26 +25,37 @@
                 <% queriedPost.comments.forEach(function(comment){ %>
                     <div class="post-text-box small-margin-top-bottom">
                         <div class="post-text-main-text">
-                            <h3><%= comment.userCommenting.username %></h3>
+                            <h3><%= comment.userCommenting.username %> || <%= comment.created %></h3>
                             <p class="message-board-text"><%= comment.commentText %></p>
                         </div>
                     </div>            
-                            <% if(notEmailAuthUser){ %>
-                                <% {} %>
-                            <% } else if(notAuthByAdminUser){ %>
-                                <% {} %>
-                            <%} else if(currentUser && comment.userCommenting.id.equals(currentUser._id)){ %>
-                            <div class="edit-delete-buttons-box">
-                                <form style="float: right;" action="/message-board/<%= queriedPost._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
-                                    <input type="submit" class="btn btn-danger" value="DELETE">
-                                </form>  
-                                <h4 style="float: right; padding-right: 1em;"><a href="/message-board/<%= queriedPost._id %>/comments/<%= comment._id %>/edit">EDIT</a></h3>
-                            </div>    
-                            <% } %>
-                            <% }) %>
-                        <!--</div>
-                    </div>-->
-            
+                        <% if(notEmailAuthUser){ %>
+                            <% {} %>
+                        <% } else if(notAuthByAdminUser){ %>
+                            <% {} %>
+                        <%} else if(currentUser && comment.userCommenting.id.equals(currentUser._id)){ %>
+                        <div class="edit-delete-buttons-box">
+                            <form style="float: right;" action="/message-board/<%= queriedPost._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
+                                <input type="submit" class="btn btn-danger" value="DELETE">
+                            </form>  
+                            <h4 style="float: right; padding-right: 1em;"><a href="/message-board/<%= queriedPost._id %>/comments/<%= comment._id %>/edit">EDIT</a></h3>
+                        </div>    
+                        <% } %>
+                <% }) %>
 
+
+                <!-- NEW COMMENT TEXT BOX-->
+                <!--<div class="container">-->   
+                    <h1 class="margin-top-seventy-five">Post Comment Here</h1>
+                    <form method="POST" id="newCommentForm" action="/message-board/<%= queriedPost._id %>/new-comment">
+                        <!--<div class="post-text-box col-xs-12">-->
+							<textarea rows="10" id="commentText" class="form-control new-post-text-box message-board-text" name="commentText" type="text" autocomplete="off" style="padding-left: 5px; border: 1px solid black;"></textarea>
+						<!--</div>    -->
+                    <div class="form-group">
+                        <input type="submit" id="submit" value="SUBMIT COMMENT" class="form-control btn btn-primary margin-top-em" name="submit">
+                    </div>    
+                    </form>
+
+                <!--</div>-->
         </div>
     </div>    

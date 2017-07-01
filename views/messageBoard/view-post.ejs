@@ -26,12 +26,12 @@
                 <% {} %>
             <% } else if(notAuthByAdminUser){ %>
                 <% {} %>
-            <%} else if(currentUser && queriedPost.userPosting.id.equals(currentUser._id)){%>    
-            <h3><a href="/message-board/<%= queriedPost._id %>/edit">Edit This Post</a></h3>
+            <%} else if(currentUser && queriedPost.userPosting.id.equals(currentUser._id)){%>    <!-- LOGIC: only display edit and delete post if it is the post owner -->
+                <h3><a href="/message-board/<%= queriedPost._id %>/edit">Edit This Post</a></h3>
 
-            <form action="/message-board/<%= queriedPost._id %>?_method=DELETE" method="POST">
-                <button class="btn btn-danger">Delete Post</button>
-            </form>
+                <form action="/message-board/<%= queriedPost._id %>?_method=DELETE" method="POST">
+                    <button class="btn btn-danger">Delete Post</button>
+                </form>
             <% } %>
 
             

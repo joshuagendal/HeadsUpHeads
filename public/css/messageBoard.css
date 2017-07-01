@@ -1,0 +1,60 @@
+
+/*--------------------these are all the same as Home2.css----------------*/
+body, html
+{
+    height: 100%;
+}
+
+            /*just changed the url for a different picture. feel free to replace with anything*/
+.logo-background {
+    width: 100%;
+    height: 60%;
+    background-image: url(../img/messageboard-background-1-cropped-2.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/*----------------these are new or altered styles for this page----------------*/
+
+
+.page-title {
+    padding: 6em .5em 1em .5em;
+    font-size: 3em;
+    color: white;
+}
+
+.scroll-btn {
+    padding-top: 10%;
+    color: white;
+    font-size: 5em;
+}
+
+.content {
+    /*background-color: #dd5306;*/
+    background-image: url(../img/threepnto.png);
+    width: 100%;
+    height: 80%;
+    min-height: 65%;
+    padding-top: 2em;
+    padding-bottom: 2em;
+    /*padding-left: 4em;
+    padding-right: 4em;*/
+    /*padding: 2em 4em 2em 4em;*/
+}
+
+.messageboard {
+    border: 2px solid black;
+    background-color: white;
+    height: 100%;
+}
+
+tbody > tr:nth-child(odd) > td {
+    background-color: #c5c5c5;
+}
+
+.table-hover tbody tr:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}

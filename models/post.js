@@ -16,7 +16,7 @@ const postSchema = mongoose.Schema({
 			  	ref: 'Comment'
 		}
 	],
-    created: {type: Date, required: true, default: Date.now}
+    created: {type: Date, required: true, default: Date.now()}
 });
 
 module.exports = mongoose.model('Post', postSchema);

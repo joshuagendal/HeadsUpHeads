@@ -8,6 +8,7 @@ body {
 
 .navbar-default .navbar-brand {
     color: #ffffff;
+    font-size: 1.8em;
 }
 
 
@@ -27,12 +28,12 @@ body {
  .navbar-default .navbar-nav > .active > a, 
  .navbar-default .navbar-nav > .active > a:hover, 
  .navbar-default .navbar-nav > .active > a:focus {
-    color: #ffffff;
+    color: black;
     background-image: url(../img/koa.png);
  }
 
  .nav-font-size {
-     font-size: 1.3em;
+     font-size: 1.6em;
  }
 
 
@@ -146,6 +147,7 @@ body {
     border: 1px solid black;
     height: auto;
     min-height: 15em;
+    background-image: url(../img/koa.png);
     /*padding-left: 1em;*/
 }
 
@@ -158,7 +160,7 @@ body {
 }
 
 .message-board-text {
-    font-size: 1.2em;
+    font-size: 1.8em;
     color: black;
     margin-top: 8px;
 }
@@ -200,4 +202,8 @@ body {
 
 .comment-div {
     border-bottom: 1px solid rgba(121, 115, 115, 0.61);
+}
+
+.add-comment-text {
+    font-size: 1.9em;
 }

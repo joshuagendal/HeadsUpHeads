@@ -146,7 +146,7 @@ body {
     width: 100%;
     border: 1px solid black;
     height: auto;
-    min-height: 15em;
+    min-height: 10em;
     background-image: url(../img/koa.png);
     /*padding-left: 1em;*/
 }

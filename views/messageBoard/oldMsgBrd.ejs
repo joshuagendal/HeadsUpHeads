@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <% include ../partials/header %>
+  </head>
+  <body>
+      <% include ../partials/nav %>    
+    
+      
+      <div class="container">
+
+        <div class="starter-template">
+          <h1> Message Board </h1>
+          
+          <a href="/message-board/new-post"><h1>Click here to post</h1></a>
+        </div>
+      </div>
+
+      <div class="container">
+        <% posts.forEach(function(post){ %>
+          <h3><%= post.postHeading %></h3>
+          <h3><%= post.postText %></h3>
+          <h3><%= post.userPosting.username %></h3>
+          <h3><%= post.created %></h3>
+          <h3><%= post._id %></h3>
+          <h3><a href="/message-board/<%=post._id%>" class="btn btn-primary">More Info</a></h3>
+        <% }); %>
+        </form>
+      </div>
+      <% include ../partials/footer %>
+  </body>
+</html>

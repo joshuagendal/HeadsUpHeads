@@ -160,6 +160,7 @@ body {
 .message-board-text {
     font-size: 1.2em;
     color: black;
+    margin-top: 8px;
 }
 
 .edit-delete-buttons-box {
@@ -194,5 +195,9 @@ body {
 
 .comment-text-header {
     margin-top: 2px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
+}
+
+.comment-div {
+    border-bottom: 1px solid rgba(121, 115, 115, 0.61);
 }

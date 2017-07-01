@@ -25,7 +25,9 @@
                 <% queriedPost.comments.forEach(function(comment){ %>
                     <div class="post-text-box small-margin-top-bottom">
                         <div class="post-text-main-text">
-                            <h3 class="comment-text-header"><%= comment.userCommenting.username %> || <%= comment.created %></h3>
+                            <div class="comment-div">
+                                <h3 class="comment-text-header"><%= comment.userCommenting.username %> || <%= comment.created %></h3>
+                            </div>    
                             <p class="message-board-text"><%= comment.commentText %></p>
                         </div>
                     </div>            

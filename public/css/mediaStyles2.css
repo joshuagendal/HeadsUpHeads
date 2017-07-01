@@ -3,7 +3,7 @@
 @media only screen and (max-width: 320px) {
     /*for messageboard*/
     .page-title {
-        font-size: 1.8em;
+        font-size: 1.6em;
     }
 }
 
@@ -18,7 +18,7 @@
     }
     /*for messageboard*/
     .page-title {
-        font-size: 2.2em;
+        font-size: 2em;
     }
 }
 

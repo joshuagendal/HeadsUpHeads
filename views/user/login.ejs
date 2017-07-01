@@ -8,42 +8,47 @@
 
     <% include ../partials/nav %>
 
-    <div>
       <% if(loginValidationHasErrs) { %>
-        <% for(var i=0; i < loginValidationErrs.length; i++) {%>
-            <h1><%= loginValidationErrs[i] %></h1>  <!-- when adding the equal sign to these tags, able to call                     a variable that is passed from backend -->
-        <% } %> 
-      <% } %>  
-    </div>  
+      <!--<div class="container">-->
+        <!--<div class="alert alert-danger margin-top-seventy-five" role="alert">-->
+            <% for(var i=0; i < loginValidationErrs.length; i++) {%>
+                <h1 class="alert alert-danger margin-top-fifty" role="alert"><%= loginValidationErrs[i] %></h1>  <!-- when adding the equal sign to these tags, able to call                     a variable that is passed from backend -->
+            <% } %> 
+        <!--</div>    -->
+      <!--</div>  -->
+      <% } %>   
  
     
       <% if(loginPostReqHasErrs) { %>
+        <!--<div class="alert alert-danger margin-top-seventy-five" role="alert">-->
         <% for(var i=0; i < loginPostReqErrs.length; i++) { %>
-          <h1><%= loginPostReqErrs[i] %></h1>  
+          <h1 class="alert alert-danger margin-top-fifty" role="alert"><%= loginPostReqErrs[i] %></h1>  
         <% } %>  
       <% } %>
 
 
 
-    <div class="container">
-      <h1>LOGIN</h1>
+    <div class="container text-center margin-top-alot margin-bottom-fifty">
+      <h1 class="login-header">LOGIN</h1>
     </div>  
+      <div class="col-md-1"></div>
+      <div class="col-md-10">  
         <form method="POST" action="/login">
 
             <div class="form-group col-xs-12">
                 <input id="email" class="form-control" name="email" type="text" autocomplete="on" placeholder="EMAIL" style="margin-bottom:20px;">
             </div>
 
-            <div class="form-group input_group">
+            <div class="form-group col-xs-12">
                 <input id="password" class="form-control" name="password" type="password" placeholder="PASSWORD" style="margin-bottom:20px;">
             </div>
 
 
-            <div class="form-group">
+            <div class="form-group col-xs-12">
                 <input type="submit" id="login" value="LOGIN" class="form-control btn btn-primary" name="login" style="">
             </div>
         </form>
-    </div>        
+      </div>        
 
 
 

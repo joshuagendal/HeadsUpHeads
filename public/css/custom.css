@@ -68,6 +68,10 @@ body {
     margin-top: 50px;
 }
 
+.margin-top-alot {
+    margin-top: 125px;
+}
+
 .margin-top-seventy-five {
     margin-top: 75px;
 }
@@ -206,4 +210,15 @@ body {
 
 .add-comment-text {
     font-size: 1.9em;
+}
+
+
+
+/* ============ LOGIN ================ */
+.login-header {
+    font-size: 50px;
+}
+
+.form-control {
+    height: 39px;
 }

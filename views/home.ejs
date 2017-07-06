@@ -22,7 +22,11 @@
 <body>
     <% include ./partials/nav %>
 
-        </div>
+    <% if(hasSuccessMsg) {%>
+        <h1 class="alert alert-success margin-top-fifty" role="alert"><%= successMsg %></h1>
+    <% } %>
+
+        <!--</div>
     </nav>-->
 <% include ./partials/homePagePicTxtSlider %>
 <% include ./partials/homePageContent %>

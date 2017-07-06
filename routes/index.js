@@ -1,10 +1,12 @@
 module.exports = (app) => {
     app.get('/', (req, res) => {
-		res.render('home.ejs');
+        var successMsg = req.flash('signupSuccessMsg');
+        res.render('home.ejs', { successMsg: successMsg, hasSuccessMsg: successMsg.length > 0});
 	});
 
     app.get('/home', (req, res) => {
-        res.render('home.ejs')
+        var successMsg = req.flash('signupSuccessMsg');
+        res.render('home.ejs', { successMsg: successMsg, hasSuccessMsg: successMsg.length > 0});
     });
 
     app.get('/about-us', (req, res) => {

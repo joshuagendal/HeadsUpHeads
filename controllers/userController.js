@@ -8,6 +8,7 @@ function signUpValidation(req, res, next) {
 	req.checkBody('password', 'Password is required!').notEmpty();
 	req.checkBody('password', 'Password must be more than 5 characters!').isLength({min:5});
 	req.check('password', 'Password must contain at least 1 number!').matches(/^(?=.*\d)(?=.*[a-z])[0-9a-z]{5,}$/, "i");
+    req.checkBody('isThirteen', 'You must be at least 13 years of age to join HUH! Please check the check box').notEmpty();
     // req.checkBody('business', 'Your business phone number is incorrect! Phone numbers are 9 or 10 characters! Please try again!').matches('/^\d{9}$/');
     // req.checkBody('cell', 'Your business phone number is incorrect! Phone numbers are 9 or 10 characters! Please try again!').matches('/^\d{9}$/');
 

@@ -214,11 +214,22 @@ body {
 
 
 
-/* ============ LOGIN ================ */
+/* ============= LOGIN ================ */
 .login-header {
     font-size: 50px;
 }
 
 .form-control {
-    height: 39px;
+    height: 3.2em;
+    font-size: 1em;;
+}
+
+/* ============== SIGNUP ================ */
+
+.grey-background {
+    background-color: #ffffff;
+}
+
+.align-left {
+    text-align: left;
 }

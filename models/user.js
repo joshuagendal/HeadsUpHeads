@@ -7,6 +7,7 @@ var userSchema = mongoose.Schema({
     lastName: {type: String, required: true},
     email: {type: String, required: true},
     password: {type: String, required:true},
+    isThirteen: {type: Boolean, required: true},
     company: {type: String, required: true},          // where user works
     professionalTitle: {type: String, required: false}, // ... if any
     jobDescription: {type: String, required: false},

@@ -32,24 +32,8 @@ passport.use('local.signup', new LocalStrategy({
          
         const userShortId  = shortid.generate();
                     // took password out of below
-        const {username, firstName, lastName, email, password, company, professionalTitle, jobDescription, role, business, 
-          cell, firstPhishShow, lastPhishShow, firstDeadShowWithJerry, lastDeadShowWithJerry, topThreeFavLiveExp} = req.body;
-        // var plainTxtPassword = password;
-
-        // console.log('GETS TO SECOND');  
-        // // const plainTextPassword = password;
-        // console.log('PLAIN TEXT!!!!: ', password);
-        // const saltRounds = 10;
-
-       
-
-        // bcrypt.genSalt(saltRounds, function(err, salt) {
-        //     bcrypt.hash(plainTxtPassword, salt, function(err, hash) {
-        //         plainTxtPassword = hash;
-        //     });    
-        // });
-
-        // console.log(plainTxtPassword);
+        const {username, firstName, lastName, email, password, isThirteen, company, professionalTitle, jobDescription, role, business, 
+          cell, firstPhishShow, lastPhishShow, firstDeadShowWithJerry, lastDeadShowWithJerry, firstFav, secondFav, thirdFav} = req.body;
 
 
 
@@ -57,12 +41,12 @@ passport.use('local.signup', new LocalStrategy({
           username,
 	      firstName,
           lastName,
-          password,
           email,
+          password,
+          isThirteen,
           company,
           professionalTitle,
           jobDescription,
-          
           role,
           telephone: {
             business,
@@ -72,7 +56,11 @@ passport.use('local.signup', new LocalStrategy({
           lastPhishShow,
           firstDeadShowWithJerry,
           lastDeadShowWithJerry,
-          topThreeFavLiveExp,
+          topThreeFavLiveExp: {
+              firstFav,
+              secondFav,
+              thirdFav
+          },
           userEmailKey: userShortId,    
           userEmailVerified: false,
           userVerifiedByAdmin: false,

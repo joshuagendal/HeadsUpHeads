@@ -11,7 +11,7 @@
 
 
 
-    <div class="row">
+    <div class="row margin-top-seventy-five">
       <% if(hasErrors) {%>
         <% for(var i=0; i < messages.length; i++) {%>
           <div class="alert alert-danger"> 
@@ -22,7 +22,9 @@
           </div>
         <% } %> 
       <% } %>   
-
+    </div>  
+    <div class="container text-center grey-background">  
+      <h1 style="padding-bottom: 15px;">SIGNUP</h1>  
       <form method="POST" class="" id="signupForm" action="/signup">
         
             <div class="form-group col-xs-12">
@@ -41,7 +43,7 @@
                 <input id="email" class="form-control" name="email" type="text" autocomplete="on" placeholder="EMAIL" style="margin-top: 20px; margin-bottom:20px;" >
             </div>
 
-            <div class="form-group col-xs-12">
+            <div class="form-group col-xs-12"> <!-- @TODO: ENCRYPT THIS TO *** NOT TEXT ON FRONT END AND ADD EXTRA BOX FOR VALIDATION-->
                 <input id="password" class="form-control" name="password" type="text" autocomplete="on" placeholder="PASSWORD" style="margin-top: 20px; margin-bottom:20px;" >
             </div>
 
@@ -50,11 +52,16 @@
             </div>
 
             <div class="form-group col-xs-12">
+                <h4 class="align-left">ARE YOU AT LEAST 13 YEARS OLD?</h4>
+                <input id="isThirteen" class="form-control align-left" name="isThirteen" type="checkbox" autocomplete="off" placeholder="ARE YOU THIRTEEN" style="margin-top: 20px; margin-bottom:20px;" >
+            </div>
+
+            <div class="form-group col-xs-12">
                 <input id="professionalTitle" class="form-control" name="professionalTitle" type="text" autocomplete="on" placeholder="PROFESSIONAL TITLE" style="margin-top: 20px; margin-bottom:20px;" >
             </div>
 
             <div class="form-group col-xs-12">
-                <input id="jobDescription" class="form-control" name="jobDescription" type="text" autocomplete="on" placeholder="JOB DESCRIPTION" style="margin-top: 20px; margin-bottom:20px;" >
+                <textarea rows="5"cols="5" id="jobDescription" class="form-control" name="jobDescription" type="text" autocomplete="on" placeholder="JOB DESCRIPTION" style="margin-top: 20px; margin-bottom:20px;" ></textarea>
             </div>
 
             <div class="form-group col-xs-12">
@@ -68,18 +75,54 @@
             <div class="form-group col-xs-12">
                 <input id="cell" class="form-control" name="cell" type="number" autocomplete="on" placeholder="CELL PHONE" style="margin-top: 20px; margin-bottom:20px;" >
             </div>
+
+            <div class="form-group col-xs-12">
+                <h4 class="align-left">FIRST PHISH SHOW</h4>
+                <input id="lastPhishShow" class="form-control" name="lastPhishShow" type="date" autocomplete="off" placeholder="LAST PHISH SHOW" style="margin-top: 20px; margin-bottom:20px;" >
+            </div>
+
+            <div class="form-group col-xs-12">
+                <h4 class="align-left">LAST PHISH SHOW</h4>
+                <input id="firstPhishShow" class="form-control" name="firstPhishShow" type="date" autocomplete="off" placeholder="FIRST PHISH SHOW" style="margin-top: 20px; margin-bottom:20px;" >
+            </div>
             
+            <div class="form-group col-xs-12">
+                <h4 class="align-left">FIRST DEAD SHOW WITH JERRY</h4>
+                <input id="firstDeadShowWithJerry" class="form-control" name="firstDeadShowWithJerry" type="date" autocomplete="off" placeholder="FIRST DEAD SHOW WITH JERRY" style="margin-top: 20px; margin-bottom:20px;" >
+            </div>
+
+            <div class="form-group col-xs-12">
+                <h4 class="align-left">LAST DEAD SHOW WITH JERRY</h4>
+                <input id="lastDeadShowWithJerry" class="form-control" name="lastDeadShowWithJerry" type="date" autocomplete="off" placeholder="LAST DEAD SHOW WITH JERRY" style="margin-top: 20px; margin-bottom:20px;" >
+            </div>
+        
+            <div class="form-group col-xs-12">
+                <!--<h4 class="align-left">#1 FAV LIVE MUSIC EXPERIENCE</h4>-->
+                <input id="firstFav" class="form-control" name="firstFav" type="text" autocomplete="off" placeholder="#1 FAV LIVE MUSIC EXPERIENCE" style="margin-top: 20px; margin-bottom:20px;" >
+            </div>
+
+            <div class="form-group col-xs-12">
+                <!--<h4 class="align-left">#2 FAV LIVE MUSIC EXPERIENCE</h4>-->
+                <input id="secondFav" class="form-control" name="secondFav" type="text" autocomplete="off" placeholder="#2 FAV LIVE MUSIC EXPERIENCE" style="margin-top: 20px; margin-bottom:20px;" >
+            </div>            
+
+            <div class="form-group col-xs-12">
+                <!--<h4 class="align-left">#3 FAV LIVE MUSIC EXPERIENCE</h4>-->
+                <input id="thirdFav" class="form-control" name="thirdFav" type="text" autocomplete="off" placeholder="#3 FAV LIVE MUSIC EXPERIENCE" style="margin-top: 20px; margin-bottom:20px;" >
+            </div>
+
             <div class="form-group">
                 <input type="submit" id="submit" value="SIGN UP" class="form-control btn btn-primary" name="submit">
             </div>
 
-    </div>
+    
 
       
       
       </form>
-
-    </div><!-- /.container -->
+    </div>  
+    <!--</div>  
+    </div>-->
 
 <% include ../partials/footer %>    
 </body>

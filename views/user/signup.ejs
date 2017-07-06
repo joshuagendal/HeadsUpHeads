@@ -23,96 +23,101 @@
         <% } %> 
       <% } %>   
     </div>  
-    <div class="container text-center grey-background">  
+    <div class="col-md-1"></div>
+    <div class="col-md-10 text-center grey-background">  
       <h1 style="padding-bottom: 15px;">SIGNUP</h1>  
       <form method="POST" class="" id="signupForm" action="/signup">
         
             <div class="form-group col-xs-12">
-                <input id="username" class="form-control" name="username" type="text" autocomplete="on" placeholder="USERNAME" style="margin-top: 20px; margin-bottom:20px;">
+                <input id="username" class="form-control darker-border" name="username" type="text" autocomplete="on" placeholder="USERNAME" style="margin-top: 20px; margin-bottom:20px;">
             </div>
                    
             <div class="form-group col-xs-12">
-                <input id="firstName" class="form-control" name="firstName" type="text" autocomplete="on" placeholder="FIRST NAME" style="margin-top: 20px; margin-bottom:20px;">
+                <input id="firstName" class="form-control darker-border" name="firstName" type="text" autocomplete="on" placeholder="FIRST NAME" style="margin-top: 20px; margin-bottom:20px;">
             </div>
 
             <div class="form-group col-xs-12">
-                <input id="lastName" class="form-control" name="lastName" type="text" autocomplete="on" placeholder="LAST NAME" style="margin-top: 20px; margin-bottom:20px;">
+                <input id="lastName" class="form-control darker-border" name="lastName" type="text" autocomplete="on" placeholder="LAST NAME" style="margin-top: 20px; margin-bottom:20px;">
             </div>
 
             <div class="form-group col-xs-12">
-                <input id="email" class="form-control" name="email" type="text" autocomplete="on" placeholder="EMAIL" style="margin-top: 20px; margin-bottom:20px;" >
+                <input id="email" class="form-control darker-border" name="email" type="text" autocomplete="on" placeholder="EMAIL" style="margin-top: 20px; margin-bottom:20px;" >
             </div>
 
             <div class="form-group col-xs-12"> <!-- @TODO: ENCRYPT THIS TO *** NOT TEXT ON FRONT END AND ADD EXTRA BOX FOR VALIDATION-->
-                <input id="password" class="form-control" name="password" type="text" autocomplete="on" placeholder="PASSWORD" style="margin-top: 20px; margin-bottom:20px;" >
+                <input id="password" class="form-control darker-border" name="password" type="text" autocomplete="on" placeholder="PASSWORD" style="margin-top: 20px; margin-bottom:20px;" >
             </div>
 
             <div class="form-group col-xs-12">
-                <input id="company" class="form-control" name="company" type="text" autocomplete="on" placeholder="COMPANY" style="margin-top: 20px; margin-bottom:20px;" >
+                <input id="company" class="form-control darker-border" name="company" type="text" autocomplete="on" placeholder="COMPANY" style="margin-top: 20px; margin-bottom:20px;" >
+            </div>
+
+
+            <div class="form-group">
+                <h4 class="align-left margin-left-fifteen">ARE YOU AT LEAST 13 YEARS OLD?</h4>
+                <!--<label> -->
+                    <input id="isThirteen" class="" name="isThirteen" type="checkbox" autocomplete="off" placeholder="ARE YOU THIRTEEN" style="margin-top: 20px; margin-bottom:20px;" >
+                <!--</label>-->
+            </div>
+            
+
+            <div class="form-group col-xs-12">
+                <input id="professionalTitle" class="form-control darker-border" name="professionalTitle" type="text" autocomplete="on" placeholder="PROFESSIONAL TITLE" style="margin-top: 20px; margin-bottom:20px;" >
             </div>
 
             <div class="form-group col-xs-12">
-                <h4 class="align-left">ARE YOU AT LEAST 13 YEARS OLD?</h4>
-                <input id="isThirteen" class="form-control align-left" name="isThirteen" type="checkbox" autocomplete="off" placeholder="ARE YOU THIRTEEN" style="margin-top: 20px; margin-bottom:20px;" >
+                <textarea rows="5"cols="5" id="jobDescription" class="form-control darker-border" name="jobDescription" type="text" autocomplete="on" placeholder="JOB DESCRIPTION" style="margin-top: 20px; margin-bottom:20px;" ></textarea>
             </div>
 
             <div class="form-group col-xs-12">
-                <input id="professionalTitle" class="form-control" name="professionalTitle" type="text" autocomplete="on" placeholder="PROFESSIONAL TITLE" style="margin-top: 20px; margin-bottom:20px;" >
+                <input id="role" class="form-control darker-border" name="role" type="text" autocomplete="on" placeholder="ROLE" style="margin-top: 20px; margin-bottom:20px;" >
             </div>
 
             <div class="form-group col-xs-12">
-                <textarea rows="5"cols="5" id="jobDescription" class="form-control" name="jobDescription" type="text" autocomplete="on" placeholder="JOB DESCRIPTION" style="margin-top: 20px; margin-bottom:20px;" ></textarea>
+                <input id="business" class="form-control darker-border" name="business" type="number" autocomplete="on" placeholder="BUSINESS PHONE" style="margin-top: 20px; margin-bottom:20px;" >
             </div>
 
             <div class="form-group col-xs-12">
-                <input id="role" class="form-control" name="role" type="text" autocomplete="on" placeholder="ROLE" style="margin-top: 20px; margin-bottom:20px;" >
-            </div>
-
-            <div class="form-group col-xs-12">
-                <input id="business" class="form-control" name="business" type="number" autocomplete="on" placeholder="BUSINESS PHONE" style="margin-top: 20px; margin-bottom:20px;" >
-            </div>
-
-            <div class="form-group col-xs-12">
-                <input id="cell" class="form-control" name="cell" type="number" autocomplete="on" placeholder="CELL PHONE" style="margin-top: 20px; margin-bottom:20px;" >
+                <input id="cell" class="form-control darker-border" name="cell" type="number" autocomplete="on" placeholder="CELL PHONE" style="margin-top: 20px; margin-bottom:20px;" >
             </div>
 
             <div class="form-group col-xs-12">
                 <h4 class="align-left">FIRST PHISH SHOW</h4>
-                <input id="lastPhishShow" class="form-control" name="lastPhishShow" type="date" autocomplete="off" placeholder="LAST PHISH SHOW" style="margin-top: 20px; margin-bottom:20px;" >
+                <input id="lastPhishShow" class="form-control darker-border" name="lastPhishShow" type="date" autocomplete="off" placeholder="LAST PHISH SHOW" style="margin-top: 20px; margin-bottom:20px;" >
             </div>
 
             <div class="form-group col-xs-12">
                 <h4 class="align-left">LAST PHISH SHOW</h4>
-                <input id="firstPhishShow" class="form-control" name="firstPhishShow" type="date" autocomplete="off" placeholder="FIRST PHISH SHOW" style="margin-top: 20px; margin-bottom:20px;" >
+                <input id="firstPhishShow" class="form-control darker-border" name="firstPhishShow" type="date" autocomplete="off" placeholder="FIRST PHISH SHOW" style="margin-top: 20px; margin-bottom:20px;" >
             </div>
             
             <div class="form-group col-xs-12">
                 <h4 class="align-left">FIRST DEAD SHOW WITH JERRY</h4>
-                <input id="firstDeadShowWithJerry" class="form-control" name="firstDeadShowWithJerry" type="date" autocomplete="off" placeholder="FIRST DEAD SHOW WITH JERRY" style="margin-top: 20px; margin-bottom:20px;" >
+                <input id="firstDeadShowWithJerry" class="form-control darker-border" name="firstDeadShowWithJerry" type="date" autocomplete="off" placeholder="FIRST DEAD SHOW WITH JERRY" style="margin-top: 20px; margin-bottom:20px;" >
             </div>
 
             <div class="form-group col-xs-12">
                 <h4 class="align-left">LAST DEAD SHOW WITH JERRY</h4>
-                <input id="lastDeadShowWithJerry" class="form-control" name="lastDeadShowWithJerry" type="date" autocomplete="off" placeholder="LAST DEAD SHOW WITH JERRY" style="margin-top: 20px; margin-bottom:20px;" >
+                <input id="lastDeadShowWithJerry" class="form-control darker-border" name="lastDeadShowWithJerry" type="date" autocomplete="off" placeholder="LAST DEAD SHOW WITH JERRY" style="margin-top: 20px; margin-bottom:20px;" >
             </div>
         
             <div class="form-group col-xs-12">
                 <!--<h4 class="align-left">#1 FAV LIVE MUSIC EXPERIENCE</h4>-->
-                <input id="firstFav" class="form-control" name="firstFav" type="text" autocomplete="off" placeholder="#1 FAV LIVE MUSIC EXPERIENCE" style="margin-top: 20px; margin-bottom:20px;" >
+                <input id="firstFav" class="form-control darker-border" name="firstFav" type="text" autocomplete="off" placeholder="#1 FAV LIVE MUSIC EXPERIENCE" style="margin-top: 20px; margin-bottom:20px;" >
             </div>
 
             <div class="form-group col-xs-12">
                 <!--<h4 class="align-left">#2 FAV LIVE MUSIC EXPERIENCE</h4>-->
-                <input id="secondFav" class="form-control" name="secondFav" type="text" autocomplete="off" placeholder="#2 FAV LIVE MUSIC EXPERIENCE" style="margin-top: 20px; margin-bottom:20px;" >
+                <input id="secondFav" class="form-control darker-border" name="secondFav" type="text" autocomplete="off" placeholder="#2 FAV LIVE MUSIC EXPERIENCE" style="margin-top: 20px; margin-bottom:20px;" >
             </div>            
 
             <div class="form-group col-xs-12">
                 <!--<h4 class="align-left">#3 FAV LIVE MUSIC EXPERIENCE</h4>-->
-                <input id="thirdFav" class="form-control" name="thirdFav" type="text" autocomplete="off" placeholder="#3 FAV LIVE MUSIC EXPERIENCE" style="margin-top: 20px; margin-bottom:20px;" >
+                <input id="thirdFav" class="form-control darker-border" name="thirdFav" type="text" autocomplete="off" placeholder="#3 FAV LIVE MUSIC EXPERIENCE" style="margin-top: 20px; margin-bottom:20px;" >
             </div>
 
             <div class="form-group">
-                <input type="submit" id="submit" value="SIGN UP" class="form-control btn btn-primary" name="submit">
+                <input type="submit" id="submit" value="SIGN UP" class="form-control btn btn-primary site-green" name="submit">
             </div>
 
     

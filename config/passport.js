@@ -106,16 +106,37 @@ passport.use('local.login', new LocalStrategy({
     passwordField: 'password',
     passReqToCallback: true
 }, (req, email, password, done) => {                       
-    User.findOne({'email': email, 'userVerifiedByAdmin': true}, (err, user) => {
-        if(err){  // deal w/ error
-            console.log('PASSPORT ERROR');
+    User.findOne({'email': email}, (err, user) => {
+        // if(err){  // deal w/ error
+        //     console.log('PASSPORT ERROR');
+        //     return done(err);
+        // } 
+        const loginPostReqErrMsgs = [];  
+
+        // PASSPORT ERROR
+        if(err){  
+            loginPostReqErrMsgs.push('System Error! Please contact the site administrators!')
             return done(err);
         } 
-        const loginPostReqErrMsgs = [];    
+        // USER EMAIL IS NOT IN DB
         if(!user){
-            loginPostReqErrMsgs.push('Email does not exist! Please try again');
+            loginPostReqErrMsgs.push('Email does not exist! Please try again!');
             return done(null, false, req.flash('loginPostReqErrs', loginPostReqErrMsgs));
         } 
+        
+        // USER NOT VERIFIED BY EMAIL
+        if(user.userEmailVerified === false){
+            loginPostReqErrMsgs.push('You must verify your email! Please verify your email via the email we sent you and try again!');
+            return done(null, false, req.flash('loginPostReqErrs', loginPostReqErrMsgs));
+        }
+
+        // USER NOT VERIFIED BY ADMIN
+        if(user.userVerifiedByAdmin === false){
+            loginPostReqErrMsgs.push('The administrators of Head Up Heads have yet to verify you! Hang tight!');
+            return done(null, false, req.flash('loginPostReqErrs', loginPostReqErrMsgs));
+        }
+
+        // INVALID PASSWORD
         if(bcrypt.compareSync(password, user.password) === false){
             loginPostReqErrMsgs.push('Invalid Password! Try Again!');
             return done(null, false, req.flash('loginPostReqErrs', loginPostReqErrMsgs));

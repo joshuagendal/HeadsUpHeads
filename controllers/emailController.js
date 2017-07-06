@@ -47,7 +47,7 @@ const sendEmailToAdmin = (username, userId, cb) => {
         </b>
     `;
     let subject = "Please verify this user";
-    let adminEmail = 'joshgendal@yahoo.com';
+    let adminEmail = 'joshgendal@gmail.com';
 
     sendEmail(htmlData, adminEmail, subject, cb);
 }

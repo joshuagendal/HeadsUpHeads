@@ -14,6 +14,10 @@ function signUpValidation(req, res, next) {
 
 	var errors = req.validationErrors();
 
+    // if(req.body.isThirteen === False) {
+    //     errors.push('You must be at least 13 years old to sign up for Heads Up Heads!');
+    // }
+
 	if(errors) {
 		var messages = [];
 		errors.forEach((error) => {
@@ -32,9 +36,10 @@ function loginValidation(req, res, next) {
     req.checkBody('email', 'Email address is invalid! Please try again').isEmail();
     req.checkBody('password', 'Password is required').notEmpty();
     req.checkBody('password', 'Password Must Not Be Less Than 5 Characters').isLength({min:5});    
+    // req.checkBody('userEmailVerified', 'You must verify your email address! Please check your email for the verification link.').notEmpty();
+
 
     var loginErrors = req.validationErrors();
-
 
     if(loginErrors){
         var loginValidationErrMsgs = [];

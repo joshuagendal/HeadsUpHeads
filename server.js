@@ -62,7 +62,6 @@ app.use(function(req, res, next){
     }
 
     // res.locals.mustBeLoggedInErrMsg = req.flash('mustBeLoggedInError');
-    // res.locals.notAuthorizedByAdminErrMsg = req.flash('notAuthorizedByAdmin');
     // res.locals.postSuccessMessage = req.flash('msgBrdPostSuccessMsg');
     res.locals.error = req.flash('error');
     res.locals.success = req.flash('success');

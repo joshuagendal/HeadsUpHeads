@@ -18,10 +18,8 @@ module.exports = {
                 // req.flash('notAuthorizedByAdmin', 'You have not been authorized by the admins!');
                 res.redirect('/login');
             }
-        } else {                                            // user not logged in  
-            console.log('DEBUGGING- GETS TO END OF LOGIN');                                                       // FLASH SHOWS UP ON NEXT REQUEST 
-            req.flash('error', 'You must be logged in to do that!');
-             // this says in the flash, add Please login first for the NEXT REQUEST           
+        } else {                                                          
+            req.flash('error', 'You must be logged in to do that!');          
             res.redirect('/login');
         }
     },
@@ -36,7 +34,7 @@ module.exports = {
                     next();
                 } else {
                     req.flash('error', 'You can only edit or delete a post you have posted!');
-                    res.redirect('/message-board');
+                    res.redirect('/back');
                 }
             }
         });        
@@ -51,7 +49,8 @@ module.exports = {
                 if(queriedCommentToEdit.userCommenting.id.equals(req.user._id)) {
                     next();
                 } else {
-                    res.redirect("back");
+                    req.flash('error', 'You can only edit or delete a post you have posted!');
+                    res.redirect('back');
                 }
             }
         });

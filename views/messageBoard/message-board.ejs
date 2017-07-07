@@ -59,7 +59,7 @@
                 <tbody>
                     <% posts.forEach(function(post){ %>
                   <tr>
-                      <td class="row-title"><%= post.postHeading %></td>
+                      <td class="row-title"><a href="message-board/<%= post._id %>"><%= post.postHeading %></a></td>
                       <td class="row-author"><%= post.userPosting.username %></td>
                       <td class="row-posts">0</td> <!-- @TODO: MAKE FUNCTION/LINE OF CODE FOR TOTAL POSTS -->
                       <td class="row-timeStamp">1 day ago</td>

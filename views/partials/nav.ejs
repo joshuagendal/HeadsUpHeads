@@ -27,12 +27,12 @@
 
       <% if(error && error.length > 0) { %>
           <div class="alert alert-danger margin-top-fifty" role="alert">
-              <%= error %>
+              <h3 class="text-center"><%= error %></h3>
           </div>
       <% } %> 
       <% if(success && success.length > 0) { %> 
           <div class="alert alert-success margin-top-fifty" role="alert">
-              <%= success %>
+              <h3 class="text-center"><%= success %></h3>
           </div>
       <% } %>    
     <!-- must add not auth by admin msg (error) and post success (success)-->

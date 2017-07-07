@@ -15,6 +15,7 @@ let getCommentForm = (req, res) => {
     });
 }
 
+// POST COMMENT
 let postComment = (req, res) => {
     Post.findById(req.params.id, function(err, postToCommentOn){
         if(err){
@@ -56,7 +57,7 @@ let postComment = (req, res) => {
                             console.log('COMMENT EMAIL SUCCESS');
                         }
                     });
-
+                    req.flash('success', 'Your comment was posted successfully!');
                     res.redirect('/message-board/' + postToCommentOn._id);
                 }
             });
@@ -64,6 +65,7 @@ let postComment = (req, res) => {
     });
 }
 
+// GET EDIT COMMENT FORM
 let getEditCommentForm = (req, res) => {
     Comment.findById(req.params.comment_id, function(err, comment){
         if(err){
@@ -74,6 +76,7 @@ let getEditCommentForm = (req, res) => {
     });    
 }
 
+// EDIT COMMENT PUT ROUTE
 let putUpdateComment = (req, res) => {
     var data = {commentText: req.body.commentText}
 
@@ -81,17 +84,20 @@ let putUpdateComment = (req, res) => {
         if(err){
             res.redirect("/");
         } else {
+            req.flash('success', 'Your comment was successfully edited!');
             res.redirect("/message-board/" + req.params.id);
         }
     });    
 }
 
+// DELETE COMMENT - ALREADY GOES THROUGH VALIDATION TO CHECK OWNERSHIP
 let deleteComment = (req, res) => {
     Comment.findByIdAndRemove(req.params.comment_id, function(err){
         if(err){
             console.log(err);
             res.redirect('back');
         } else {
+            req.flash('success', 'Your comment was successfully deleted!');
             res.redirect('/message-board/' + req.params.id);
         }
     });

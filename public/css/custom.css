@@ -226,7 +226,7 @@ body {
 }
 
 .add-comment-text {
-    font-size: 1.9em;
+    font-size: 1.9em !important;
 }
 
 

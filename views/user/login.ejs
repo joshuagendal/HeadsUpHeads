@@ -9,26 +9,21 @@
     <% include ../partials/nav %>
 
       <% if(loginValidationHasErrs) { %>
-      <!--<div class="container">-->
-        <!--<div class="alert alert-danger margin-top-seventy-five" role="alert">-->
             <% for(var i=0; i < loginValidationErrs.length; i++) {%>
                 <h1 class="alert alert-danger margin-top-fifty" role="alert"><%= loginValidationErrs[i] %></h1>  <!-- when adding the equal sign to these tags, able to call                     a variable that is passed from backend -->
             <% } %> 
-        <!--</div>    -->
-      <!--</div>  -->
       <% } %>   
  
     
       <% if(loginPostReqHasErrs) { %>
-        <!--<div class="alert alert-danger margin-top-seventy-five" role="alert">-->
-        <% for(var i=0; i < loginPostReqErrs.length; i++) { %>
-          <h1 class="alert alert-danger margin-top-fifty" role="alert"><%= loginPostReqErrs[i] %></h1>  
-        <% } %>  
+          <% for(var i=0; i < loginPostReqErrs.length; i++) { %>
+              <h1 class="alert alert-danger margin-top-fifty" role="alert"><%= loginPostReqErrs[i] %></h1>  
+          <% } %>  
       <% } %>
 
 
 
-    <div class="container text-center margin-top-alot margin-bottom-fifty">
+    <div class="container text-center margin-bottom-fifty margin-top-fifty">
       <h1 class="login-header">LOGIN</h1>
     </div>  
       <div class="col-md-1"></div>

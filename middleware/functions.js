@@ -13,13 +13,14 @@ module.exports = {
         if(req.isAuthenticated()) {                         // if user is logged in
             if(req.user.userVerifiedByAdmin === true) {     // if user is verified by admin
                 next();
-            } else {                                        // if user is logged in but not verified by amdin
-                req.flash('notAuthorizedByAdmin', 'You have not been authorized by the admins!');
+            } else {   
+                req.flash('error', 'You have not been authorized by the admins!');                                     // if user is logged in but not verified by amdin
+                // req.flash('notAuthorizedByAdmin', 'You have not been authorized by the admins!');
                 res.redirect('/login');
             }
         } else {                                            // user not logged in  
             console.log('DEBUGGING- GETS TO END OF LOGIN');                                                       // FLASH SHOWS UP ON NEXT REQUEST 
-            req.flash('mustBeLoggedInError', 'You must be logged in to do that!');
+            req.flash('error', 'You must be logged in to do that!');
              // this says in the flash, add Please login first for the NEXT REQUEST           
             res.redirect('/login');
         }
@@ -34,7 +35,8 @@ module.exports = {
                 if(queriedPostToEdit.userPosting.id.equals(req.user._id)) {
                     next();
                 } else {
-                    res.redirect("back");
+                    req.flash('error', 'You can only edit or delete a post you have posted!');
+                    res.redirect('/message-board');
                 }
             }
         });        

@@ -29,7 +29,7 @@ let postMessageBoard = (req, res) => {
         if(err){
             
         } else {
-            req.flash('msgBrdPostSuccessMsg', 'You have successfully posted to the message board!');
+            req.flash('success', 'You have successfully posted to the message board!');
             res.redirect('/message-board');
         }
     });

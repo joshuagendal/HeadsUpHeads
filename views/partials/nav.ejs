@@ -21,6 +21,18 @@
   </div>
 </nav>
 
-<h1><%= mustBeLoggedInErrMsg %></h1>
-<h1><%= notAuthorizedByAdminErrMsg %></h1>
-<h1><%= postSuccessMessage %></h1>
+
+<!-- ERROR HANDLING -->
+
+
+      <% if(error && error.length > 0) { %>
+          <div class="alert alert-danger margin-top-fifty" role="alert">
+              <%= error %>
+          </div>
+      <% } %> 
+      <% if(success && success.length > 0) { %> 
+          <div class="alert alert-success margin-top-fifty" role="alert">
+              <%= success %>
+          </div>
+      <% } %>    
+    <!-- must add not auth by admin msg (error) and post success (success)-->

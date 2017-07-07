@@ -10,9 +10,9 @@ module.exports = (app) => {
 	// GET MESSAGE BOARD W/ ALL POSTS
 	app.get('/message-board', actions.getMessageBoard);
 
-    app.get('/message-board-new', (req, res) => {
-        res.render('messageBoard/messageBoardNew.ejs')
-    });
+    // app.get('/message-board-new', (req, res) => {
+    //     res.render('messageBoard/messageBoardNew.ejs')
+    // });
 
     // SHOW NEW POST FORM
 	app.get('/message-board/new-post', middleware.isUserLoggedIn, (req, res) => {

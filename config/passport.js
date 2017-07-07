@@ -65,20 +65,6 @@ passport.use('local.signup', new LocalStrategy({
           userVerifiedByAdmin: false,
         });
 
-        // BCRYPT PASSWORD HASHING AND SAVE TO DB
-
-        // const saltRounds = 10;
-
-        // bcrypt.genSalt(saltRounds, function(err, salt) {
-        //     bcrypt.hash(password, salt, function(err, hash) {
-        //         {password : hash}
-        //     });
-        // });
-
-
-
-
-
         newUser.save((err, newUser) => {
             if(err) {
                 console.log('Error saving' + err);

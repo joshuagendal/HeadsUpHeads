@@ -15,8 +15,9 @@ module.exports = (app) => {
 	}));
 
     app.get('/login', (req, res) => {
-        var loginValidationErrors = req.flash('loginValidationErrs');;
-        var loginPostErrors = req.flash('loginPostReqErrs')
+        var loginValidationErrors = req.flash('loginValidationErrs');
+        var loginPostErrors = req.flash('loginPostReqErrs');
+        // var mustBeLoggedInErr = req.flash('mustBeLoggedInErr');
         if(loginValidationErrors){
             console.log('VALIDATION ERROR(S): ' + loginValidationErrors);
         } 
@@ -27,7 +28,9 @@ module.exports = (app) => {
             loginValidationErrs: loginValidationErrors,
             loginValidationHasErrs: loginValidationErrors.length > 0,
             loginPostReqErrs: loginPostErrors,  
-            loginPostReqHasErrs: loginPostErrors.length > 0 
+            loginPostReqHasErrs: loginPostErrors.length > 0,
+            // mustLogInErr: mustBeLoggedInErr,
+            // userMustLogInHasErrs: mustBeLoggedInErr.length > 0 
             });
     });
             

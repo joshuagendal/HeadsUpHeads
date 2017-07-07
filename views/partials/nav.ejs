@@ -1,4 +1,4 @@
-<!--<nav class="navbar navbar-default navbar-fixed-top">
+<nav class="navbar navbar-default navbar-fixed-top">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -11,7 +11,7 @@
     </div>
     <div id="navbar" class="collapse navbar-collapse nav-font-size">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="/">Home</a></li>
+        <li><a href="/about-us">About</a></li>
         <li><a href="/message-board">Mesage Board</a></li>
         <li><a href="/events">Events</a></li>
         <li><a href="/login">Login</a></li>
@@ -20,20 +20,20 @@
       </ul>
     </div>
   </div>
-</nav>-->
+</nav>
 
 
 <!-- ERROR HANDLING -->
 
 
-      <% if(error && error.length > 0) { %>
-          <div class="alert alert-danger margin-top-fifty" role="alert">
-              <h3 class="text-center"><%= error %></h3>
-          </div>
-      <% } %> 
-      <% if(success && success.length > 0) { %> 
-          <div class="alert alert-success margin-top-fifty" role="alert">
-              <h3 class="text-center"><%= success %></h3>
-          </div>
-      <% } %>    
+    <% if(error && error.length > 0) { %>
+        <div class="alert alert-danger margin-top-fifty" role="alert">
+            <h3 class="text-center"><%= error %></h3>
+        </div>
+    <% } %> 
+    <% if(success && success.length > 0) { %> 
+        <div class="alert alert-success margin-top-fifty" role="alert">
+            <h3 class="text-center"><%= success %></h3>
+        </div>
+    <% } %>    
     <!-- must add not auth by admin msg (error) and post success (success)-->

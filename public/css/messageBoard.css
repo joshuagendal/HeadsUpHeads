@@ -25,9 +25,10 @@ a {
 
 
 .page-title {
-    padding: 6em .5em 1em .5em;
+    /*padding: 6em .5em 1em .5em;*/
     font-size: 3em;
     color: white;
+    margin: 330px auto;
 }
 
 .scroll-btn {
@@ -70,4 +71,5 @@ tbody > tr:nth-child(odd) > td {
     color: white;
     font-size: 5rem;
     text-align: center;
+    margin-bottom: 25px;;
 }

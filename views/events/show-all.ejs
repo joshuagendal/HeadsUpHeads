@@ -1,10 +1,88 @@
-<h1>EVENTS PAGE</h1>
+<!DOCTYPE html>
 
-<div class="container">
-	<% events.forEach(function(event){ %>
-		<h3><%= event.eventTitle %></h3>
-		<h3><%= event.eventDescription %></h3>
-		<h3><%= event.userThatAddedEvent.username %></h3>
-		<h3><%= event.created %></h3>
-	<% }); %>	
-</div>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <!--MAKE SURE THIS IS IN THE HEAD FOR STYLING ACROSS DEVICES-->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Heads Up Heads</title>
+
+    <!--Bootstrap and jQuery-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+
+    <!--MY EXTERNAL STYLESHEETS-->
+    <!--<link rel="stylesheet" href="/css/normalize.css" />-->
+    <link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet">
+    <link rel="stylesheet" href="/css/custom.css" />
+    <link rel="stylesheet" href="/css/messageBoard.css" />
+    <link rel="stylesheet" href="/css/mediaStyles2.css" />
+
+</head>
+<body>
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Heads Up Heads</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse nav-font-size">
+        <ul class="nav navbar-nav">
+            <li><a href="/">Home</a></li>
+            <li class="active"><a href="/message-board">Mesage Board</a></li>
+            <li><a href="/events">Events</a></li>
+            <li><a href="/login">Login</a></li>
+            <li><a href="/signup">Signup</a></li>
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+        </div>
+    </div>
+    </nav>
+
+	<% include ../partials/nav %>
+
+    <div class="container logo-background text-center">
+        <div class="page-title text-center">
+            <div class="">EVENTS</div>
+            <!--<div class="new-thread">Click here to start a new thread</div>-->
+        </div>
+    </div>
+
+	<div class="container content">
+        <div class="new-thread">
+            <a style="color: white;"href="events/new-event">Click here to post a new event</a>
+        </div>    
+        <div class="table-responsive messageboard">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Sponsor</th>
+                        <th>Created</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% events.forEach(function(event){ %>
+                  <tr>
+                      <td class="row-title"><%= event.eventTitle %></td>
+                      <td class="row-author"><%= event.userThatAddedEvent.username %></td>
+                      <td class="row-posts"><%= event.created %></td> <!-- @TODO: MAKE FUNCTION/LINE OF CODE FOR TOTAL POSTS -->
+                      <td class="row-timeStamp"><%= event.eventDescription %></td>
+                    <% }) %>  
+                  </tr>
+                    <!--see template at bottom of body-->
+                </tbody>
+            </table>
+        </div> 
+    </div>
+
+
+

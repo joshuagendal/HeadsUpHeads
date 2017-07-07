@@ -65,6 +65,12 @@ body, html
     text-decoration: underline;
 }
 
+@media(max-width: 1024px) {
+    .box-header {
+        font-size: 1.55em !important;
+    }
+}
+
 .box-body {
     padding: 0em .5em 0em .5em;
     overflow-wrap: break-word;

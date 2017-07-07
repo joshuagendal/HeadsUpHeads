@@ -6,9 +6,9 @@
   <body>
       <% include ../partials/NAV %>
 
-  <div class="container">
+  <div class="container margin-top-seventy-five">
 
-      <h1>Edit <%= comment.commentText %> by <%= comment.userCommenting.username %></h1>
+      <h1>Edit your comment <%= comment.commentText %> by <%= comment.userCommenting.username %></h1>
 
         <form method="POST" class="" id="editCommentForm" action="/message-board/<%= post_id %>/comments/<%= comment._id %>?_method=PUT">
           <div class="form-group col-xs-12">
@@ -21,9 +21,6 @@
             <input type="submit" id="submit" value="SUBMIT EDIT" class="form-control btn btn-primary" name="submit">
           </div>
       </form>
-
-
-
 
   </div>    
 

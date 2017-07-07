@@ -5,6 +5,11 @@ body, html
     height: 100%;
 }
 
+a {
+    color: black;
+    text-decoration: none;
+}
+
             /*just changed the url for a different picture. feel free to replace with anything*/
 .logo-background {
     width: 100%;
@@ -35,20 +40,21 @@ body, html
     /*background-color: #dd5306;*/
     background-image: url(../img/threepnto.png);
     width: 100%;
-    height: 80%;
+    height: 1000px;
     min-height: 80%;
     padding-top: 2em;
-    padding-bottom: 2em;
+    margin-bottom: 2em;
     /*padding-left: 4em;
     padding-right: 4em;*/
     /*padding: 2em 4em 2em 4em;*/
 }
 
 .messageboard {
-    border: 2px solid black;
+    border: 2.5px solid black;
     background-color: white;
     height: 100%;
     font-size: 2.1em;
+    margin: 0 20px;
 }
 
 tbody > tr:nth-child(odd) > td {
@@ -58,4 +64,10 @@ tbody > tr:nth-child(odd) > td {
 .table-hover tbody tr:hover {
     text-decoration: underline;
     cursor: pointer;
+}
+
+.new-thread {
+    color: white;
+    font-size: 5rem;
+    text-align: center;
 }

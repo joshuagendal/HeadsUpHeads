@@ -1,0 +1,150 @@
+/* PROFILE LAYOUT */
+
+.profile-header {
+    background-image: url(../img/messageboard-background-1-cropped-2.jpg);
+    /*background-attachment: fixed;*/
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 400px;
+}
+
+@media(max-width:892px) {
+    .profile-header {
+        height: 450px;
+        margin-top: 100px;
+    }
+}
+
+.profile-photo-column {
+    height: 400px;
+}
+
+@media(max-width:892px) {
+    .profile-photo-column {
+        height: 280px;
+    }
+}
+
+.profile-photo-holder {
+    border: 10px solid #fff;
+    margin: 100px auto 70px auto;
+    height: 250px;
+    width: 250px;
+}
+
+@media(max-width:892px) {
+    .profile-photo-holder {
+        margin: 10px auto;
+    }
+}
+
+.profile-photo {
+    height: 100%;
+    width: 100%;
+}
+
+.profile-title-column {
+    height: 400px;
+}
+
+.profile-title {
+    margin-top: 150px;
+}
+
+@media(max-width:892px) {
+    .profile-title {
+        margin: 0 auto;
+        text-align: center;
+    }
+}
+
+.profile-title-name {
+    color: #fff;
+    font-size: 4rem;
+    margin-left: 10px;
+}
+
+.profile-subhead {
+    color: #fff;
+    font-size: 2rem;
+    margin-left: 10px;
+    text-transform: uppercase;
+}
+
+.profile-title-occupation {
+
+}
+
+.profile-title-location {
+
+}
+
+.profile-content {
+    background: orange;
+    clear: both;
+    min-height: 600px;
+}
+
+.profile-content-about {
+    background: #fff;
+    clear: both;
+    height: auto;
+    margin: 50px auto 20px auto;
+    min-height: 250px;
+    padding: 10px;
+    width: 250px;
+}
+
+@media(max-width:892px) {
+    .profile-content-about {
+        margin: 0 auto;
+        width: 90%;
+    }
+}
+
+.about-header {
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+
+.profile-about-item {
+    font-size: 1.2rem;
+}
+
+.profile-content-interests {
+    margin: 10px auto;
+}
+
+.profile-content-posts {
+    clear: both;
+    height: auto;
+    margin: 0px auto 20px auto;
+    min-height: 800px;
+    padding: 10px;
+    width: 100%;
+}
+
+.posts-header {
+    color: #fff;
+    font-size: 3rem;
+    font-weight: 700;
+    margin-left: 10px;
+    margin-top: 0;
+}
+
+.profile-content-post-item {
+    background: #fff;
+    height: 250px;
+    margin-bottom: 50px;
+    padding: 10px;
+}
+
+.profile-content-post-header {
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.profile-content-post-body {
+
+}

@@ -45,11 +45,15 @@ module.exports = (app) => {
         failureFlash : true
     }));
 
-    app.get("/logout", (req, res) => {
+    app.get('/logout', (req, res) => {
         req.logout();
-        res.redirect("/login");
+        res.redirect('/login');
     });
 
     // DELETE USER ROUTE
-    app.delete("/:id/1m0a7c53ndtkejd", actions.deleteUser);
+    app.delete('/:id/1m0a7c53ndtkejd', actions.deleteUser);
+
+    app.get('/user-profile', (req, res) => {
+        res.render('user/userProfile.ejs');
+    });
 }    

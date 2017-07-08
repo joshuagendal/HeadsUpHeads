@@ -67,7 +67,7 @@
 
 .profile-subhead {
     color: #fff;
-    font-size: 2rem;
+    font-size: 2.7rem;
     margin-left: 10px;
     text-transform: uppercase;
 }
@@ -81,9 +81,9 @@
 }
 
 .profile-content {
-    background: orange;
+    background-image: url(../img/threepnto.png);
     clear: both;
-    min-height: 600px;
+    min-height: 800px;
 }
 
 .profile-content-about {
@@ -104,12 +104,12 @@
 }
 
 .about-header {
-    font-size: 1.6rem;
+    font-size: 2.6rem;
     font-weight: bold;
 }
 
 .profile-about-item {
-    font-size: 1.2rem;
+    font-size: 1.9rem;
 }
 
 .profile-content-interests {
@@ -146,5 +146,6 @@
 }
 
 .profile-content-post-body {
-
+    margin-top: 10px;
+    font-size: 1.9rem;
 }

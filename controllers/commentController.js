@@ -22,14 +22,14 @@ let postComment = (req, res) => {
             console.log(err);
             res.redirect('/');
         } else {
-            var commentText = req.body.commentText;
-            var userCommenting = {
+            const commentText = req.body.commentText;
+            const userCommenting = {
                 id: req.user._id,
                 username: req.user.username,
                 email: req.user.email
             }
-            var created = new Date();
-            var newComment = {commentText: commentText, userCommenting: userCommenting, created: created}
+            const created = new Date();
+            const newComment = {commentText: commentText, userCommenting: userCommenting, created: created}
             Comment.create(newComment, function(err, newlyAddedComment){
                 if(err){
                     console.log(err);
@@ -78,7 +78,7 @@ let getEditCommentForm = (req, res) => {
 
 // EDIT COMMENT PUT ROUTE
 let putUpdateComment = (req, res) => {
-    var data = {commentText: req.body.commentText}
+    const data = {commentText: req.body.commentText}
 
     Comment.findByIdAndUpdate(req.params.comment_id, data, function(err, updatedComment){
         if(err){

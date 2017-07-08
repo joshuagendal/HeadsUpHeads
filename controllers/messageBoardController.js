@@ -16,15 +16,15 @@ let getMessageBoard = (req, res) => {
 
 let postMessageBoard = (req, res) => {
     //var newPost = new Post();
-    var postHeading = req.body.postHeading;
-    var postText = req.body.postText;
-    var userPosting = {
+    const postHeading = req.body.postHeading;
+    const postText = req.body.postText;
+    const userPosting = {
         id: req.user._id,
         username: req.user.username,
         email: req.user.email
     }
-    var created = new Date();
-    var newPost = {postHeading: postHeading, postText: postText, userPosting: userPosting, created: created}
+    const created = new Date();
+    const newPost = {postHeading: postHeading, postText: postText, userPosting: userPosting, created: created}
     Post.create(newPost, function(err, newlyPosted){
         if(err){
             
@@ -53,7 +53,7 @@ let getEditPostForm = (req, res) => {
 }    
 
 let putUpdateEditedPost = (req, res) => {
-    var data = {
+    const data = {
         postHeading: req.body.postHeading,
         postText: req.body.postText
     }
@@ -84,31 +84,6 @@ let messageBoardPostValidation = (req, res, next) => {
         next();
     }
 }
-
-
-
-
-
-//     req.checkBody('postHeading', 'The post heading cannot be empty! Must have heading').notEmpty();
-//     req.checkBody('postText', 'The post text cannot be empty! Must have text!').notEmpty();
-
-//     var boardPostErrors = req.validationErrors();
-
-//     if(boardPostErrors) {
-//         var messages = [];
-//         boardPostErrors.forEach((error) => {
-//             messages.push(error.msg);    
-//         });
-
-//         req.flash('error', messages);
-//         res.redirect('/message-board/new-post');
-//     } else {
-//         return next();
-//     }
-// }
-
-
-
 
 module.exports = {
     getMessageBoard,

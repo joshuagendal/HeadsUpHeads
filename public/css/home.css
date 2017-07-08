@@ -57,6 +57,7 @@ body, html
     min-height: 20em;
     margin-top: 2em;
     border: 1px solid black;
+    font-size: 1.3em;
 }
 
 .box-header {

@@ -1,4 +1,4 @@
-const nodemailer = require('nodemailer');
+hwgilbertlaw@gmail.comconst nodemailer = require('nodemailer');
 const mg = require('nodemailer-mailgun-transport');
 const User = require('../models/user');
 
@@ -47,7 +47,7 @@ const sendEmailToAdmin = (username, userId, cb) => {
         </b>
     `;
     let subject = "Please verify this user";
-    let adminEmail = 'joshgendal@gmail.com';
+    let adminEmail = 'hwgilbertlaw@gmail.com';
 
     sendEmail(htmlData, adminEmail, subject, cb);
 }

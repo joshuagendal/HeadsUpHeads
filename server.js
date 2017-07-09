@@ -75,8 +75,9 @@ app.use(function(req, res, next){
 
 require('./routes')(app);
 
-app.listen(3000, function(){
-    console.log('App is listening on port 3000');
+var port = process.env.PORT || 8000
+app.listen(port, function(){
+    console.log('App is listening on port ' + port);
 });
 
 

@@ -29,6 +29,9 @@
     "mocha": "^3.4.2",
     "supertest": "^3.0.0"
   },
+  "engines":{
+    "node": "6.9.2"
+  },
   "scripts": {
     "test": "mocha test/**",
     "start": "node server.js"

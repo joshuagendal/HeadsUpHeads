@@ -16,7 +16,8 @@ var app = express();
 
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/networking'); //rateme is name of db
+var url = process.env.MONGODB_URI || "mongodb://huh-admin:headsupheads123!@ds153352.mlab.com:53352/headsupheads-main"
+mongoose.connect(url);
 
 require('./config/passport.js');
 
@@ -74,8 +75,9 @@ app.use(function(req, res, next){
 
 require('./routes')(app);
 
-app.listen(3000, function(){
-    console.log('App is listening on port 3000');
+var port = process.env.PORT || 8000
+app.listen(port, function(){
+    console.log('App is listening on port ' + port);
 });
 
 

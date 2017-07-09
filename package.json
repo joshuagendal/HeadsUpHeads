@@ -45,5 +45,8 @@
   "homepage": "https://github.com/joshuagendal/sofla-project#readme",
   "keywords": [
     "networking"
-  ]
+  ],
+  "directories": {
+    "test": "test"
+  }
 }

@@ -1,4 +1,4 @@
-hwgilbertlaw@gmail.comconst nodemailer = require('nodemailer');
+const nodemailer = require('nodemailer');
 const mg = require('nodemailer-mailgun-transport');
 const User = require('../models/user');
 

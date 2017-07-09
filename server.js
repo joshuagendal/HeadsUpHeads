@@ -16,7 +16,7 @@ var app = express();
 
 
 mongoose.Promise = global.Promise;
-var url = process.env.MONGODB_URI || "mongodb:HUHAdmin:treyoverjerry123!@ds151242.mlab.com:51242/heroku_llzg373w?authSource=admin"
+var url = process.env.MONGODB_URI || "mongodb://huh-admin:headsupheads123!@ds153352.mlab.com:53352/headsupheads-main"
 mongoose.connect(url);
 
 require('./config/passport.js');
@@ -75,9 +75,9 @@ app.use(function(req, res, next){
 
 require('./routes')(app);
 
-// app.listen(3000, function(){
-//     console.log('App is listening on port 3000');
-// });
+app.listen(3000, function(){
+    console.log('App is listening on port 3000');
+});
 
 
 module.exports = app;

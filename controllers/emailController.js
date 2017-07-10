@@ -38,10 +38,10 @@ const sendEmailToAdmin = (username, userId, cb) => {
         <b>
             Hello Admin, ${username} is trying to sign up. Please click this link > 
             following link to proceed in verifiying user access to post content on the site and such            /:id/1m0a7c53ndtkejd/del
-            <a href="http://localhost:3000/verifyByAdmin?username=${username}">here</a>
+            <a href="http://headsupheads.herokuapp.com/verifyByAdmin?username=${username}">here</a>
 
             If you want to deny user access and delete the user, click the following link/button <br>
-            <form id="deleteUserForm" action="http://localhost:3000/${userId}/1m0a7c53ndtkejd?_method=DELETE" method="POST">
+            <form id="deleteUserForm" action="http://headsupheads.herokuapp.com/${userId}/1m0a7c53ndtkejd?_method=DELETE" method="POST">
                 <input type="submit" value="Delete">
             </form>
         </b>

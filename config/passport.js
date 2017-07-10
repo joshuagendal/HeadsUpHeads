@@ -74,7 +74,7 @@ passport.use('local.signup', new LocalStrategy({
                 let htmlData = `            
                    <b>
                        Hello ${username} please verify your account by clicking this link
-                       <a href="http://localhost:3000/verifyuser?token=${userShortId}">here</a>
+                       <a href="http://headsupheads.herokuapp.com/verifyuser?token=${userShortId}">here</a>
                    </b>
                 `;
                 let subject = "Please verify your email";

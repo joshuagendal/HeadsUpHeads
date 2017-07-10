@@ -43,7 +43,7 @@ let postComment = (req, res) => {
                         <h3>
                             Hello ${postToCommentOn.userPosting.username}! ${newlyAddedComment.userCommenting.username}
                             has commented on your post ${postToCommentOn.postHeading}. The comment is as
-                            follows: ${newlyAddedComment.commentText}. Please click <a href="http://localhost:3000/message-board/${postToCommentOn._id}">HERE</a>
+                            follows: ${newlyAddedComment.commentText}. Please click <a href="http://headsupheads.herokuapp.com/message-board/${postToCommentOn._id}">HERE</a>
                             to view the post and comment.
                         </h3>
                     `;

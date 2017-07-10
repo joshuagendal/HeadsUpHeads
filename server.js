@@ -29,7 +29,7 @@ app.use(methodOverride('_method'));
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
-
+        
 app.use(validator());
 
 app.use(session({

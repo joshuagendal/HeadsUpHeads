@@ -37,7 +37,7 @@ const sendEmailToAdmin = (username, userId, cb) => {
     let htmlData = `
         <b>
             Hello Admin, ${username} is trying to sign up. Please click this link > 
-            following link to proceed in verifiying user access to post content on the site and such            /:id/1m0a7c53ndtkejd/del
+            following link to proceed in verifiying user access to post content on the site and such           
             <a href="http://headsupheads.herokuapp.com/verifyByAdmin?username=${username}">here</a>
 
             If you want to deny user access and delete the user, click the following link/button <br>
@@ -82,9 +82,13 @@ const verifyUser = (req, res) => {
                         if(err) {       // problem w/ server
                             res.send('Cannot verify email. Please contact the admins');
                         } else {
-                            let htmlData = '<b> The administrators have been sent an email and will decide whether or not to verify you </b>';
+                            let htmlData = `
+                                <b> And we're glad glad glad that you'll arrive! You will 
+                                    receive an email shortly confirming access to the site!
+                                </b>
+                            `;
                             let email = user.email;
-                            let subject = 'Administrators have been sent email';
+                            let subject = "We're glad you'll arrive!";
                             // @TODO send email to user telling them admins have been notified
                             sendEmail(htmlData, email, subject, (err, stat) => {
                                 console.log('Administrative email sent');
@@ -121,7 +125,7 @@ const verifyAdmin = (req, res) => {
                             } else {
                                 let htmlData = 'Congratulations! Welcome to Heads Up Heads!';
                                 let email = user.email;
-                                let subject = 'Welcome 2 Heads up Heads!';
+                                let subject = 'Welcome to Heads up! Lets get the show on the road!';
                                 sendEmail(htmlData, email, subject, (err, stat) => {
                                     console.log('Administrative email sent');
                                 });

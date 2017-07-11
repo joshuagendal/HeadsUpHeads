@@ -33,21 +33,29 @@
     </nav>
 
       <% if(loginValidationHasErrs) { %>
+        <div class="row margin-top-seventy-five">
             <% for(var i=0; i < loginValidationErrs.length; i++) {%>
-                <h1 class="alert alert-danger margin-top-fifty" role="alert"><%= loginValidationErrs[i] %></h1>  <!-- when adding the equal sign to these tags, able to call                     a variable that is passed from backend -->
+              <div class="alert alert-danger text-center">
+                <span class="error-text" role="alert"><%= loginValidationErrs[i] %></span>  <!-- when adding the equal sign to these tags, able to call                     a variable that is passed from backend -->
+              </div>  
             <% } %> 
+        </div>    
       <% } %>   
  
-    
+
       <% if(loginPostReqHasErrs) { %>
+        <div class="row margin-top-seventy-five">
           <% for(var i=0; i < loginPostReqErrs.length; i++) { %>
-              <h1 class="alert alert-danger margin-top-fifty" role="alert"><%= loginPostReqErrs[i] %></h1>  
+            <div class="alert alert-danger text-center">
+              <span class="error-text" role="alert"><%= loginPostReqErrs[i] %></span> 
+            </div>   
           <% } %>  
+        </div>  
       <% } %>
 
 
 
-    <div class="container text-center margin-bottom-fifty margin-top-fifty">
+    <div class="container text-center margin-bottom-fifty">
       <div class="row">
         <div class="col-md-3"></div>    
             <div class="col-md-6">

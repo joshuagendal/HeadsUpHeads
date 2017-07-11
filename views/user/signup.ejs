@@ -35,18 +35,18 @@
 
 
 
-    <div class="row margin-top-seventy-five">
-      <% if(hasErrors) {%>
+    <!--<div class="row margin-top-seventy-five">-->
+    <% if(hasErrors) { %>
+
+      <div class="row margin-top-seventy-five">
         <% for(var i=0; i < messages.length; i++) {%>
-          <div class="alert alert-danger"> 
-            <a href="#" class="close" data-dismiss="alert" aria-label="close">
-              &time;
-            </a>
-            <%= messages[i] %>                
+          <div class="alert alert-danger text-center">
+            <span class="error-text" role="alert"><%= messages[i] %></span>                
           </div>
         <% } %> 
-      <% } %>   
-    </div>  
+      </div>  
+    <% } %>   
+      <!--</div>  -->
     <div class="col-md-1"></div>
     <div class="col-md-10 text-center">  
       <h1 style="padding-bottom: 15px;">SIGNUP</h1>  

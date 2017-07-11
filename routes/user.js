@@ -3,7 +3,7 @@ var passport = require('passport');
 
 module.exports = (app) => {
     app.get('/signup', (req, res) => {
-        var errors = req.flash('error');
+        var errors = req.flash('errors');
         console.log(errors);
     	res.render('user/signup.ejs', {messages: errors, hasErrors: errors.length > 0});
     });

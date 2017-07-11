@@ -154,7 +154,7 @@ body {
 }
 
 .post-heading {
-    height: 2.5em;
+    /*height: 2.5em;*/
     background-color: #188d18;
     /*background-image: url(../img/threepnto.png);*/
     color: #ffffff;
@@ -280,4 +280,31 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+/*.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+    border-color: #e7e7e7;
+    background-image: url(../img/threepnto.png) !important;
+}*/
+
+/*in {
+    background-image: url(../img/threepnto.png) !important;
+}*/
+
+/*.container > .navbar-header, .container-fluid > .navbar-header, .container > .navbar-collapse, .container-fluid > .navbar-collapse {
+    margin: 0;
+}*/
+
+.container > .navbar-header {
+    margin: 9px 0;
+}
+
+.navbar-nav {
+    margin: 7.5px 0;
+}
+
+/* Mobile Nav Background Styling */
+
+.in {
+    background: url(../img/threepnto.png);
 }

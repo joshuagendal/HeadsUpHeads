@@ -233,7 +233,9 @@ body {
 
 /* ============= LOGIN ================ */
 .login-header {
-    font-size: 50px;
+    font-size: 3em;;
+    margin-top: 75px;
+    text-align: center;
 }
 
 .form-control {

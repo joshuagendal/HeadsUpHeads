@@ -16,6 +16,7 @@ body, html
 .logo {
     margin-top: 10em;
     margin-bottom: 2em;
+    height: 275px;
 }
 
 .logo-subtitle {
@@ -63,8 +64,8 @@ body, html
 }
 
 .box-header {
-    padding: .5em;
-    font-size: 2.5em;
+    margin: 0.8em 0;
+    font-size: 2em;
     text-decoration: underline;
 }
 
@@ -73,11 +74,11 @@ body, html
     color: green;
 }
 
-@media(max-width: 1024px) {
+/*@media(max-width: 1024px) {
     .box-header {
         font-size: 1.55em !important;
     }
-}
+}*/
 
 .box-body {
     padding: 0em .5em 0em .5em;

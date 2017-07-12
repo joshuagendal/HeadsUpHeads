@@ -123,9 +123,9 @@ const verifyAdmin = (req, res) => {
                             if(err) {
                                 res.send('Cannot verify user');
                             } else {
-                                let htmlData = 'Congratulations! Welcome to Heads Up Heads!';
+                                let htmlData = 'Welcome to Heads up! Let"s get the show on the road!';
                                 let email = user.email;
-                                let subject = 'Welcome to Heads up! Lets get the show on the road!';
+                                let subject = 'Congratulations! Welcome to Heads Up Heads!';
                                 sendEmail(htmlData, email, subject, (err, stat) => {
                                     console.log('Administrative email sent');
                                 });

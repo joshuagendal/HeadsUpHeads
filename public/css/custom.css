@@ -320,3 +320,11 @@ body {
 .in {
     background: url(../img/threepnto.png);
 }
+
+.text-white {
+    color: white;
+}
+
+.text-black {
+    color: black;
+}

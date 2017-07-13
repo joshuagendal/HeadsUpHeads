@@ -46,23 +46,33 @@
     <!--<div class="col-md-1"></div>-->
     <div class="container">
         <div class="row-fullwidth">
-            <div class="col-lg-8 col-xl-8 col-md-8 col-sm-10 col-xs-12 col-centered background-white border-green">
+            <div class="col-lg-8 col-xl-8 col-md-8 col-sm-10 col-xs-12 col-centered background-dark-guitar border-green">
                 <div class="view-post-container">
-                    <div class="post-heading">
-                        <span><%= queriedPost.userPosting.username %> || <%= queriedPost.postHeading %> || <%= queriedPost.created %></span>
+                    <div class="">
+                        <div class="post-heading">
+                            <span><%= queriedPost.postHeading %></span>
+                        </div>
                     </div>
+                </div>        
+                    
                     <div class="post-text-box">
                         <div class="post-text-main-text">
-                            <p class="message-board-text"><%= queriedPost.postText %></p>
+                            <span class="message-board-text"><%= queriedPost.userPosting.username %> || <%= queriedPost.created %></span>
                         </div>
+                        <div class="post-text-bottom">
+                            <!--<div class="post-text-holder">-->
+                                <span> <%= queriedPost.postText %></span>
+                            <!--</div>    -->
+                        </div>    
+
                     </div>  
-                </div>
+                
                     <!--<h3>COMMENTS</h3>-->
                 <% queriedPost.comments.forEach(function(comment){ %>
                     <div class="post-text-box small-margin-top-bottom">
                         <div class="post-text-main-text">
                             <div class="comment-div">
-                                <h3 class="comment-text-header"><%= comment.userCommenting.username %> || <%= comment.created %></h3>
+                                <span class="comment-text-header"><%= comment.userCommenting.username %> || <%= comment.created %></span>
                             </div>    
                             <p class="message-board-text"><%= comment.commentText %></p>
                         </div>
@@ -76,7 +86,7 @@
                             <form style="float: right;" action="/message-board/<%= queriedPost._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
                                 <input type="submit" class="btn btn-danger" value="DELETE">
                             </form>  
-                            <span class="edit-comment-btn"><a href="/message-board/<%= queriedPost._id %>/comments/<%= comment._id %>/edit">EDIT</a></span>
+                            <span class="edit-comment-btn"><a class="text-white" href="/message-board/<%= queriedPost._id %>/comments/<%= comment._id %>/edit">EDIT</a></span>
                         </div>    
                         <% } %>
                 <% }) %>

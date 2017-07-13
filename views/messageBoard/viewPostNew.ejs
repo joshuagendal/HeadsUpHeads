@@ -48,31 +48,31 @@
         <div class="row-fullwidth">
             <div class="col-lg-8 col-xl-8 col-md-8 col-sm-10 col-xs-12 col-centered background-dark-guitar border-green">
                 <div class="view-post-container">
-                    <div class="">
+                    <!--<div class="">-->
                         <div class="post-heading">
-                            <span><%= queriedPost.postHeading %></span>
+                            <div><%= queriedPost.postHeading %></div>
                         </div>
-                    </div>
+                    <!--</div>-->
                 </div>        
                     
-                    <div class="post-text-box">
-                        <div class="post-text-main-text">
-                            <span class="message-board-text"><%= queriedPost.userPosting.username %> || <%= queriedPost.created %></span>
-                        </div>
-                        <div class="post-text-bottom">
-                            <!--<div class="post-text-holder">-->
-                                <span> <%= queriedPost.postText %></span>
-                            <!--</div>    -->
-                        </div>    
+                <div class="post-text-box">
+                    <div class="post-text-main-text">
+                        <span class="message-board-text"><%= queriedPost.userPosting.username %> || <%= queriedPost.created.toLocaleDateString() %> <%= queriedPost.created.toLocaleTimeString() %></span>
+                    </div>
+                    <div class="post-text-bottom">
+                        <!--<div class="post-text-holder">-->
+                            <span> <%= queriedPost.postText %></span>
+                        <!--</div>    -->
+                    </div>    
 
-                    </div>  
+                </div>  
                 
                     <!--<h3>COMMENTS</h3>-->
                 <% queriedPost.comments.forEach(function(comment){ %>
                     <div class="post-text-box small-margin-top-bottom">
                         <div class="post-text-main-text">
                             <div class="comment-div">
-                                <span class="comment-text-header"><%= comment.userCommenting.username %> || <%= comment.created %></span>
+                                <span class="comment-text-header"><%= comment.userCommenting.username %> || <%= comment.created.toLocaleDateString() %> <%= comment.created.toLocaleTimeString() %></span>
                             </div>    
                             <p class="message-board-text"><%= comment.commentText %></p>
                         </div>

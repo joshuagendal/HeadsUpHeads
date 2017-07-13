@@ -167,10 +167,10 @@ body {
 }
 
 .post-text-bottom {
-    margin: 0em 1em 0.5em 1em;
+    margin: 0.3em 1em 0.5em 1em;
     padding-top: 0.35em;
     border-top: 1px solid rgba(121, 115, 115, 0.61);
-        
+    font-size: 1.2em;   
 }
 .post-heading {
     margin-top: 0.5em;
@@ -213,7 +213,7 @@ body {
 .message-board-text {
     font-size: 1.2em;
     color: black;
-    margin-top: 8px;
+    margin-top: 0.3em;
 }
 
 .edit-delete-buttons-box {
@@ -399,7 +399,7 @@ body {
 }
 
 .text-white {
-    color: white;
+    color: white;   
 }
 
 .text-black {

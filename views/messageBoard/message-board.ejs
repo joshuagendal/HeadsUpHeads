@@ -66,7 +66,7 @@
                             <th>Post Title</th>
                             <th>Author</th>
                             <th>Posts</th>
-                            <th>Latest Post</th>
+                            <th>Date Posted</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -74,10 +74,10 @@
                     <tr>
                         <td class="row-title"><a href="message-board/<%= post._id %>"><%= post.postHeading %></a></td>
                         <td class="row-author"><%= post.userPosting.username %></td>
-                        <td class="row-posts">0</td> <!-- @TODO: MAKE FUNCTION/LINE OF CODE FOR TOTAL POSTS -->
-                        <td class="row-timeStamp">1 day ago</td>
-                        <% }) %>  
+                        <td class="row-posts"><%= post.comments.length + 1 %></td>
+                        <td class="row-timeStamp"><%= post.created.toLocaleDateString() %></td>
                     </tr>
+                    <% }) %>
                         <!--see template at bottom of body-->
                     </tbody>
                 </table>

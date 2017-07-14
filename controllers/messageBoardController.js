@@ -3,7 +3,7 @@ const Post = require('../models/post');
 const Comment = require('../models/comment');
 
 let getMessageBoard = (req, res) => {
-   Post.find({}, function(err, allPosts) {
+   Post.find({}).sort({_id:-1}).exec((err, allPosts) => {
         if(err){
             console.log(err);
             res.redirect('/');

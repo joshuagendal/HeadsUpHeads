@@ -190,6 +190,7 @@ body {
     height: auto;   
     min-height: 10em;
     background: white;
+    margin-bottom: 0.4em;
     /*padding-left: 1em;*/
 }
 

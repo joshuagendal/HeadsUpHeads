@@ -12,6 +12,7 @@ body {
 
 .container {
     padding: 0;
+    width: 100%;
 }
 
 .row-fullwidth {
@@ -136,7 +137,7 @@ body {
 .new-post-text-box {
     height: 275px !important;
     padding: 0 0.4em 0.4em 0;
-
+    border-radius: 0.65em;
 }
 
 .site-green {
@@ -174,14 +175,15 @@ body {
 }
 .post-heading {
     margin-top: 0.5em;
-    height: 4em;
+    height: 2.8em;
     background-color: #188d18;
     /* background-image: url(../img/threepnto.png); */
     color: #ffffff;
     width: 100%;
-    padding-left: 1em;
+    padding-left: 0.7em;
     font-size: 1.4em;
     margin-bottom: 0.4em;
+    border-radius: 0.4em;
 }
 
 .post-text-box {
@@ -191,6 +193,7 @@ body {
     min-height: 10em;
     background: white;
     margin-bottom: 0.4em;
+    border-radius: 0.65em;
     /*padding-left: 1em;*/
 }
 

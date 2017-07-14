@@ -50,14 +50,14 @@
                 <div class="view-post-container">
                     <!--<div class="">-->
                         <div class="post-heading">
-                            <div><%= queriedPost.postHeading %></div>
+                            <div style="padding-top: 0.6em;"><%= queriedPost.postHeading %></div>
                         </div>
                     <!--</div>-->
                 </div>        
                     
                 <div class="post-text-box">
                     <div class="post-text-main-text">
-                        <span class="message-board-text"><%= queriedPost.userPosting.username %> || <%= queriedPost.created.toLocaleDateString() %> <%= queriedPost.created.toLocaleTimeString() %></span>
+                        <span class="" style="font-size: 1.35em;"><%= queriedPost.userPosting.username %> || <%= queriedPost.created.toLocaleDateString() %> <%= queriedPost.created.toLocaleTimeString() %></span>
                     </div>
                     <div class="post-text-bottom">
                         <!--<div class="post-text-holder">-->
@@ -102,7 +102,7 @@
                         <textarea rows="8" id="commentText" class="form-control new-post-text-box add-comment-text" name="commentText" type="text" autocomplete="off" style="padding-left: 5px; border: 1px solid black;"></textarea>
                     <!--</div>    -->
                 <div class="form-group">
-                    <input type="submit" id="submit" value="SUBMIT COMMENT" class="form-control btn btn-primary margin-top-em site-green" name="submit">
+                    <input style="border-radius: 0.4em; font-size: 1.2em;" type="submit" id="submit" value="SUBMIT COMMENT" class="form-control btn btn-primary margin-top-em site-green" name="submit">
                 </div>    
                 </form>
             </div>    

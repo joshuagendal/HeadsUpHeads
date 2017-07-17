@@ -25,6 +25,12 @@ body, html
     color: white;
 }
 
+@media(max-width:800px) {
+    .logo-subtitle {
+        font-size: 1.6em;
+    }
+}
+
 .scroll-btn {
     cursor: pointer;
     margin-top: .6em;

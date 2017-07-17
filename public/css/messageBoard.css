@@ -13,8 +13,8 @@ a {
             /*just changed the url for a different picture. feel free to replace with anything*/
 .logo-background {
     width: 100%;
-    height: 60%;
-    background-image: url(../img/messageboard-background-1-cropped-2.jpg);
+    height: 100%;
+    background-image: url(../img/messageboard-background-1.jpg);
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;

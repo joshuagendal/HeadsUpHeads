@@ -10,27 +10,32 @@
 
     <!-- @TODO: ERROR HANDLING FOR EVENTS-->
 
-	<div class="container text-center margin-top-seventy-five">
-		<h1> Submit a New Event</h1>
-	</div>	
-
-
-
-	<div class="container">
-		<form method="POST" class="" id="eventForm" action="/events/new-event">
-			<div class="form-group col-xs-12">
-				<input id="eventTitle" class="form-control" name="eventTitle" type="text" autocomplete="on" placeholder="EVENT TITLE" style="margin-top: 20px; margin-bottom:20px;">
-			</div>
-
-			<div class="form-group col-xs-12">
-				<input id="eventDescription" class="form-control" name="eventDescription" type="text" autocomplete="on" placeholder="EVENT DESCRIPTION" style="margin-top: 20px; margin-bottom:20px;">
-			</div>
-
-			<div class="form-group">
-				<input type="submit" id="submit" value="SUBMIT POST" class="form-control btn btn-primary site-green" name="submit">
-			</div>
-		</form>
+	<div class="row">
+		<div class="container text-center margin-top-seventy-five">
+			<h1> Submit a New Event</h1>
+		</div>	
 	</div>
+
+
+	<div class="row-fullwidth">
+		<div class="container">
+			<div class="col-md-8">
+				<form method="POST" class="" id="eventForm" action="/events/new-event">
+					<div class="form-group col-xs-12">
+						<input id="eventTitle" class="form-control" name="eventTitle" type="text" autocomplete="on" placeholder="EVENT TITLE" style="margin-top: 20px; margin-bottom:20px;">
+					</div>
+
+					<div class="form-group col-xs-12">
+						<input id="eventDescription" class="form-control" name="eventDescription" type="text" autocomplete="on" placeholder="EVENT DESCRIPTION" style="margin-top: 20px; margin-bottom:20px;">
+					</div>
+
+					<div class="form-group">
+						<input type="submit" id="submit" value="SUBMIT POST" class="form-control btn btn-primary site-green" name="submit">
+					</div>
+				</form>
+			</div>	
+		</div>
+	</div>		
 
 
 	<!--<div class="container">

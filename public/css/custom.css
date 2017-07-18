@@ -409,3 +409,11 @@ body {
 .text-black {
     color: black;
 }
+
+/* NAVBAR MEDIA QUERIES */
+
+@media(min-width: 768px) {
+    .navbar-header {
+        margin-top: 7.5px;
+    }
+}

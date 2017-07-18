@@ -1,6 +1,5 @@
 const Post = require('../models/post');
 const Event = require('../models/event');
-// const async = require('async');
 
 
 module.exports = (app) => {

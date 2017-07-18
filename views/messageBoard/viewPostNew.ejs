@@ -11,7 +11,7 @@
     <link href="/css/custom.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet">
   </head>
-  <body class="trey-guitar-background">
+  <body class="site-light-green-background">
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -25,7 +25,7 @@
             </div>
             <div id="navbar" class="collapse navbar-collapse nav-font-size">
             <ul class="nav navbar-nav">
-                <li><a href="/">Home</a></li>
+                <li><a href="/about-us">About</a></li>
                 <li class="active"><a href="/message-board">Mesage Board</a></li>
                 <li><a href="/events">Events</a></li>
                 <li><a href="/login">Login</a></li>
@@ -56,8 +56,8 @@
                 </div>        
                     
                 <div class="post-text-box">
-                    <div class="post-text-main-text">
-                        <span class="" style="font-size: 1.35em;"><%= queriedPost.userPosting.username %> || <%= queriedPost.created.toLocaleDateString() %> <%= queriedPost.created.toLocaleTimeString() %></span>
+                    <div class="post-text-main-text" style="border-bottom: 1px solid rgba(121, 115, 115, 0.61);">
+                        <div class="" style="font-size: 1.35em;"><span class="glyphicon glyphicon-chevron-right glyph-chevron"></span><span class=""><%= queriedPost.userPosting.username %></span><span class="glyphicon glyphicon-asterisk glyph-star"></span> <%= queriedPost.created.toLocaleDateString() %> <%= queriedPost.created.toLocaleTimeString() %></div>
                     </div>
                     <div class="post-text-bottom">
                         <!--<div class="post-text-holder">-->
@@ -72,7 +72,7 @@
                     <div class="post-text-box small-margin-top-bottom">
                         <div class="post-text-main-text">
                             <div class="comment-div">
-                                <span class="comment-text-header"><%= comment.userCommenting.username %> || <%= comment.created.toLocaleDateString() %> <%= comment.created.toLocaleTimeString() %></span>
+                                <span class="comment-text-header"><span class="glyphicon glyphicon-chevron-right glyph-chevron"></span><%= comment.userCommenting.username %> <span class="glyphicon glyphicon-asterisk glyph-star"></span> <%= comment.created.toLocaleDateString() %> <%= comment.created.toLocaleTimeString() %></span>
                             </div>    
                             <p class="message-board-text"><%= comment.commentText %></p>
                         </div>
@@ -96,14 +96,14 @@
     <div class="container">
         <div class="row-fullwidth">
             <div class="col-lg-8 col-xl-8 col-md-8 col-sm-10 col-xs-12 col-centered padding-zero text-center margin-top-bottom-small">
-                <span class="post-comment-heading">Post Comment Here</span>
+                <span class="post-comment-heading text-white">Post Comment Here</span>
                 <form method="POST" id="newCommentForm" action="/message-board/<%= queriedPost._id %>/new-comment">
-                    <!--<div class="post-text-box col-xs-12">-->
-                        <textarea rows="8" id="commentText" class="form-control new-post-text-box add-comment-text" name="commentText" type="text" autocomplete="off" style="padding-left: 5px; border: 1px solid black;"></textarea>
-                    <!--</div>    -->
-                <div class="form-group">
-                    <input style="border-radius: 0.4em; font-size: 1.2em;" type="submit" id="submit" value="SUBMIT COMMENT" class="form-control btn btn-primary margin-top-em site-green" name="submit">
-                </div>    
+                        <!--<div class="post-text-box col-xs-12">-->
+                            <textarea rows="8" id="commentText" class="form-control new-post-text-box add-comment-text" name="commentText" type="text" autocomplete="off" style="padding-left: 5px; border: 1px solid black;"></textarea>
+                        <!--</div>    -->
+                    <div class="form-group">
+                        <input style="border-radius: 0.4em; font-size: 1.2em; border: 1px solid #67b456" type="submit" id="submit" value="SUBMIT COMMENT" class="form-control btn btn-primary margin-top-em site-green" name="submit">
+                    </div>    
                 </form>
             </div>    
         </div>    

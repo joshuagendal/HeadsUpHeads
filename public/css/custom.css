@@ -177,12 +177,6 @@ body {
 
 }
 
-.post-text-bottom {
-    margin: 0em 1em 0.5em 0.8em;
-    padding: 0.35em 0em;
-    font-size: 1.2em;   
-}
-
 .glyph-chevron {
     font-size: 13px;
     margin-right: 10px;
@@ -194,6 +188,26 @@ body {
     margin-right: 5.5px;
 }
 
+@media (max-width:785px) and (min-width:600px) {
+    .glyph-chevron {
+        font-size: 11.5px;
+    }
+    .glyph-star {
+        font-size: 11.5px;
+    }
+}
+
+@media (max-width:599px) {
+    .glyph-chevron {
+        font-size: 10px;
+    }
+    .glyph-star {
+        font-size: 10px;
+    }
+}
+
+
+
 .post-heading {
     margin-top: 0.5em;
     height: 2.8em;
@@ -204,6 +218,19 @@ body {
     font-size: 1.4em;
     margin-bottom: 0.4em;
     border-radius: 0.4em;
+    padding-top: 0.6em;
+}
+
+@media (max-width:785px) and (min-width:600px) {
+    .post-heading {
+        font-size: 1.3em;
+    }
+}
+
+@media (max-width:599px) {
+    .post-heading {
+        font-size: 1.2em;
+    }
 }
 
 .post-text-box {
@@ -221,7 +248,7 @@ body {
 
 }
 
-/* background-grey unused background: rgba(223, 209, 193, 0.56); */
+
 
 .post-text-main-text {
     margin: 0.4em 1em 0.4em 1em;
@@ -234,10 +261,58 @@ body {
     padding: 0em 0em 0em 45em;
 }
 
+
+
+
 .message-board-text {
     font-size: 1.2em;
     color: black;
     margin-top: 0.8em;
+}
+
+.post-text-bottom {
+    margin: 0em 1em 0.5em 0.8em;
+    padding: 0.35em 0em;
+    font-size: 1.2em;   
+}
+
+@media (max-width:785px) and (min-width:600px) {
+    .post-text-bottom {
+        font-size: 1.1em;
+    }
+    .message-board-text {
+        font-size: 1.1em;
+    }
+}
+
+@media (max-width:599px) {
+    .post-text-bottom {
+        font-size: 1em;
+    }
+    .message-board-text {
+        font-size: 1em;
+    }
+}
+
+
+
+
+
+
+.original-post-header {
+    font-size: 1.35em;
+}
+
+@media (max-width:785px) and (min-width:600px) {
+    .original-post-header {
+        font-size: 1.2em;
+    }
+}    
+
+@media (max-width:599px) {
+    .original-post-header {
+        font-size: 1.05em;
+    }
 }
 
 .edit-delete-buttons-box {
@@ -273,7 +348,19 @@ body {
 .comment-text-header {
     margin-top: 2px;
     margin-bottom: 5px;
-    font-size: 1.4em;
+    font-size: 1.35em;
+}
+
+@media (max-width:785px) and (min-width:600px) {
+    .comment-text-header {
+        font-size: 1.23em;
+    }
+}    
+
+@media (max-width:599px) {
+    .comment-text-header {
+        font-size: 1.05em;
+    }
 }
 
 .comment-div {
@@ -395,18 +482,7 @@ body {
     background-size: cover;
 }
 
-/*.navbar-default .navbar-collapse, .navbar-default .navbar-form {
-    border-color: #e7e7e7;
-    background-image: url(../img/threepnto.png) !important;
-}*/
 
-/*in {
-    background-image: url(../img/threepnto.png) !important;
-}*/
-
-/*.container > .navbar-header, .container-fluid > .navbar-header, .container > .navbar-collapse, .container-fluid > .navbar-collapse {
-    margin: 0;
-}*/
 
 .container > .navbar-header {
     margin: 9px 0;
@@ -416,7 +492,7 @@ body {
     margin: 7.5px 0;
 }
 
-/* Mobile Nav Background Styling */
+/* ============= Mobile Nav Background Styling ============= */
 
 .in {
     background: url(../img/threepnto.png);
@@ -431,7 +507,7 @@ body {
     color: black;
 }
 
-/* NAVBAR MEDIA QUERIES */
+/* ============ NAVBAR MEDIA QUERIES ============= */
 
 @media(min-width: 768px) {
     .navbar-header {
@@ -442,3 +518,6 @@ body {
 
 
 
+/* =========== EXTRAS/UNUSED ================== */
+
+/* background-grey unused background: rgba(223, 209, 193, 0.56); */

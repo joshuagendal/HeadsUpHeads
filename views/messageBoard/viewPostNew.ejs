@@ -47,21 +47,21 @@
     <!--<div class="col-md-1"></div>-->
     <div class="container">
         <div class="row-fullwidth">
-            <div class="col-lg-8 col-xl-8 col-md-8 col-sm-10 col-xs-12 col-centered background-dark-guitar border-green">
+            <div class="col-xs-12 col-sm-10 col-md-8 col-lg-8 col-xl-8 col-centered background-dark-guitar border-green">
                 <div class="view-post-container">
                     <!--<div class="">-->
                         <div class="post-heading">
-                            <div style="padding-top: 0.6em;"><%= queriedPost.postHeading %></div>
+                            <div><%= queriedPost.postHeading %></div>
                         </div>
                     <!--</div>-->
                 </div>        
                     
                 <div class="post-text-box">
                     <div class="post-text-main-text" style="border-bottom: 1px solid rgba(121, 115, 115, 0.61);">
-                        <div class="" style="font-size: 1.35em;"><span class="glyphicon glyphicon-chevron-right glyph-chevron"></span><span class=""><%= queriedPost.userPosting.username %></span><span class="glyphicon glyphicon-asterisk glyph-star"></span> <%= queriedPost.created.toLocaleDateString() %> <%= queriedPost.created.toLocaleTimeString() %></div>
+                        <div class="original-post-header"><span class="glyphicon glyphicon-chevron-right glyph-chevron"></span><span class=""><%= queriedPost.userPosting.username %></span><span class="glyphicon glyphicon-asterisk glyph-star"></span> <span><%= queriedPost.created.toLocaleDateString() %> <%= queriedPost.created.toLocaleTimeString() %></span></div>
                     </div>
                     <div class="post-text-bottom">
-                        <!--<div class="post-text-holder">-->
+                        <!--<div class="post-text-holder"> style="font-size: 1.35em;"-->
                             <span> <%= queriedPost.postText %></span>
                         <!--</div>    -->
                     </div>    

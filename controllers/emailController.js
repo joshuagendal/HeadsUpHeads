@@ -5,7 +5,7 @@ const User = require('../models/user');
 const auth = {
     auth: {
         api_key: 'key-edcbd28159c744e63519dc58eeb4f1de',
-        domain: 'sandbox4c8b20bc42d346e2b23832bf3904e9a5.mailgun.org'
+        domain: 'mg.headsupheads.com'
     }
 };
 

@@ -111,15 +111,16 @@ body {
 
 .all-about-music-box {
     background-image: url(../img/koa.png);
-    min-height: 35em;
+    min-height: 400px;
     margin-top: 5em;
     text-align: center;
 }
 
 .about-us-box-header {
-    padding: .5em;
-    font-size: 2.5em;
-    margin-bottom: 0.3em;
+    padding-top: 35px;;
+    font-size: 2em;
+    margin-bottom: 0.5em;
+    text-align: center;
 }
 
 .text-center {
@@ -127,15 +128,44 @@ body {
 }
 
 .about-us-glyphs {
-    font-size: 7em;
+    font-size: 6em;
     text-align: center;
     margin-bottom: 0.3em;
 }
 
 .about-us-text {
-    font-size: 1.3em;
+    font-size: 1.17em; 
 }
 
+@media (max-width:901px) and (min-width:785px) {
+    .about-us-text {
+        font-size: 1.08em;
+    }
+    .all-about-music-box {
+        min-height: 357px;
+    }
+    .about-us-glyphs {
+        font-size: 5em;
+    }
+}
+
+@media (max-width:784px) {
+    .about-us-text {
+        font-size: 1.06em;
+    }
+    .all-about-music-box {
+        min-height: 315px;
+    }
+    .about-us-glyphs {
+        font-size: 3.7em;
+        margin-bottom: 0.5em;
+    }
+    .about-us-box-header {
+        padding-top: 22px;
+        font-size: 1.75em;
+        margin-bottom: 0.8em;
+    }
+}
 
 /*==============NEW POST PAGE=================*/
 .new-post-text-box {

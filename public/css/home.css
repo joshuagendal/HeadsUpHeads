@@ -35,6 +35,9 @@ body, html
     .logo-background {
         margin-top: 4em;
     }  
+    .scroll-btn {
+        font-size: 4em !important;
+    }
 }
 
 @media (max-width:514px) {
@@ -46,6 +49,9 @@ body, html
     }
     .logo-background {
         margin-top: 4em;
+    }
+    .scroll-btn {
+        font-size: 3em !important;
     }
 }
 

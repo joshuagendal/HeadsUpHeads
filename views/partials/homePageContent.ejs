@@ -1,13 +1,13 @@
     <div class="container background-dark-guitar">    
         <div class="row-fullwidth">    
             <div class="content">
-                <div style="margin: 0 auto;" class="col-xs-12 col-md-6 col-lg-6 col-xl-6">
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
                     <div class="info-box box-postings">
                         <div class="box-header text-center">
                             <span>Latest Posts</span>
                         </div>
                         <div class="box-body latest-posts">
-                            <ul>
+                            <ul class="home-content-main-text">
                                 <% mostRecentPosts.forEach(function(post){ %>
                                     <li><a class="text-black" href="message-board/<%= post._id %>"><%= post.postHeading %></a></li>
                                 <% }) %>    
@@ -16,13 +16,13 @@
                     </div>
                     <button type="button" class="btn btn-success center-block"><a class="text-white" href="/message-board">See More Posts</a><i class="glyphicon glyphicon-chevron-right"></i></button>
                 </div>
-                <div class="col-xs-12 col-md-6 col-lg-6 col-xl-6">
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
                     <div class="info-box box-shows">
                         <div class="box-header text-center">
                             <span>Upcoming Events</span>
                         </div>
                         <div class="box-body upcoming-shows">
-                            <ul>
+                            <ul class="home-content-main-text">
                                 <% mostRecentEvents.forEach(function(event){ %>
                                     <li><%= event.eventTitle %></li>
                                 <% }) %>    

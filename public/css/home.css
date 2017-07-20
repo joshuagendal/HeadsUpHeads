@@ -98,7 +98,10 @@ body, html
 .box-header {
     margin: 1.2em 0 1.2em 0;
     font-size: 2em;
-    text-decoration: underline;
+}
+
+.home-content-main-text {
+    font-size: 1.1em;
 }
 
 .scroll-btn:hover {

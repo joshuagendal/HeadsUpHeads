@@ -591,6 +591,20 @@ body {
     color: black;
 }
 
+
+/* ============ HOME ============*/
+
+/* .home-content-main-text {
+    font-size: 1em;
+}
+
+@media(max-width: 1075) {
+    .home-content-main-text {
+        font-size: 0.9em !important;
+    }
+} */
+
+
 /* ============ NAVBAR MEDIA QUERIES ============= */
 
 @media(min-width: 768px) {

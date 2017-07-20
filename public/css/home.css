@@ -77,7 +77,6 @@ body, html
     /*background-color: #dd5306;*/
     background-image: url(../img/threepnto.png);
     width: 100%;
-    min-height: 75%;
 }
 
     .content button {
@@ -89,20 +88,44 @@ body, html
 .info-box {
     /*background-color: white;*/
     background-image: url(../img/koa.png);
-    min-height: 20em;
-    margin-top: 2em;
+    min-height: 370px;
+    margin-top: 30px;
     border: 1px solid black;
     font-size: 1.3em;
 }
 
 .box-header {
-    margin: 1.2em 0 1.2em 0;
-    font-size: 2em;
+    margin: 56px 0px 50px 0px;
+    font-size: 1.75em;
+    text-align: center;
 }
 
 .home-content-main-text {
-    font-size: 1.1em;
+    font-size: 0.85em;
+} 
+
+@media (max-width:1075px) and (min-width:901px) {
+    .home-content-main-text {
+        font-size: 0.85em ;
+    }
+    /* .info-box {
+        margin-top: 15px;
+    } */
+} 
+
+@media (max-width:900px) and (min-width:515px) {
+    .home-content-main-text {
+        font-size: 0.78em ;
+    }
+    .box-header {
+        font-size: 1.5em;
+        margin: 45px 0px;
+    }
+    .info-box {
+        min-height: 320px;
+    }
 }
+
 
 .scroll-btn:hover {
     transform: translate(0,-10px);
@@ -126,10 +149,13 @@ body, html
     }
 
         .box-body ul li {
-            margin-bottom: .4em;
-            font-size: 1em;
+            margin-bottom: .65em;
+            /* font-size: 1em; */
         }
             .box-body ul li span {
             color: gray;
 
         }
+
+
+

@@ -1,5 +1,5 @@
 
-/*--------------------these are all the same as Home2.css----------------*/
+
 body, html
 {
     height: 100%;
@@ -10,7 +10,6 @@ a {
     text-decoration: none;
 }
 
-            /*just changed the url for a different picture. feel free to replace with anything*/
 .logo-background {
     width: 100%;
     height: 100%;
@@ -21,7 +20,6 @@ a {
     background-size: cover;
 }
 
-/*----------------these are new or altered styles for this page----------------*/
 
 
 .page-title {
@@ -54,8 +52,26 @@ a {
     border: 2.5px solid black;
     background-color: white;
     height: 100%;
-    font-size: 1.3em;
+    font-size: 1.1em;
     margin: 0 20px;
+}
+
+@media (max-width:850px) and (min-width:740px) {
+    .messageboard {
+        font-size: 1em;
+    }
+}
+
+@media (max-width:739px) and (min-width:500px) {
+    .messageboard {
+        font-size: 0.85em;
+    }
+}
+
+@media (max-width:499px) {
+    .messageboard {
+        font-size: 0.78em;
+    }
 }
 
 tbody > tr:nth-child(odd) > td {
@@ -69,9 +85,27 @@ tbody > tr:nth-child(odd) > td {
 
 .new-thread {
     color: white;
-    font-size: 3rem;
+    font-size: 2em;
     text-align: center;
     margin-bottom: 25px;
+}
+
+@media (max-width:850px) and (min-width:740px) {
+    .new-thread {
+        font-size: 1.8em;
+    }
+}
+
+@media (max-width:739px) and (min-width:500px) {
+    .new-thread {
+        font-size: 1.5em;
+    }
+}
+
+@media (max-width:499px) {
+    .new-thread {
+        font-size: 1.2em;
+    }
 }
 
 .table-holder {
@@ -85,3 +119,13 @@ tbody > tr:nth-child(odd) > td {
     /* width: 100%; */
     /* min-height: 850px;  */
 /* } */
+
+
+
+/* GETTING RID OF WIDTH PROBLEM FOR SMALLER SCREEN SUPPLIED BY BOOTSTRAP */
+
+@media screen and (max-width:767px) {
+    .table-responsive {
+        width: auto;
+    }
+}

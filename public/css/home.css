@@ -95,18 +95,29 @@ body, html
 }
 
 .box-header {
-    margin: 56px 0px 50px 0px;
-    font-size: 1.75em;
+    margin: 50px 0px;
+    font-size: 2em;
     text-align: center;
 }
 
 .home-content-main-text {
     font-size: 0.85em;
+    padding: 0px 15px;
+    margin-bottom: 0px;
+    list-style: none;
 } 
+
+.home-button-text {
+    color: white;
+    font-size: 0.75em;
+}
 
 @media (max-width:1075px) and (min-width:901px) {
     .home-content-main-text {
         font-size: 0.85em ;
+    }
+    .box-header {
+        font-size: 1.85em;
     }
     /* .info-box {
         margin-top: 15px;
@@ -115,15 +126,31 @@ body, html
 
 @media (max-width:900px) and (min-width:515px) {
     .home-content-main-text {
-        font-size: 0.78em ;
+        font-size: 0.67em ;
     }
     .box-header {
         font-size: 1.5em;
-        margin: 45px 0px;
+        margin: 50px 0px;
     }
     .info-box {
-        min-height: 320px;
+        min-height: 325px;
     }
+}
+
+@media (max-width:514px) {
+    .home-content-main-text {
+        font-size: 0.5em ;
+    }
+    .box-header {
+        font-size: 1.15em;
+        margin: 22px 0px;
+    }
+    .info-box {
+        min-height: 205px;
+    }
+    /* .content button {
+        margin-bottom: 0em;
+    } */
 }
 
 
@@ -139,13 +166,13 @@ body, html
 }*/
 
 .box-body {
-    padding: 0em .5em 0em .5em;
+    /* padding: 0em .5em 0em .5em; */
     overflow-wrap: break-word;
 }
 
     .box-body ul {
         list-style: none;
-        padding-bottom: 1em;
+        /* padding-bottom: 1em; */
     }
 
         .box-body ul li {

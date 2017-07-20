@@ -149,7 +149,7 @@ body {
     }
 }
 
-@media (max-width:784px) {
+@media (max-width:784px) and (min-width:768px) {
     .about-us-text {
         font-size: 1.06em;
     }
@@ -166,6 +166,25 @@ body {
         margin-bottom: 0.8em;
     }
 }
+
+@media (max-width:767px) {
+    .about-us-text {
+        font-size: 1.06em;
+    }
+    .all-about-music-box {
+        min-height: 315px;
+    }
+    .about-us-glyphs {
+        font-size: 3.7em;
+        margin-bottom: 0.5em;
+    }
+    .about-us-box-header {
+        padding-top: 22px;
+        font-size: 1.75em;
+        margin-bottom: 0.8em;
+    }
+}
+
 
 /*==============NEW POST PAGE=================*/
 .new-post-text-box {

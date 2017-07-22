@@ -506,6 +506,23 @@ body {
     margin-bottom: 2em;
 }
 
+.edit-thread {
+    margin-left: 5.5em;
+    color: #188d18;
+}
+
+.delete-thread {
+    font-size: 17.5px;
+    background-color: white;
+    height: 1.4em;
+    border: none;
+    color: darkred;
+    margin-bottom: 3px;
+    padding: 0px;
+    margin-right: 0.28em;
+}
+
+
 
 /* ============= LOGIN ================ */
 .login-header {
@@ -599,6 +616,10 @@ body {
 
 
 /* ============ HOME ============*/
+
+.no-margin-bottom {
+    margin-bottom: 0px !important;
+}
 
 /* .home-content-main-text {
     font-size: 1em;

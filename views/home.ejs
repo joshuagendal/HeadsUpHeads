@@ -47,7 +47,11 @@
     <% include ./partials/nav %>
 
     <% if(hasSuccessMsg) {%>
-        <h1 class="alert alert-success margin-top-fifty" role="alert"><%= successMsg %></h1>
+        <div class="ro margin-top-seventy-five">
+            <div class="alert alert-success text-center"><%= successMsg %></div>
+                <span class="error-text" role="alert"></span>
+            </div>
+        </div>
     <% } %>
 
         <!--</div>

@@ -67,12 +67,18 @@
                                 <a href="/message-board/<%= queriedPost._id %>/edit" class="edit-thread">Edit</a>
                             </span> -->
                             <!-- <span class="delete-thread"> -->
+                        <% if(notEmailAuthUser) { %> 
+                            <% {} %>
+                        <% } else if(notAuthByAdminUser) { %>
+                            <% {} %>
+                        <% } else if(currentUser && queriedPost.userPosting.id.equals(currentUser._id)) { %>    
                             <form action="/message-board/<%= queriedPost._id %>?_method=DELETE" method="POST" style="float: right;">
                                 <input value="DELETE" type="submit" class="btn btn-danger delete-thread"></input>
                             </form>
                             <span>
                                 <a href="/message-board/<%= queriedPost._id %>/edit" class="edit-thread">Edit</a>
                             </span>
+                        <% } %>    
                             <!-- </span> -->
                         </div>
                     </div>

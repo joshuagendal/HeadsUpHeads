@@ -141,7 +141,7 @@ body, html
 
 @media (max-width:514px) {
     .home-content-main-text {
-        font-size: 0.5em ;
+        font-size: 0.63em ;
     }
     .box-header {
         font-size: 1.15em;
@@ -149,6 +149,9 @@ body, html
     }
     .info-box {
         min-height: 230px;
+    }
+    .home-button-text {
+        font-size: 0.84em;
     }
     /* .content button {
         margin-bottom: 0em;

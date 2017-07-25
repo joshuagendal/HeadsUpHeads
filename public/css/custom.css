@@ -507,19 +507,39 @@ body {
 }
 
 .edit-thread {
-    margin-left: 5.5em;
+    margin-right: 0.8em;
     color: #188d18;
+    float: right;
 }
 
 .delete-thread {
-    font-size: 17.5px;
+    font-size: 18px;
     background-color: white;
     height: 1.4em;
     border: none;
     color: darkred;
     margin-bottom: 3px;
     padding: 0px;
-    margin-right: 0.28em;
+    /* margin-right: 0.282142526+em; */
+}
+
+@media (max-width:785px) and (min-width:600px)  {
+    .delete-thread {
+        font-size: 16px;
+        margin-top: 0.8px;
+    }
+}
+
+@media (max-width:599px) {
+    .delete-thread {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 490px) {
+    .edit-thread {
+        margin-right: 0.25em;
+    }
 }
 
 
@@ -585,6 +605,12 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+@media(max-width:514px) {
+    /* .logo-background {
+        background-size: 
+    } */
 }
 
 

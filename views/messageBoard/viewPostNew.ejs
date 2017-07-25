@@ -63,13 +63,16 @@
                             <span class=""><%= queriedPost.userPosting.username %></span>
                             <span class="glyphicon glyphicon-asterisk glyph-star"></span>
                             <span><%= queriedPost.created.toLocaleDateString() %> <%= queriedPost.created.toLocaleTimeString() %></span>
-                            <span>
+                            <!-- <span>
                                 <a href="/message-board/<%= queriedPost._id %>/edit" class="edit-thread">Edit</a>
-                            </span>
+                            </span> -->
                             <!-- <span class="delete-thread"> -->
                             <form action="/message-board/<%= queriedPost._id %>?_method=DELETE" method="POST" style="float: right;">
                                 <input value="DELETE" type="submit" class="btn btn-danger delete-thread"></input>
                             </form>
+                            <span>
+                                <a href="/message-board/<%= queriedPost._id %>/edit" class="edit-thread">Edit</a>
+                            </span>
                             <!-- </span> -->
                         </div>
                     </div>

@@ -618,7 +618,7 @@ ul.sm-margin-left {
 
 .logo-background {
     width: 100%;
-    height: 100vh;
+    height: 100%;
     background-image: url(../img/messageboard-background-1.jpg);
     background-attachment: fixed;
     background-position: center;
@@ -626,10 +626,10 @@ ul.sm-margin-left {
     background-size: cover;
 }
 
-@media(max-width:514px) {
-    /* .logo-background {
-        background-size: 
-    } */
+@media(max-width:800px) {
+    .logo-background {
+        background-image: url(../img/messageboard-background-1-mobile.jpg);
+    }
 }
 
 

@@ -3,8 +3,8 @@
 
 
     <% if(error && error.length > 0) { %>
-        <div class="row margin-nav-errors alert alert-danger text-center" role="alert">
-            <h3 class="text-center"><%= error %></h3>
+        <div class="row margin-nav-errors alert alert-danger error-text" role="alert">
+            <span class=""><%= error %></span>
         </div>
     <% } %> 
     <% if(success && success.length > 0) { %> 

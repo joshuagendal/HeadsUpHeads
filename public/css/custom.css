@@ -68,18 +68,21 @@ body {
 }
 
 .logo-nav {
-    height: 2.5em;
-    margin-right: 2.5em;
-    margin-top: 0.13em;
+    height: 2.15em;
+    margin-right: 2em;
+    margin-top: 0.3em;
+}
+
+#navbar-logo {
+    display: block;
 }
 
 
-
-/* @media(max-width:727px) {
+ @media(max-width:727px) {
     #navbar-logo {
-        
+        display: 
     }
-} */
+} 
 
 ul.sm-margin-left {
     margin-left: 25px;
@@ -275,6 +278,16 @@ ul.sm-margin-left {
     padding-top: 1px;
 }
 
+.comment-form-div {
+    padding: 0;
+}
+
+@media (max-width:768px) {
+    .comment-form-div {
+        padding: 0 1em;
+    }
+}
+
 .background-dark-guitar {
     background: url(../img/threepnto.png)
 }
@@ -355,14 +368,12 @@ ul.sm-margin-left {
 
 }
 
-
-
 .post-text-main-text {
     margin: 0.4em 1em 0.4em 1em;
 }
 
  
-}
+
 
 .click-to-comment {
     padding: 0em 0em 0em 45em;
@@ -552,6 +563,10 @@ ul.sm-margin-left {
 @media (max-width:599px) {
     .delete-thread {
         font-size: 14px;
+        margin-top: 3px;
+    }
+    .edit-thread {
+        margin-top: 3px;
     }
 }
 
@@ -594,13 +609,20 @@ ul.sm-margin-left {
 }
 
 .margin-nav-errors {
-    margin-top: 68px;
+    margin-top: 63px;
     margin-bottom: 0px;
 }
 
+@media (max-width:767px) {
+    .margin-nav-errors {
+        margin-top: 55px;
+    }
+}
+
 .error-text {
-    font-size: 18px;
-    margin: 0 auto;
+    font-size: 24px;
+    padding: 30px;
+    text-align: center;
 }
 
 /*.profile-image-holder {

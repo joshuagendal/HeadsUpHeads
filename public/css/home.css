@@ -175,7 +175,7 @@ body, html
 }
 
 .box-body {
-    /* padding: 0em .5em 0em .5em; */
+    padding: 0em .5em 0em .5em; 
     overflow-wrap: break-word;
 }
 

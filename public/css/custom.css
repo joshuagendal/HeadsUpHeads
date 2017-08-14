@@ -32,6 +32,7 @@ body {
 }
 
 .navbar {
+    background-image: url(../img/threepnto.png);
     margin-bottom: 0;
     min-height: 57px;
 }
@@ -43,7 +44,7 @@ body {
 
 
 .navbar-default {
-    background-image: url(../img/threepnto.png);
+    /* background-image: url(../img/threepnto.png); */
     background-repeat: repeat-x;
 }
 
@@ -652,7 +653,8 @@ ul.sm-margin-left {
     .logo-background {
         background-image: url(../img/messageboard-background-1-mobile.jpg);
         background-size: 100%;
-        background-position: 100% 10%;
+        background-position: 100% 0%;
+        height: 90%;
     }
 }
 

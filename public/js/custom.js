@@ -11,7 +11,7 @@ function scrollToContent() {
 }
 
 function changeCollapsedBackground() {
-    $("#navbar").attr("aria-expanded", "true").css("background-image", "url(../img/threepnto.png)"); 
+    $("#navbar").attr("aria-expanded", "true"); 
 }
 
 // Navbar Collapse and Background

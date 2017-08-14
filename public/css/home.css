@@ -19,6 +19,12 @@ body, html
     height: 250px;
 }
 
+@media (max-width:415px) {
+    .logo {
+        margin-top: 2em;
+    }
+}
+
 .logo-subtitle {
     padding: 0em 1em 0em 1em;
     font-size: 2em;

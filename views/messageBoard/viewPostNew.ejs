@@ -8,10 +8,13 @@
 
     <link rel="icon" href="/img/HUH-logo-grey-2.png">
     <link href="/css/bootstrap.css" rel="stylesheet">  
+    <link rel="stylesheet" href="/css/medium-editor.css"> <!-- Core -->
+    <link rel="stylesheet" href="/css/themes/default.css"> <!-- or any other theme -->
     <link href="/css/messageBoard.css" rel="stylesheet">
     <link href="/css/custom.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet">
   </head>
+
   <body class="site-light-green-background">
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="">
@@ -84,10 +87,9 @@
                     </div>
                     <div class="post-text-bottom">
                         <!--<div class="post-text-holder"> style="font-size: 1.35em;"-->
-                            <span> <%= queriedPost.postText %></span>
+                            <textarea class="editable"> <%= queriedPost.postText %></textarea>
                         <!--</div>    -->
                     </div>    
-
                 </div>  
                 
                     <!--<h3>COMMENTS</h3>-->
@@ -134,7 +136,10 @@
         </div>    
     </div>    
             
-                
+</body>
+
+<script src="/js/medium-editor.js"></script>
+<script>var editor = new MediumEditor('.editable');</script>
 
 
 

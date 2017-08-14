@@ -651,6 +651,8 @@ ul.sm-margin-left {
 @media(max-width:800px) {
     .logo-background {
         background-image: url(../img/messageboard-background-1-mobile.jpg);
+        background-size: 100%;
+        background-position: 100% 10%;
     }
 }
 

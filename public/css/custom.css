@@ -250,10 +250,11 @@ ul.sm-margin-left {
 
 /*==============NEW POST PAGE=================*/
 .new-post-text-box {
-    height: 275px !important;
-    padding: 0.5em;
+    height: 150px !important;
+    padding: 0.5em 1.1em;
     border-radius: 0.4em;
-    font-size: 1.3em !important;
+    font-size: 1.1em !important;
+    text-align: left;
 }
 
 .site-green {

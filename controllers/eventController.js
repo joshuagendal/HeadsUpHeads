@@ -12,7 +12,7 @@ let getAllEvents = (req, res) => {
 }	
 
 let getNewEventPage = (req, res) => {
-    res.render('events/new-event.ejs')
+    res.render('events/new-event.ejs');
 };
 
 let postNewEvent = (req, res) => {

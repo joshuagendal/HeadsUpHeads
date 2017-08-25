@@ -10,6 +10,7 @@ var passport = require('passport');
 var methodOverride = require('method-override');
 var flash = require('connect-flash');
 var mongoose = require('mongoose');
+// var multer = require('multer');
 var path = require('path');
 
 var app = express();
@@ -29,7 +30,16 @@ app.use(methodOverride('_method'));
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
-        
+
+// var storage = multer.diskStorage({
+//     destination: function (req, file, cb) {
+//         cb(null, '/uploads/profile-images')
+//     },
+//     filename: function (req, file, cb) {
+//         cb(null, file.originalname + '-' + Date.now())
+//     }
+// });
+
 app.use(validator());
 
 app.use(session({

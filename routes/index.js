@@ -1,5 +1,6 @@
 const Post = require('../models/post');
 const Event = require('../models/event');
+const User = require('../models/user');
 
 
 module.exports = (app) => {
@@ -8,8 +9,9 @@ module.exports = (app) => {
     app.get('/', (req, res) => {   
 
         // HOME PAGE
+        // ***TODO: make controller for this and turn into async code
         const successMsg = req.flash('signupSuccessMsg');
-        var fiveRecentPosts = {}
+        var fiveRecentPosts = {};
         Post.find({}).sort({_id:-1}).limit(5).exec((err, recentPosts) => {
             if(err){
                 console.log(err);
@@ -60,6 +62,17 @@ module.exports = (app) => {
 
     app.get('/about-us', (req, res) => {
         res.render('aboutUs.ejs');
+    });
+
+    app.get('/list-users', (req, res) => {
+        User.find({}, function(err, allUsers){
+            if(err){
+                console.log(err);
+                res.redirect('/');
+            } else {
+                res.render('listAllUsers.ejs', {allUsers: allUsers});
+            }
+        });
     });
 
 	require('./user')(app);

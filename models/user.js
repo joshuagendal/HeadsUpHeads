@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
-var bcrypt = require('bcrypt');    //    npm encryption module
+var bcrypt = require('bcrypt');
+// var multer = require('multer');
 
 var userSchema = mongoose.Schema({
     username: {type: String, required: true},
@@ -27,6 +28,7 @@ var userSchema = mongoose.Schema({
     },
     dateJoined: {type: Date, required: false, default: Date.now},
     userEmailKey: {type: String, required: false},
+    // profileImg: {type: Buffer, contentType: String},
     userEmailVerified: {type: Boolean, required: false},
     userVerifiedByAdmin: {type: Boolean, required: false},
     isAdmin: {type: Boolean, required: false}
@@ -51,5 +53,14 @@ userSchema.pre('save', function(next) {
         }
     });
 });
+
+// var storage = multer.diskStorage({
+//     destination: function (req, file, cb) {
+//         cb(null, '/uploads/profile-images')
+//     },
+//     filename: function (req, file, cb) {
+//         cb(null, file.originalname + '-' + Date.now())
+//     }
+// });
 
 module.exports = mongoose.model('User', userSchema);

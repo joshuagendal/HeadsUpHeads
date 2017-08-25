@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ./partials/header %>
+</head>  
+
+<body>
+
+    <h1>LIST ALL USERS PAGE</h1>
+
+
+    <% allUsers.forEach(function(user){ %>
+        <h1><a> <%= user.username %> </a></h1>
+    <% }) %>
+</body>

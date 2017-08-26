@@ -56,4 +56,22 @@ module.exports = (app) => {
     app.get('/user-profile', (req, res) => {
         res.render('user/userProfile.ejs');
     });
+
+    // app.get('/users/:id', (req, res) => {
+        
+    //     res.render()
+    // });
+
+
+    let getIndividualPostById = (req, res) => {
+        Post.findById(req.params.id).populate('comments').exec(function(err, queriedPost){
+            if(err){
+                console.log(err);
+                res.redirect("/");
+            } else {
+                res.render('messageBoard/viewPostNew.ejs', {queriedPost: queriedPost});
+            }
+        });
+    }
+    
 }    

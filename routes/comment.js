@@ -1,6 +1,3 @@
-const User = require('../models/user');
-const Post = require('../models/post');
-const Comment = require('../models/comment');
 const middleware = require('../middleware/functions.js');
 const actions = require('../controllers/commentController.js');
 

@@ -2,149 +2,141 @@ const nodemailer = require('nodemailer');
 const mg = require('nodemailer-mailgun-transport');
 const User = require('../models/user');
 
+// MAILGUN AUTH INFO
 const auth = {
-    auth: {
-        api_key: 'key-edcbd28159c744e63519dc58eeb4f1de',
-        domain: 'mg.headsupheads.com'
-    }
+  auth: {
+    api_key: 'key-edcbd28159c744e63519dc58eeb4f1de',
+    domain: 'mg.headsupheads.com'
+  }
 };
 
+// SEND EMAIL FUNCTION
+let sendEmail = (htmlData, email, subject, cb) => {   // email is recipient cb = callback
 
-const sendEmail = (htmlData, email, subject, cb) => {   // email is recipient cb = callback
+  const nodemailerMailgun = nodemailer.createTransport(mg(auth));
+  const options = {
+    from: 'Heads Up Heads Administrator <joshgendal@gmail.com>',
+    to: email, // An array if you have multiple recipients.
+    subject: subject,
+    'h:Reply-To': 'joshgendal@gmail.com',
+    html: htmlData,
+  };
 
-    const nodemailerMailgun = nodemailer.createTransport(mg(auth));
-    const options = {
-        from: 'Heads Up Heads Administrator <joshgendal@gmail.com>',
-        to: email, // An array if you have multiple recipients.
-        subject: subject,
-        'h:Reply-To': 'joshgendal@gmail.com',
-        html: htmlData,
-    };
-
-    nodemailerMailgun.sendMail(options, (err, info) => {
-        if (err) {
-            console.log(err);
-            return cb(err , null);
-        }
-        else {
-            console.log(info);
-            return cb(null , info);
-        }
-    });
+  nodemailerMailgun.sendMail(options, (err, info) => {
+    if (err) {
+      console.log(err);
+      return cb(err , null);
+    }
+    else {
+      console.log(info);
+      return cb(null , info);
+    }
+  });
 }
 
+// SEND EMAIL TO ADMIN AFTER USER HAS VERIFIED OWN EMAIL
 const sendEmailToAdmin = (username, userId, cb) => {
-    let htmlData = `
-        <b>
-            Hello Admin, ${username} is trying to sign up. Please click this link > 
-            following link to proceed in verifiying user access to post content on the site and such           
-            <a href="http://headsupheads.herokuapp.com/verifyByAdmin?username=${username}">here</a>
+  let htmlData = `
+    <b>
+      Hello Admin, ${username} is trying to sign up. Please click this link > 
+      following link to proceed in verifiying user access to post content on the site and such           
+      <a href="http://headsupheads.herokuapp.com/verifyByAdmin?username=${username}">here</a>
 
-            If you want to deny user access and delete the user, click the following link/button <br>
-            <form id="deleteUserForm" action="http://headsupheads.herokuapp.com/${userId}/1m0a7c53ndtkejd?_method=DELETE" method="POST">
-                <input type="submit" value="Delete">
-            </form>
-        </b>
-    `;
-    let subject = "Please verify this user";
-    let adminEmail = 'joshgendal@gmail.com';
+      If you want to deny user access and delete the user, click the following link/button <br>
+      <form id="deleteUserForm" action="http://headsupheads.herokuapp.com/${userId}/1m0a7c53ndtkejd?_method=DELETE" method="POST">
+        <input type="submit" value="Delete">
+      </form>
+    </b>
+  `;
+  let subject = "Please verify this user";
+  let adminEmail = 'joshgendal@gmail.com';
 
-    sendEmail(htmlData, adminEmail, subject, cb);
+  sendEmail(htmlData, adminEmail, subject, cb);
 }
 
-// const sendEmailToUserWhosePostWasCommentedOn = (userPosted, userCommented, postSubject, postId, cb) => {
-//     let htmlData = `
-//         <h3>
-//             Hello ${userPosted}, ${userCommented} has commented on your post, ${postSubject}.
-//             Click <a href="http://localhost:3000/message-board/${postId}">HERE</a> to view the comment!
-//         </h3>
-//     `;
-//     let subject = `You have a new comment on your post ${postSubject}!`;
-
-//     sendEmail(htmlData, email, subject, cb);
-// }
-
-// This method verifies a user by token sent to his email
+// VERIFY USER VIA TOKEN SENT TO EMAIL
 const verifyUser = (req, res) => {
-    console.log(req.query);
-    if(req.query.token) {       // if there was token sent in request
-        User.findOne({"userEmailKey": req.query.token}, (err, user) => {   // find user by token matching up w/ userEmail
-            if(err) { // TEST: IF SEND REQUEST TWICE
-                res.send('Cannot verify email. Please contact the admins.');
-            } else {
-                if(user) {                      // extra layer of security - ensure there is a user in database and someone isnt trying to hack into system
-                    User.update({username: user.username}, {        // ABSOLUTELY MUST VALIDATE USERNAME IS IN DB ONLY ONCE
-                        "$set": {                   // this is permanent: changes values of your property in your database within a function
-                            "userEmailKey": "",
-                            "userEmailVerified": true
-                        }
-                    }, (err, stat) => {
-                        if(err) {       // problem w/ server
-                            res.send('Cannot verify email. Please contact the admins');
-                        } else {
-                            let htmlData = `
-                                <b> And we're glad glad glad that you'll arrive! You will 
-                                    receive an email shortly confirming access to the site!
-                                </b>
-                            `;
-                            let email = user.email;
-                            let subject = "We're glad you'll arrive!";
-                            // @TODO send email to user telling them admins have been notified
-                            sendEmail(htmlData, email, subject, (err, stat) => {
-                                console.log('Administrative email sent');
-                            });
-                            sendEmailToAdmin(user.username, user.id, (err, stat) => {
-                                res.send('Email verification successful');
-                            });
-                        }
-                    });
-                } else {
-                    res.send('Invalid token');
-                }
+  console.log(req.query);
+  if(req.query.token) {
+    User.findOne({"userEmailKey": req.query.token}, (err, user) => {   // find user by token matching up w/ userEmail
+      if(err) { // TEST: IF SEND REQUEST TWICE
+        res.send('Cannot verify email. Please contact the admins.');
+      } else {
+        if(user) {                 
+          User.update({username: user.username}, {
+            "$set": {                   
+              "userEmailKey": "",
+              "userEmailVerified": true
             }
-        });
-    } else {
-        res.send('Please do not alter url go back to email');
-    }
+          }, (err, stat) => {
+            // Problem w/ server
+            if(err) {       
+                res.send('Cannot verify email. Please contact the admins');
+            } else {
+              let htmlData = `
+                <b> And we're glad glad glad that you'll arrive! You will 
+                  receive an email shortly confirming access to the site!
+                </b>
+              `;
+              let email = user.email;
+              let subject = "We're glad you'll arrive!";
+              // @TODO send email to user telling them admins have been notified
+              sendEmail(htmlData, email, subject, (err, stat) => {
+                console.log('Administrative email sent');
+              });
+              sendEmailToAdmin(user.username, user.id, (err, stat) => {
+                res.send('Email verification successful');
+              });
+            }
+          });
+        } else {
+          res.send('Invalid token');
+        }
+      }
+    });
+  } else {
+    res.send('Please do not alter URL. Go back to email!');
+  }
 }
 
+// ADMIN RECEIVES EMAIL TO ADD USER OR DELETE USER. THIS IS WHEN USER IS VERIFIED
 const verifyAdmin = (req, res) => {
-    console.log(req.query.username);
-    if(req.query.username) {
-        User.findOne({
-            "username": req.query.username
-        }, (err,  user) => {
-            if(err) {
+  console.log(req.query.username);
+  if(req.query.username) {
+    User.findOne({
+      "username": req.query.username
+    }, (err,  user) => {
+      if(err) {
+        res.send('Cannot verify user');
+      } else {
+        if(user) {
+          User.update({"username": req.query.username}, {"$set": {"userVerifiedByAdmin": true}},
+            (err, stat) => {
+              if(err) {
                 res.send('Cannot verify user');
-            } else {
-                if(user) {
-                    User.update({"username": req.query.username}, {"$set": {"userVerifiedByAdmin": true}},
-                        (err, stat) => {
-                            if(err) {
-                                res.send('Cannot verify user');
-                            } else {
-                                let htmlData = 'Welcome to Heads up! Let"s get the show on the road!';
-                                let email = user.email;
-                                let subject = 'Congratulations! Welcome to Heads Up Heads!';
-                                sendEmail(htmlData, email, subject, (err, stat) => {
-                                    console.log('Administrative email sent');
-                                });
-                                res.send('User verified successfully!');
-                            }
-                        });
-                } else {
-                     res.send('This user does not exist');
-                }
-            }
-        });
-    } else {
-        res.send('Please do not alter url go back to email');
-    }
+              } else {
+                let htmlData = 'Welcome to Heads up! Let"s get the show on the road!';
+                let email = user.email;
+                let subject = 'Congratulations! Welcome to Heads Up Heads!';
+                sendEmail(htmlData, email, subject, (err, stat) => {
+                  console.log('Administrative email sent');
+                });
+                res.send('User verified successfully!');
+              }
+            });
+        } else {
+          res.send('This user does not exist');
+        }
+      }
+    });
+  } else {
+    res.send('Please do not alter url go back to email');
+  }
 }
 
 
 module.exports = {
-    sendEmail,
-    verifyAdmin,
-    verifyUser
+  sendEmail,
+  verifyAdmin,
+  verifyUser
 }

@@ -2,76 +2,34 @@ var actions = require('../controllers/userController');
 var passport = require('passport');
 
 module.exports = (app) => {
-    app.get('/signup', (req, res) => {
-        var errors = req.flash('errors');
-        console.log(errors);
-    	res.render('user/signup.ejs', {messages: errors, hasErrors: errors.length > 0});
-    });
+	
+	// GET SIGNUP FORM
+  app.get('/signup', actions.getSignupForm);
 
+	// POST SIGNUP FORM
+	// STEPS: 1. Client-side validation           
+	// 2. Server-side validation
 	app.post('/signup', actions.signUpValidation, passport.authenticate('local.signup', {
 		successRedirect: '/',
 		failureRedirect: '/signup',
 		failureFlash: true
 	}));
 
-    app.get('/login', (req, res) => {
-        var loginValidationErrors = req.flash('loginValidationErrs');
-        var loginPostErrors = req.flash('loginPostReqErrs');
-        // var mustBeLoggedInErr = req.flash('mustBeLoggedInErr');
-        if(loginValidationErrors){
-            console.log('VALIDATION ERROR(S): ' + loginValidationErrors);
-        } 
-        if(loginPostErrors){
-            console.log('POST REQ ERRORS): ' + loginPostErrors);
-        }  
-        res.render('user/login.ejs', {                  
-            loginValidationErrs: loginValidationErrors,
-            loginValidationHasErrs: loginValidationErrors.length > 0,
-            loginPostReqErrs: loginPostErrors,  
-            loginPostReqHasErrs: loginPostErrors.length > 0,
-            // mustLogInErr: mustBeLoggedInErr,
-            // userMustLogInHasErrs: mustBeLoggedInErr.length > 0 
-            });
-    });
-            
-        // if(loginPostReqErrs) {
-        //     console.log('LOGIN POST REQ ERRORS')
-        // }
-    // error: req.flash('mustBeLoggedInError')
-    // mustBeLoggedInError: req.flash('mustBeLoggedInError')
-    app.post('/login', actions.loginValidation, passport.authenticate('local.login', { // @TODO add in function to make sure user is verified by admin
-        successRedirect: '/', // if user successfully signs up via passport
-        failureRedirect: '/login',  // intention: to authenticate w/ Passport. Before authentication, you validate users info. GOAL is t
-        failureFlash : true
-    }));
+	// GET LOGIN FORM
+  app.get('/login', actions.getLoginForm);
 
-    app.get('/logout', (req, res) => {
-        req.logout();
-        res.redirect('/login');
-    });
+	// POST LOGIN FORM
+	// STEPS: 1. Client-side validation
+	// 2. Server-side validation
+  app.post('/login', actions.loginValidation, passport.authenticate('local.login', { // @TODO add in function to make sure user is verified by admin
+		successRedirect: '/', 
+		failureRedirect: '/login',
+		failureFlash : true
+	}));
 
-    // DELETE USER ROUTE
-    app.delete('/:id/1m0a7c53ndtkejd', actions.deleteUser);
+	// LOGOUT
+	app.get('/logout', actions.logout);
 
-    app.get('/user-profile', (req, res) => {
-        res.render('user/userProfile.ejs');
-    });
-
-    // app.get('/users/:id', (req, res) => {
-        
-    //     res.render()
-    // });
-
-
-    let getIndividualPostById = (req, res) => {
-        Post.findById(req.params.id).populate('comments').exec(function(err, queriedPost){
-            if(err){
-                console.log(err);
-                res.redirect("/");
-            } else {
-                res.render('messageBoard/viewPostNew.ejs', {queriedPost: queriedPost});
-            }
-        });
-    }
-    
+	// DELETE USER
+	app.delete('/:id/1m0a7c53ndtkejd', actions.deleteUser);
 }    

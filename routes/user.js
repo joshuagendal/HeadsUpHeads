@@ -1,5 +1,6 @@
-var actions = require("../controllers/userController");
-var passport = require("passport");
+const actions = require("../controllers/userController");
+const emailActions = require("../controllers/emailController");
+const passport = require("passport");
 
 module.exports = app => {
   // GET SIGNUP FORM
@@ -38,8 +39,11 @@ module.exports = app => {
   // LOGOUT
   app.get("/logout", actions.logout);
 
-  // PASSWORD RESET
+  // GET PASSWORD RESET FORM
   app.get("/password-reset", actions.getPasswordResetForm);
+
+  // SEND EMAIL TO USER
+  app.post("/password-reset", emailActions.sendPasswordResetEmail);
 
   // DELETE USER
   app.delete("/:id/1m0a7c53ndtkejd", actions.deleteUser);

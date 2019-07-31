@@ -100,6 +100,14 @@ let getPasswordResetForm = (req, res) => {
   res.render("user/passwordReset.ejs");
 };
 
+let sendPasswordResetEmail = (req, res) => {
+  const userEmail = req.body.email;
+
+  console.log("USER EMAIL: ", userEmail);
+
+  res.render("/");
+};
+
 // DELETE USER
 let deleteUser = (req, res) => {
   User.findByIdAndRemove(req.params.id, function(err) {

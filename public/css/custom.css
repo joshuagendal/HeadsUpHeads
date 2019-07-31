@@ -75,11 +75,11 @@ body {
   display: block;
 }
 
-@media (max-width: 727px) {
-  #navbar-logo {
-    display: ;
-  }
-}
+/* @media(max-width:727px) {
+    #navbar-logo {
+        display: 
+    }
+}  */
 
 ul.sm-margin-left {
   margin-left: 25px;
@@ -355,8 +355,8 @@ ul.sm-margin-left {
   /*padding-left: 1em;*/
 }
 
-.post-text-holder {
-}
+/* .post-text-holder {
+} */
 
 .post-text-main-text {
   margin: 0.4em 1em 0.4em 1em;
@@ -551,12 +551,6 @@ ul.sm-margin-left {
   .edit-thread {
     margin-right: 0.25em;
   }
-}
-
-/* ============= PASSWORD RESET ================ */
-.change-password-txt {
-  font-size: 2em;
-  margin-top: 120px;
 }
 
 /* ============= LOGIN ================ */

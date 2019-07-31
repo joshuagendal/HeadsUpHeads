@@ -1,634 +1,613 @@
-
-
 body {
-    font-family: Karla, sans-serif;
+  font-family: Karla, sans-serif;
 }
 
 .trey-guitar-background {
-    background: url(../img/koa.png);
+  background: url(../img/koa.png);
 }
 
 .site-light-green-background {
-    background: #67b456;
+  background: #67b456;
 }
 
 /* ======= LAYOUT ELEMENTS ======= */
 
 .container {
-    padding: 0;
-    width: 100%;
+  padding: 0;
+  width: 100%;
 }
 
 .row-fullwidth {
-    margin: 0;
-    padding: 0;
-    width: 100%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
 }
 
 /* ======= NAVBAR ======== */
 
 .navbar-toggle {
-    margin-top: 11px;
+  margin-top: 11px;
 }
 
 .navbar {
-    background-image: url(../img/threepnto.png);
-    margin-bottom: 0;
-    min-height: 57px;
+  background-image: url(../img/threepnto.png);
+  margin-bottom: 0;
+  min-height: 57px;
 }
 
 .navbar-default .navbar-brand {
-    color: #ffffff;
-    font-size: 1.3em;
+  color: #ffffff;
+  font-size: 1.3em;
 }
 
-
 .navbar-default {
-    /* background-image: url(../img/threepnto.png); */
-    background-repeat: repeat-x;
+  /* background-image: url(../img/threepnto.png); */
+  background-repeat: repeat-x;
 }
 
 .navbar-default .navbar-nav > li > a {
-    color: #ffffff;
+  color: #ffffff;
 }
 
-.navbar-default .navbar-nav > .active{
-    color: #ffffff;
-    background-image: url(../img/koa.png);
+.navbar-default .navbar-nav > .active {
+  color: #ffffff;
+  background-image: url(../img/koa.png);
 }
 
-.navbar-default .navbar-nav > .active > a, 
-.navbar-default .navbar-nav > .active > a:hover, 
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
 .navbar-default .navbar-nav > .active > a:focus {
-    color: black;
-    background-image: url(../img/koa.png);
+  color: black;
+  background-image: url(../img/koa.png);
 }
 
 .nav-font-size {
-    font-size: 1.3em;
+  font-size: 1.3em;
 }
 
 .logo-nav {
-    height: 2.15em;
-    margin-right: 2em;
-    margin-top: 0.3em;
+  height: 2.15em;
+  margin-right: 2em;
+  margin-top: 0.3em;
 }
 
 #navbar-logo {
-    display: block;
+  display: block;
 }
 
-
- @media(max-width:727px) {
-    #navbar-logo {
-        display: 
-    }
-} 
+@media (max-width: 727px) {
+  #navbar-logo {
+    display: ;
+  }
+}
 
 ul.sm-margin-left {
-    margin-left: 25px;
+  margin-left: 25px;
 }
-
-
 
 /* ================= ABOUT US =================== */
 
 .hero-image {
-		background-image: url(../img/phish_hero.jpg);
-		background-position: center;
-		background-size: cover;
-		height: 400px;
-		width: 100%;
+  background-image: url(../img/phish_hero.jpg);
+  background-position: center;
+  background-size: cover;
+  height: 400px;
+  width: 100%;
 }
 
 .koa-marketing-main {
-    background-image: url(../img/koa.png);
-    height: 800px;
+  background-image: url(../img/koa.png);
+  height: 800px;
 }
 
 .hero-text {
-    color: #ffffff;
-    text-align: center;
-    margin: auto;
-    padding: 175px 175px;
+  color: #ffffff;
+  text-align: center;
+  margin: auto;
+  padding: 175px 175px;
 }
 
 .container-hero-image {
-    margin-right: auto;
-    margin-left: auto;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .margin-top-fifty {
-    margin-top: 50px;
+  margin-top: 50px;
 }
 
 .margin-top-alot {
-    margin-top: 125px;
+  margin-top: 125px;
 }
 
 .margin-top-seventy-five {
-    margin-top: 75px;
+  margin-top: 75px;
 }
 
 .margin-bottom-fifty {
-    margin-bottom: 50px;
+  margin-bottom: 50px;
 }
 
-
-
 .all-about-music-box {
-    background-image: url(../img/koa.png);
-    min-height: 400px;
-    margin-top: 5em;
-    text-align: center;
+  background-image: url(../img/koa.png);
+  min-height: 400px;
+  margin-top: 5em;
+  text-align: center;
 }
 
 .about-us-box-header {
-    padding-top: 35px;;
-    font-size: 2em;
-    margin-bottom: 0.5em;
-    text-align: center;
+  padding-top: 35px;
+  font-size: 2em;
+  margin-bottom: 0.5em;
+  text-align: center;
 }
 
 .text-center {
-    text-align: center;
+  text-align: center;
 }
 
 .about-us-glyphs {
-    font-size: 6em;
-    text-align: center;
-    margin-bottom: 0.3em;
+  font-size: 6em;
+  text-align: center;
+  margin-bottom: 0.3em;
 }
 
 .about-us-text {
-    font-size: 1.17em; 
+  font-size: 1.17em;
 }
 
-@media (max-width:901px) and (min-width:785px) {
-    .about-us-text {
-        font-size: 1.08em;
-    }
-    .all-about-music-box {
-        min-height: 357px;
-    }
-    .about-us-glyphs {
-        font-size: 5em;
-    }
+@media (max-width: 901px) and (min-width: 785px) {
+  .about-us-text {
+    font-size: 1.08em;
+  }
+  .all-about-music-box {
+    min-height: 357px;
+  }
+  .about-us-glyphs {
+    font-size: 5em;
+  }
 }
 
-@media (max-width:784px) and (min-width:768px) {
-    .about-us-text {
-        font-size: 1.06em;
-    }
-    .all-about-music-box {
-        min-height: 315px;
-    }
-    .about-us-glyphs {
-        font-size: 3.7em;
-        margin-bottom: 0.5em;
-    }
-    .about-us-box-header {
-        padding-top: 22px;
-        font-size: 1.75em;
-        margin-bottom: 0.8em;
-    }
+@media (max-width: 784px) and (min-width: 768px) {
+  .about-us-text {
+    font-size: 1.06em;
+  }
+  .all-about-music-box {
+    min-height: 315px;
+  }
+  .about-us-glyphs {
+    font-size: 3.7em;
+    margin-bottom: 0.5em;
+  }
+  .about-us-box-header {
+    padding-top: 22px;
+    font-size: 1.75em;
+    margin-bottom: 0.8em;
+  }
 }
 
-@media (max-width:767px) and (min-width:515px) {
-    .about-us-text {
-        font-size: 1.17em;
-    }
-    .all-about-music-box {
-        min-height: 295px;
-    }
-    .about-us-glyphs {
-        font-size: 3.2em;
-        margin-bottom: 0.7em;
-    }
-    .about-us-box-header {
-        padding-top: 29px;
-        font-size: 2em;
-        margin-bottom: 1em;
-    }
+@media (max-width: 767px) and (min-width: 515px) {
+  .about-us-text {
+    font-size: 1.17em;
+  }
+  .all-about-music-box {
+    min-height: 295px;
+  }
+  .about-us-glyphs {
+    font-size: 3.2em;
+    margin-bottom: 0.7em;
+  }
+  .about-us-box-header {
+    padding-top: 29px;
+    font-size: 2em;
+    margin-bottom: 1em;
+  }
 }
 
-@media (max-width:514px) and (min-width:322px) {
-    .about-us-text {
-        font-size: 1.06em;
-    }
-    .all-about-music-box {
-        min-height: 295px;
-    }
-    .about-us-glyphs {
-        font-size: 3.2em;
-        margin-bottom: 0.7em;
-    }
-    .about-us-box-header {
-        padding-top: 37px;
-        font-size: 1.75em;
-        margin-bottom: 0.85em;
-    }
+@media (max-width: 514px) and (min-width: 322px) {
+  .about-us-text {
+    font-size: 1.06em;
+  }
+  .all-about-music-box {
+    min-height: 295px;
+  }
+  .about-us-glyphs {
+    font-size: 3.2em;
+    margin-bottom: 0.7em;
+  }
+  .about-us-box-header {
+    padding-top: 37px;
+    font-size: 1.75em;
+    margin-bottom: 0.85em;
+  }
 }
 
-@media (max-width:321px) {
-    .about-us-text {
-        font-size: 1.06em;
-    }
-    .all-about-music-box {
-        min-height: 295px;
-    }
-    .about-us-glyphs {
-        font-size: 3.2em;
-        margin-bottom: 0.7em;
-    }
-    .about-us-box-header {
-        padding-top: 28px;
-        font-size: 1.75em;
-        margin-bottom: 0.85em;
-    }
+@media (max-width: 321px) {
+  .about-us-text {
+    font-size: 1.06em;
+  }
+  .all-about-music-box {
+    min-height: 295px;
+  }
+  .about-us-glyphs {
+    font-size: 3.2em;
+    margin-bottom: 0.7em;
+  }
+  .about-us-box-header {
+    padding-top: 28px;
+    font-size: 1.75em;
+    margin-bottom: 0.85em;
+  }
 }
 
 /*==============NEW POST PAGE=================*/
 .new-post-text-box {
-    height: 150px !important;
-    padding: 0.5em 1.1em;
-    border-radius: 0.4em;
-    font-size: 1.1em !important;
-    text-align: left;
+  height: 150px !important;
+  padding: 0.5em 1.1em;
+  border-radius: 0.4em;
+  font-size: 1.1em !important;
+  text-align: left;
 }
 
 .site-green {
-    background-color: #188d18;
+  background-color: #188d18;
 }
 
 .new-post-text-size-color {
-    font-size: 1.3em;
-    color: black;
+  font-size: 1.3em;
+  color: black;
 }
 
 .margin-top-one-hundred {
-    margin-top: 100px;
+  margin-top: 100px;
 }
 
 .margin-top-twenty-five {
-    margin-top: 25px;
+  margin-top: 25px;
 }
 
 /* =============VIEW POST PAGE=============== */
 
 .view-post-container {
-    padding-top: 1px;
+  padding-top: 1px;
 }
 
 .comment-form-div {
-    padding: 0;
+  padding: 0;
 }
 
-@media (max-width:768px) {
-    .comment-form-div {
-        padding: 0 1em;
-    }
+@media (max-width: 768px) {
+  .comment-form-div {
+    padding: 0 1em;
+  }
 }
 
 .background-dark-guitar {
-    background: url(../img/threepnto.png)
+  background: url(../img/threepnto.png);
 }
 
 .margin-bottom-sm {
-    margin-bottom: 2em;
-
+  margin-bottom: 2em;
 }
 
 .glyph-chevron {
-    font-size: 13px;
-    margin-right: 10px;
+  font-size: 13px;
+  margin-right: 10px;
 }
 
 .glyph-star {
-    font-size: 14px;
-    margin-left: 8px;
-    margin-right: 5.5px;
+  font-size: 14px;
+  margin-left: 8px;
+  margin-right: 5.5px;
 }
 
-@media (max-width:785px) and (min-width:600px) {
-    .glyph-chevron {
-        font-size: 11.5px;
-    }
-    .glyph-star {
-        font-size: 11.5px;
-    }
+@media (max-width: 785px) and (min-width: 600px) {
+  .glyph-chevron {
+    font-size: 11.5px;
+  }
+  .glyph-star {
+    font-size: 11.5px;
+  }
 }
 
-@media (max-width:599px) {
-    .glyph-chevron {
-        font-size: 10px;
-    }
-    .glyph-star {
-        font-size: 10px;
-    }
+@media (max-width: 599px) {
+  .glyph-chevron {
+    font-size: 10px;
+  }
+  .glyph-star {
+    font-size: 10px;
+  }
 }
-
-
 
 .post-heading {
-    margin-top: 0.5em;
-    height: 2.8em;
-    background-color: #188d18;
-    color: #ffffff;
-    width: 100%;
-    padding-left: 0.7em;
-    font-size: 1.4em;
-    margin-bottom: 0.4em;
-    border-radius: 0.4em;
-    padding-top: 0.6em;
+  margin-top: 0.5em;
+  height: 2.8em;
+  background-color: #188d18;
+  color: #ffffff;
+  width: 100%;
+  padding-left: 0.7em;
+  font-size: 1.4em;
+  margin-bottom: 0.4em;
+  border-radius: 0.4em;
+  padding-top: 0.6em;
 }
 
-@media (max-width:785px) and (min-width:600px) {
-    .post-heading {
-        font-size: 1.3em;
-    }
+@media (max-width: 785px) and (min-width: 600px) {
+  .post-heading {
+    font-size: 1.3em;
+  }
 }
 
-@media (max-width:599px) {
-    .post-heading {
-        font-size: 1.2em;
-    }
+@media (max-width: 599px) {
+  .post-heading {
+    font-size: 1.2em;
+  }
 }
 
 .post-text-box {
-    width: 100%;
-    border: 1px solid black;
-    /* height: auto;    */
-    min-height: 6.8em;
-    background: white;
-    margin-bottom: 0.4em;
-    border-radius: 0.65em;
-    /*padding-left: 1em;*/
+  width: 100%;
+  border: 1px solid black;
+  /* height: auto;    */
+  min-height: 6.8em;
+  background: white;
+  margin-bottom: 0.4em;
+  border-radius: 0.65em;
+  /*padding-left: 1em;*/
 }
 
 .post-text-holder {
-
 }
 
 .post-text-main-text {
-    margin: 0.4em 1em 0.4em 1em;
+  margin: 0.4em 1em 0.4em 1em;
 }
-
- 
-
 
 .click-to-comment {
-    padding: 0em 0em 0em 45em;
+  padding: 0em 0em 0em 45em;
 }
 
-
-
-
 .message-board-text {
-    font-size: 1.2em;
-    color: black;
-    margin-top: 0.8em;
+  font-size: 1.2em;
+  color: black;
+  margin-top: 0.8em;
 }
 
 .post-text-bottom {
-    margin: 0em 1em 0.5em 0.8em;
-    padding: 0.35em 0em;
-    font-size: 1.2em;   
+  margin: 0em 1em 0.5em 0.8em;
+  padding: 0.35em 0em;
+  font-size: 1.2em;
 }
 
-@media (max-width:785px) and (min-width:600px) {
-    .post-text-bottom {
-        font-size: 1.1em;
-    }
-    .message-board-text {
-        font-size: 1.1em;
-    }
+@media (max-width: 785px) and (min-width: 600px) {
+  .post-text-bottom {
+    font-size: 1.1em;
+  }
+  .message-board-text {
+    font-size: 1.1em;
+  }
 }
 
-@media (max-width:599px) {
-    .post-text-bottom {
-        font-size: 1em;
-    }
-    .message-board-text {
-        font-size: 1em;
-    }
+@media (max-width: 599px) {
+  .post-text-bottom {
+    font-size: 1em;
+  }
+  .message-board-text {
+    font-size: 1em;
+  }
 }
-
-
-
-
-
 
 .original-post-header {
-    font-size: 1.35em;
+  font-size: 1.35em;
 }
 
-@media (max-width:785px) and (min-width:600px) {
-    .original-post-header {
-        font-size: 1.2em;
-    }
-}    
+@media (max-width: 785px) and (min-width: 600px) {
+  .original-post-header {
+    font-size: 1.2em;
+  }
+}
 
-@media (max-width:599px) {
-    .original-post-header {
-        font-size: 1.05em;
-    }
+@media (max-width: 599px) {
+  .original-post-header {
+    font-size: 1.05em;
+  }
 }
 
 .edit-delete-buttons-box {
-    margin: 0;
-    height: 3em;
+  margin: 0;
+  height: 3em;
 }
 
 .edit-link-comments {
-    float: left !important;
+  float: left !important;
 }
 
 .small-margin-top-bottom {
-    margin: 0.4em 0;
+  margin: 0.4em 0;
 }
 
 .underline {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 .black-text {
-    color: black;
+  color: black;
 }
 
 .margin-top-em {
-    margin-top: 1em;
+  margin-top: 1em;
 }
 
 .comment-header {
-    background-image: url(../img/threepnto.png);
-    color: white;
+  background-image: url(../img/threepnto.png);
+  color: white;
 }
 
 .comment-text-header {
-    margin-top: 2px;
-    margin-bottom: 5px;
-    font-size: 1.35em;
+  margin-top: 2px;
+  margin-bottom: 5px;
+  font-size: 1.35em;
 }
 
-@media (max-width:785px) and (min-width:600px) {
-    .comment-text-header {
-        font-size: 1.23em;
-    }
-}    
+@media (max-width: 785px) and (min-width: 600px) {
+  .comment-text-header {
+    font-size: 1.23em;
+  }
+}
 
-@media (max-width:599px) {
-    .comment-text-header {
-        font-size: 1.05em;
-    }
+@media (max-width: 599px) {
+  .comment-text-header {
+    font-size: 1.05em;
+  }
 }
 
 .comment-div {
-    border-bottom: 1px solid rgba(121, 115, 115, 0.61);
+  border-bottom: 1px solid rgba(121, 115, 115, 0.61);
 }
 
 .add-comment-text {
-    font-size: 1.5em !important;
+  font-size: 1.5em !important;
 }
 
 .view-post-hero-image {
-    width: 100%;
-    height: 60%;
-    background-image: url(../img/messageboard-background-1-cropped-2.jpg);
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+  width: 100%;
+  height: 60%;
+  background-image: url(../img/messageboard-background-1-cropped-2.jpg);
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .col-centered {
-    float: none;
-    margin: 0 auto;
+  float: none;
+  margin: 0 auto;
 }
 
-
-
 .background-white {
-    background: white;
+  background: white;
 }
 
 .edit-comment-btn {
-    float: right;
-    font-size: 1.3em;
-    margin: 0.3em 1em 0 0;
+  float: right;
+  font-size: 1.3em;
+  margin: 0.3em 1em 0 0;
 }
 
 .padding-zero {
-    padding: 0;
+  padding: 0;
 }
 
 .border-green {
-    border-left: 4px solid #188d18;
-    border-right: 4px solid #188d18;
-    border-bottom: 4px solid #188d18;
+  border-left: 4px solid #188d18;
+  border-right: 4px solid #188d18;
+  border-bottom: 4px solid #188d18;
 }
 
 .post-comment-heading {
-    font-size: 2em;
-    margin-bottom: 2em;
+  font-size: 2em;
+  margin-bottom: 2em;
 }
 
 .margin-top-bottom-small {
-    margin-top: 2em;
-    margin-bottom: 2em;
+  margin-top: 2em;
+  margin-bottom: 2em;
 }
 
 .edit-thread {
-    margin-right: 0.8em;
-    color: #188d18;
-    float: right;
+  margin-right: 0.8em;
+  color: #188d18;
+  float: right;
 }
 
 .delete-thread {
-    font-size: 18px;
-    background-color: white;
-    height: 1.4em;
-    border: none;
-    color: darkred;
-    margin-bottom: 3px;
-    padding: 0px;
-    /* margin-right: 0.282142526+em; */
+  font-size: 18px;
+  background-color: white;
+  height: 1.4em;
+  border: none;
+  color: darkred;
+  margin-bottom: 3px;
+  padding: 0px;
+  /* margin-right: 0.282142526+em; */
 }
 
-@media (max-width:785px) and (min-width:600px)  {
-    .delete-thread {
-        font-size: 16px;
-        margin-top: 0.8px;
-    }
+@media (max-width: 785px) and (min-width: 600px) {
+  .delete-thread {
+    font-size: 16px;
+    margin-top: 0.8px;
+  }
 }
 
-@media (max-width:599px) {
-    .delete-thread {
-        font-size: 14px;
-        margin-top: 3px;
-    }
-    .edit-thread {
-        margin-top: 3px;
-    }
+@media (max-width: 599px) {
+  .delete-thread {
+    font-size: 14px;
+    margin-top: 3px;
+  }
+  .edit-thread {
+    margin-top: 3px;
+  }
 }
 
 @media (max-width: 490px) {
-    .edit-thread {
-        margin-right: 0.25em;
-    }
+  .edit-thread {
+    margin-right: 0.25em;
+  }
 }
 
-
+/* ============= PASSWORD RESET ================ */
+.change-password-txt {
+  font-size: 2em;
+  margin-top: 120px;
+}
 
 /* ============= LOGIN ================ */
 .login-header {
-    font-size: 3em;;
-    margin-top: 120px;
-    text-align: center;
+  font-size: 3em;
+  margin-top: 120px;
+  text-align: center;
 }
 
 .form-control {
-    height: 3.2em;
-    font-size: 1em;;
+  height: 3.2em;
+  font-size: 1em;
 }
 
 /* ============== SIGNUP ================ */
 
 .grey-background {
-    background-color: #ffffff;
+  background-color: #ffffff;
 }
 
 .align-left {
-    text-align: left;
+  text-align: left;
 }
 
 .darker-border {
-    border: 1px solid rgba(131, 124, 124, 0.9);
+  border: 1px solid rgba(131, 124, 124, 0.9);
 }
 
 .margin-left-fifteen {
-    margin-left: 15px;
+  margin-left: 15px;
 }
 
 .padding-top-fifteen {
-    padding-top: 15px;
+  padding-top: 15px;
 }
 
 .margin-nav-errors {
-    margin-top: 63px;
-    margin-bottom: 0px;
+  margin-top: 63px;
+  margin-bottom: 0px;
 }
 
-@media (max-width:767px) {
-    .margin-nav-errors {
-        margin-top: 55px;
-    }
+@media (max-width: 767px) {
+  .margin-nav-errors {
+    margin-top: 55px;
+  }
 }
 
 .error-text {
-    font-size: 24px;
-    padding: 30px;
-    text-align: center;
+  font-size: 24px;
+  padding: 30px;
+  text-align: center;
 }
 
 /*.profile-image-holder {
@@ -654,7 +633,7 @@ ul.sm-margin-left {
   background-size: cover;
 }
 
-@media(max-width:800px) {
+@media (max-width: 800px) {
   .logo-background {
     background-image: url(../img/messageboard-background-1-mobile.jpg);
     background-size: 100%;
@@ -663,37 +642,32 @@ ul.sm-margin-left {
   }
 }
 
-
-
 .container > .navbar-header {
-    margin: 9px 0;
+  margin: 9px 0;
 }
 
 .navbar-nav {
-    margin: 7.5px 0;
+  margin: 7.5px 0;
 }
 
 /* ============= Mobile Nav Background Styling ============= */
 
 .in {
-    background: url(../img/threepnto.png);
+  background: url(../img/threepnto.png);
 }
 
 .text-white {
-    color: white;   
+  color: white;
 }
-
-
 
 .text-black {
-    color: black;
+  color: black;
 }
-
 
 /* ============ HOME ============*/
 
 .no-margin-bottom {
-    margin-bottom: 0px !important;
+  margin-bottom: 0px !important;
 }
 
 /* .home-content-main-text {
@@ -706,17 +680,13 @@ ul.sm-margin-left {
     }
 } */
 
-
 /* ============ NAVBAR MEDIA QUERIES ============= */
 
-@media(min-width: 768px) {
-    .navbar-header {
-        margin-top: 7.5px;
-    }
+@media (min-width: 768px) {
+  .navbar-header {
+    margin-top: 7.5px;
+  }
 }
-
-
-
 
 /* =========== EXTRAS/UNUSED ================== */
 

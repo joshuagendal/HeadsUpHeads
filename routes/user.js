@@ -1,5 +1,6 @@
-var actions = require("../controllers/userController");
-var passport = require("passport");
+const actions = require("../controllers/userController");
+const emailActions = require("../controllers/emailController");
+const passport = require("passport");
 
 module.exports = app => {
   // GET SIGNUP FORM
@@ -46,6 +47,9 @@ module.exports = app => {
 
   // GET NEW PASSWORD FORM
   app.get("/harpua/reset-password", actions.getNewPasswordForm);
+
+  // GET EMAILED USER TO PASSWORD RESET FORMX
+  app.get("/harpua/reset-password/:email", actions.getNewPasswordForm);
 
   // DELETE USER
   app.delete("/:id/1m0a7c53ndtkejd", actions.deleteUser);

@@ -102,7 +102,32 @@ let getPasswordResetForm = (req, res) => {
 
 // GET NEW PASSWORD FORM
 let getNewPasswordForm = (req, res) => {
-  res.render("user/newPasswordForm");
+  // change to adding email in body from client?
+  const userEmail = req.params.email;
+  console.log("!!EMAIL!!: ", userEmail);
+  res.render("user/newPasswordForm", { userEmail });
+};
+
+// POST NEW PASSWORD
+let postNewPassword = (req, res) => {
+  console.log("POST NEW PASSWORD ROUTE");
+  const email = req.params.email;
+  console.log("!!!! USER EMAIL !!!!!");
+  console.log(email);
+  console.log("!!!! USER EMAIL !!!!!");
+
+  // prettier-ignore
+  User.findOne({ 'email': email }, (err, user) => {
+    if (err) {
+      console.log('NO USER FOUND WITH EMAIL');
+      // handle error
+    }
+    // ... If user found, change their password
+    // Encrypt password w/ bcrypt prior to saving to db 
+    console.log('USER FOUND:');
+    console.log(user);
+    res.send(user);
+  });
 };
 
 // DELETE USER
@@ -126,5 +151,6 @@ module.exports = {
   logout,
   getPasswordResetForm,
   getNewPasswordForm,
+  postNewPassword,
   deleteUser
 };

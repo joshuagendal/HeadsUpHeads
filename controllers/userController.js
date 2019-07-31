@@ -95,9 +95,14 @@ let logout = (req, res) => {
   res.redirect("/login");
 };
 
-// PASSWORD RESET
+// USER ENTERS EMAIL FOR PASSWORD RESET
 let getPasswordResetForm = (req, res) => {
   res.render("user/passwordReset.ejs");
+};
+
+// GET NEW PASSWORD FORM
+let getNewPasswordForm = (req, res) => {
+  res.render("user/newPasswordForm");
 };
 
 // DELETE USER
@@ -120,5 +125,6 @@ module.exports = {
   loginValidation,
   logout,
   getPasswordResetForm,
+  getNewPasswordForm,
   deleteUser
 };

@@ -134,6 +134,30 @@ const verifyAdmin = (req, res) => {
   }
 }
 
+<<<<<<< Updated upstream
+=======
+// SEND PASSWORD RESET EMAIL
+const sendPasswordResetEmail = (req, res) => {
+  console.log("HIT SENDPASSWORDRESETEMAIL ROUTE");
+  const userEmail = req.body.email;
+
+  const htmlData = `
+    <b>
+      <h4>Hello ${userEmail}. Please follow this link to reset your password</h4>
+      <b>
+      <b>
+      <a href="localhost:8000/harpua/reset-password"></a>
+    <b>
+  `;
+  const subject = "Reset Heads Up Password";
+  sendEmail(htmlData, userEmail, subject, (err, status) => {
+    console.log("RESET PASSWORD EMAIL SENT");
+    console.log(status);
+  });
+
+  res.send("gets to end of route");
+};
+>>>>>>> Stashed changes
 
 module.exports = {
   sendEmail,

@@ -41,6 +41,12 @@ module.exports = app => {
   // PASSWORD RESET
   app.get("/password-reset", actions.getPasswordResetForm);
 
+  // SEND EMAIL TO USER
+  app.post("/password-reset", emailActions.sendPasswordResetEmail);
+
+  // GET NEW PASSWORD FORM
+  app.get("/harpua/reset-password", actions.getNewPasswordForm);
+
   // DELETE USER
   app.delete("/:id/1m0a7c53ndtkejd", actions.deleteUser);
 };

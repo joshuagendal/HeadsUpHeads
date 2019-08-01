@@ -1,18 +1,18 @@
-const Event = require('../models/event');
+const Event = require("../models/event");
 
 let getAllEvents = (req, res) => {
-  Event.find({}, function(err, allEvents){
-    if(err){
+  Event.find({}, function(err, allEvents) {
+    if (err) {
       console.log(err);
-      res.redirect('/');
+      res.redirect("/");
     } else {
-      res.render('events/show-all.ejs', {events: allEvents});
+      res.render("events/show-all.ejs", { events: allEvents });
     }
   });
-}	
+};
 
 let getNewEventPage = (req, res) => {
-  res.render('events/new-event.ejs')
+  res.render("events/new-event.ejs");
 };
 
 let postNewEvent = (req, res) => {
@@ -21,23 +21,31 @@ let postNewEvent = (req, res) => {
   const userThatAddedEvent = {
     id: req.user._id,
     username: req.user.username
-  }
+  };
   const created = new Date();
-  const newEvent = {eventTitle: eventTitle, eventDescription: eventDescription, userThatAddedEvent: userThatAddedEvent, created: created}	
-  Event.create(newEvent, function(err, newlyAddedEvent){
-    if(err){
+  const newEvent = {
+    eventTitle: eventTitle,
+    eventDescription: eventDescription,
+    userThatAddedEvent: userThatAddedEvent,
+    created: created
+  };
+  Event.create(newEvent, function(err, newlyAddedEvent) {
+    if (err) {
       console.log(err);
-      res.redirect('/');
+      res.redirect("/");
     } else {
-      res.redirect('/events');
+      res.redirect("/events");
     }
   });
 };
 
 let eventPostValidation = (req, res, next) => {
-  if(!req.body.eventTitle || !req.body.eventDescription) {
-    req.flash('error', 'Your event must have a title and a decription! Please try again');
-    res.redirect('/events/new-event');
+  if (!req.body.eventTitle || !req.body.eventDescription) {
+    req.flash(
+      "error",
+      "Your event must have a title and a decription! Please try again"
+    );
+    res.redirect("/events/new-event");
   } else {
     next();
   }
@@ -48,4 +56,4 @@ module.exports = {
   getNewEventPage,
   postNewEvent,
   eventPostValidation
-}
+};

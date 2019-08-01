@@ -112,21 +112,23 @@ let getNewPasswordForm = (req, res) => {
 let postNewPassword = (req, res) => {
   console.log("POST NEW PASSWORD ROUTE");
   const email = req.params.email;
-  console.log("!!!! USER EMAIL !!!!!");
-  console.log(email);
-  console.log("!!!! USER EMAIL !!!!!");
 
   // prettier-ignore
   User.findOne({ 'email': email }, (err, user) => {
     if (err) {
       console.log('NO USER FOUND WITH EMAIL');
+      res.send('<h1>NO USER IS SIGNED UP WITH THIS EMAIL</h1> NO USER IS SIGNED UP WITH THIS EMAIL')
       // handle error
     }
-    // ... If user found, change their password
-    // Encrypt password w/ bcrypt prior to saving to db 
-    console.log('USER FOUND:');
-    console.log(user);
-    res.send(user);
+
+    const newPwd = req.body.newPwd;
+    user.password = newPwd;
+    user.save((err, updatedUser) => {
+      if (err) {
+        'error in postNewPassword user save block'
+      }
+      res.send(updatedUser);
+    });
   });
 };
 

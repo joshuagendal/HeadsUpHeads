@@ -45,12 +45,10 @@ module.exports = app => {
   // SEND EMAIL TO USER
   app.post("/password-reset", emailActions.sendPasswordResetEmail);
 
-  // GET NEW PASSWORD FORM
-  // app.get("/harpua/reset-password", actions.getNewPasswordForm);
-
   // GET EMAILED USER TO PASSWORD RESET FORMX
   app.get("/harpua/reset-password/:email", actions.getNewPasswordForm);
 
+  // POST NEW PASSWORD TO DB
   app.post("/harpua/reset-password/:email", actions.postNewPassword);
 
   // DELETE USER

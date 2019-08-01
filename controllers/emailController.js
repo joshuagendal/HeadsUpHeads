@@ -155,7 +155,7 @@ const sendPasswordResetEmail = (req, res) => {
   const htmlData = `
     <h4>Hello ${userEmail}. Please click the following Link</h4>
     <h1>
-      <a href="http://localhost:8000/harpua/reset-password/${userEmail}">HERE</a>
+      <a href="http://headsupheads.com/harpua/reset-password/${userEmail}">HERE</a>
     </h1>
   `;
   const subject = "Reset Heads Up Password";

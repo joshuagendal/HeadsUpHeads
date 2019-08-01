@@ -51,6 +51,8 @@ module.exports = app => {
   // GET EMAILED USER TO PASSWORD RESET FORMX
   app.get("/harpua/reset-password/:email", actions.getNewPasswordForm);
 
+  app.post("/harpua/reset-password/:email", actions.postNewPassword);
+
   // DELETE USER
   app.delete("/:id/1m0a7c53ndtkejd", actions.deleteUser);
 };

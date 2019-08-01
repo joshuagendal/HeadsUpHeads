@@ -1,35 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+	  <title>Heads Up</title>
       <% include ../partials/header %>
   </head>
   <body>
+
+	<nav class="navbar navbar-default navbar-fixed-top">
+	<div class="">
+		<div class="navbar-header">
+		<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+			<span class="sr-only">Toggle navigation</span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		</button>
+		<a class="navbar-brand" href="/">Heads Up</a>
+		</div>
+		<div id="navbar" class="collapse navbar-collapse nav-font-size">
+		<ul class="nav navbar-nav">
+			<li><a href="/about-us">About</a></li>
+			<li><a href="/message-board">Mesage Board</a></li>
+			<li class="active"><a href="/events">Events</a></li>
+			<li><a href="/login">Login</a></li>
+			<li><a href="/signup">Signup</a></li>
+			<li><a href="/logout">Logout</a></li>
+		</ul>
+		</div>
+	</div>
+	</nav>
     <% include ../partials/nav %>	
 	
 
-    <!-- @TODO: ERROR HANDLING FOR EVENTS-->
-
-	<div class="container text-center margin-top-seventy-five">
-		<h1> Submit a New Event</h1>
-	</div>	
-
-
-
-	<div class="container">
-		<form method="POST" class="" id="eventForm" action="/events/new-event">
-			<div class="form-group col-xs-12">
-				<input id="eventTitle" class="form-control" name="eventTitle" type="text" autocomplete="on" placeholder="EVENT TITLE" style="margin-top: 20px; margin-bottom:20px;">
-			</div>
-
-			<div class="form-group col-xs-12">
-				<input id="eventDescription" class="form-control" name="eventDescription" type="text" autocomplete="on" placeholder="EVENT DESCRIPTION" style="margin-top: 20px; margin-bottom:20px;">
-			</div>
-
-			<div class="form-group">
-				<input type="submit" id="submit" value="SUBMIT POST" class="form-control btn btn-primary site-green" name="submit">
-			</div>
-		</form>
+	<div class="container margin-top-fifty">
+		<div class="text-center margin-top-seventy-five">
+			<h1> Submit a New Event</h1>
+		</div>	
 	</div>
+
+
+	
+	<div class="container margin-top-fifty">
+		<div class="row-fullwidth">
+			<div class="col-md-8 col-centered">
+				<form method="POST" class="" id="eventForm" action="/events/new-event">
+					<div class="form-group col-xs-12">
+						<input id="eventTitle" class="form-control" name="eventTitle" type="text" autocomplete="on" placeholder="EVENT TITLE" style="margin-top: 20px; margin-bottom:20px;">
+					</div>
+
+					<div class="form-group col-xs-12">
+						<input id="eventDescription" class="form-control" name="eventDescription" type="text" autocomplete="on" placeholder="EVENT DESCRIPTION" style="margin-top: 20px; margin-bottom:20px;">
+					</div>
+
+					<div class="form-group col-xs-12">
+						<input type="submit" id="submit" value="SUBMIT POST" class="form-control btn btn-primary site-green" name="submit">
+					</div>
+				</form>
+			</div>	
+		</div>
+	</div>		
 
 
 	<!--<div class="container">

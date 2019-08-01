@@ -2,34 +2,69 @@
 <html lang="en">
   <head>
       <% include ../partials/header %>
+      <link rel="stylesheet" href="/css/medium-editor.css"> <!-- Core -->
+      <link rel="stylesheet" href="/css/themes/default.css"> <!-- or any other theme -->
   </head>
   <body>
+
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="">
+            <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Heads Up</a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse nav-font-size">
+            <ul class="nav navbar-nav">
+                <li><a href="/about-us">About</a></li>
+                <li class="active"><a href="/message-board">Mesage Board</a></li>
+                <li><a href="/events">Events</a></li>
+                <li><a href="/login">Login</a></li>
+                <li><a href="/signup">Signup</a></li>
+                <li><a href="/logout">Logout</a></li>
+            </ul>
+            </div>
+        </div>
+    </nav>
+
     <% include ../partials/nav %>
 
 		<% if(messageBoardPostError) { %>
 				<h1><%= messageBoardPostError %></h1>
 		<% } %>			
 
-			<div class="container text-center margin-top-seventy-five">
+			<div class="container text-center margin-top-one-hundred">
 				<h1> Submit a New Post</h1>
 			</div>	
 
-				<div class="container">
-					<form method="POST" class="" id="newPostForm" action="/message-board/new-post">
-						<div class="form-group col-xs-12">
-							<input id="postHeading" class="form-control" name="postHeading" type="text" autocomplete="on" placeholder="SUBJECT" style="margin-top: 20px; margin-bottom:20px; color: black;">
-						</div>
+      <div class="">
+        <div class="row margin-top-twenty-five">
+          <div class="col-xs-12 col-sm-8 col-md-8 col-centered">
+            <form method="POST" class="" id="newPostForm" action="/message-board/new-post">
+              <div class="form-group col-xs-12">
+                <input id="postHeading" class="form-control" name="postHeading" type="text" autocomplete="on" placeholder="SUBJECT" style="margin-top: 20px; margin-bottom:20px; color: black;">
+              </div>
 
-						<div class="form-group col-xs-12">
-							<textarea rows="20" id="postText" class="form-control new-post-text-box new-post-text-size-color" name="postText" type="text" autocomplete="on" style="padding-left: 5px;"></textarea>
-						</div>
+              <div class="form-group col-xs-12">
+                <textarea rows="20" id="postText" class="form-control new-post-text-box new-post-text-size-color editable" name="postText" type="text" autocomplete="on" style="padding-left: 5px;"></textarea>
+              </div>
 
-						<div class="form-group">
-							<input type="submit" id="submit" value="SUBMIT POST" class="form-control btn btn-primary site-green" name="submit">
-						</div>
-					</form>
-				</div>
+              <div class="form-group">
+                <input type="submit" id="submit" value="SUBMIT POST" class="form-control btn btn-primary site-green" name="submit">
+              </div>
+            </form>
+          </div>
+        </div>    
+      </div>
 			</div>
 		<% include ../partials/footer %>
+        <script src="/js/custom.js"></script>
+        <script src="/js/medium-editor.js"></script>
+        <script>var editor = new MediumEditor('.editable');</script>
   </body>
 </html>

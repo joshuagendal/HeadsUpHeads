@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <!--MAKE SURE THIS IS IN THE HEAD FOR STYLING ACROSS DEVICES-->
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Heads Up Heads</title>
+    <title>Heads Up</title>
 
     <!--Bootstrap and jQuery-->
     <link rel="stylesheet" href="/css/bootstrap.css">
@@ -22,48 +22,75 @@
 </head>
   <body>
     <% include partials/nav %>
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>  
+            <div id="navbar" class="collapse navbar-collapse nav-font-size">
+                <ul class="nav navbar-nav sm-margin-left">
+                    <li><a href="/">Home</a></li>
+                    <li class="active"><a href="/about-us">About</a></li>
+                    <li><a href="/message-board">Mesage Board</a></li>
+                    <li><a href="/events">Events</a></li>
+                    <li><a href="/login">Login</a></li>
+                    <li><a href="/signup">Signup</a></li>
+                    <li><a href="/logout">Logout</a></li>
+                </ul>
+                 <!-- <div id="navbar-logo">
+                    <a href="/" class="navbar-brand navbar-right">
+                        <img src="/img/HUH-logo.png" class="logo-nav">
+                    </a>
+                </div>      -->
+            </div>
+        </div>
+    </nav>
     <% include partials/aboutUsPicTxtSlider%>
 
     <div class="container content">
-        <!--<div class="col-md-1">
-
-        </div>-->
-        
-        <div class="col-md-4 col-xs-12">
-            <div class="all-about-music-box">
-                <div class="about-us-box-header text-center">
-                    <span>All About Music</span>
-                </div>
-                <span class="glyphicon glyphicon-music about-us-glyphs" aria-hidden="true"></span>
-                <div class="box-body about-us-text">
-                    <p class="about-us-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris hendrerit blandit nunc nec tincidunt. Aliquam pellentesque velit eget libero venenatis interdum.</p>
+        <div class="row-fullwidth">
+            <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                <div class="all-about-music-box">
+                    <div class="about-us-box-header">
+                        <span>All About Music</span>
+                    </div>
+                    <span class="glyphicon glyphicon-music about-us-glyphs" aria-hidden="true"></span>
+                    <div class="box-body about-us-text">
+                        <p class="about-us-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris hendrerit blandit nunc nec tincidunt. Aliquam pellentesque velit eget libero venenatis interdum.</p>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-md-4 col-xs-12">
-            <div class="all-about-music-box">
-                <div class="about-us-box-header text-center">
-                    <span>Connecting Professionals</span>
-                </div>
-                <span class="glyphicon glyphicon-globe about-us-glyphs" aria-hidden="true"></span>
-                <div class="box-body about-us-text">
-                    <p class="about-us-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris hendrerit blandit nunc nec tincidunt. Aliquam pellentesque velit eget libero venenatis interdum.</p>
+            <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                <div class="all-about-music-box">
+                    <div class="about-us-box-header">
+                        <span>Networking</span>
+                    </div>
+                    <span class="glyphicon glyphicon-globe about-us-glyphs" aria-hidden="true"></span>
+                    <div class="box-body about-us-text">
+                        <p class="about-us-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris hendrerit blandit nunc nec tincidunt. Aliquam pellentesque velit eget libero venenatis interdum.</p>
+                    </div>
+
                 </div>
 
             </div>
-
-        </div>
-        <div class="col-md-4 col-xs-12">
-            <div class="all-about-music-box">
-                <div class="about-us-box-header text-center">
-                    <span>All About Music</span>
-                </div>
-                <span class="glyphicon glyphicon-sunglasses about-us-glyphs" aria-hidden="true"></span>
-                <div class="box-body about-us-text">
-                    <p class="about-us-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris hendrerit blandit nunc nec tincidunt. Aliquam pellentesque velit eget libero venenatis interdum.</p>
+            <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                <div class="all-about-music-box">
+                    <div class="about-us-box-header">
+                        <span>Real Cool People</span>
+                    </div>
+                    <span class="glyphicon glyphicon-sunglasses about-us-glyphs" aria-hidden="true"></span>
+                    <div class="box-body about-us-text">
+                        <p class="about-us-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris hendrerit blandit nunc nec tincidunt. Aliquam pellentesque velit eget libero venenatis interdum.</p>
+                    </div>
                 </div>
             </div>
-        </div>
+        </div>    
 
     </div>
 
@@ -73,7 +100,7 @@
     <!--<div class="container">
       <h1>THIS IS THE INDEX!!!!!</h1>
     </div> -->
-    <script src="/js/home.js"></script>
+    <script src="/js/custom.js"></script>
     <% include partials/footer %>
   <!--</body>
 </html>-->

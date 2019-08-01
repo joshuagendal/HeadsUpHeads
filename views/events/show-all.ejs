@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <!--MAKE SURE THIS IS IN THE HEAD FOR STYLING ACROSS DEVICES-->
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Heads Up Heads</title>
+    <title>Events</title>
 
     <!--Bootstrap and jQuery-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
@@ -15,73 +15,83 @@
     <!--MY EXTERNAL STYLESHEETS-->
     <!--<link rel="stylesheet" href="/css/normalize.css" />-->
     <link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet">
-    <link rel="stylesheet" href="/css/custom.css" />
     <link rel="stylesheet" href="/css/messageBoard.css" />
     <link rel="stylesheet" href="/css/mediaStyles2.css" />
+    <link rel="stylesheet" href="/css/custom.css" />
 
 </head>
 <body>
 
+    <% include ../partials/nav %>
+
     <nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container">
-        <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="#">Heads Up Heads</a>
+        <div class="">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>  
+            <div id="navbar" class="collapse navbar-collapse nav-font-size">
+                <ul class="nav navbar-nav sm-margin-left">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/about-us">About</a></li>
+                    <li><a href="/message-board">Mesage Board</a></li>
+                    <li class="active"><a href="/events">Events</a></li>
+                    <li><a href="/login">Login</a></li>
+                    <li><a href="/signup">Signup</a></li>
+                    <li><a href="/logout">Logout</a></li>
+                </ul>
+                 <!-- <div id="navbar-logo">
+                    <a href="/" class="navbar-brand navbar-right">
+                        <img src="/img/HUH-logo.png" class="logo-nav">
+                    </a>
+                </div>      -->
+            </div>
         </div>
-        <div id="navbar" class="collapse navbar-collapse nav-font-size">
-        <ul class="nav navbar-nav">
-            <li><a href="/">Home</a></li>
-            <li class="active"><a href="/message-board">Mesage Board</a></li>
-            <li><a href="/events">Events</a></li>
-            <li><a href="/login">Login</a></li>
-            <li><a href="/signup">Signup</a></li>
-            <li><a href="/logout">Logout</a></li>
-        </ul>
-        </div>
-    </div>
     </nav>
 
-	<% include ../partials/nav %>
+    <% include ../partials/nav %>
 
+    
     <div class="container logo-background text-center">
         <div class="page-title text-center">
             <div class="">EVENTS</div>
             <!--<div class="new-thread">Click here to start a new thread</div>-->
         </div>
-    </div>
+    </div>   
 
-	<div class="container content">
+	<div class="container content padding-top-fifteen">
         <div class="new-thread">
             <a style="color: white;"href="events/new-event">Click here to post a new event</a>
         </div>    
-        <div class="table-responsive messageboard">
-            <table class="table table-hover">
-                <thead>
+        <div class="table-holder">
+            <div class="table-responsive messageboard">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Sponsor</th>
+                            <th>Date Posted</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% events.forEach(function(event){ %>
                     <tr>
-                        <th>Title</th>
-                        <th>Sponsor</th>
-                        <th>Created</th>
-                        <th>Description</th>
+                        <td class="row-title"><%= event.eventTitle %></td>
+                        <td class="row-author"><%= event.userThatAddedEvent.username %></td>
+                        <td class="row-posts"><%= event.created.toLocaleDateString() %></td> <!-- @TODO: MAKE FUNCTION/LINE OF CODE FOR TOTAL POSTS -->
+                        <td class="row-timeStamp"><%= event.eventDescription %></td>
+                        <% }) %>  
                     </tr>
-                </thead>
-                <tbody>
-                    <% events.forEach(function(event){ %>
-                  <tr>
-                      <td class="row-title"><%= event.eventTitle %></td>
-                      <td class="row-author"><%= event.userThatAddedEvent.username %></td>
-                      <td class="row-posts"><%= event.created %></td> <!-- @TODO: MAKE FUNCTION/LINE OF CODE FOR TOTAL POSTS -->
-                      <td class="row-timeStamp"><%= event.eventDescription %></td>
-                    <% }) %>  
-                  </tr>
-                    <!--see template at bottom of body-->
-                </tbody>
-            </table>
-        </div> 
+                        <!--see template at bottom of body-->
+                    </tbody>
+                </table>
+            </div> 
+        </div>    
     </div>
 
 

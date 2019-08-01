@@ -1,34 +1,35 @@
-    <div class="container content">
-        <div class="col-xs-12 col-md-6 col-lg-6 col-xl-6">
-            <div class="info-box box-postings">
-                <div class="box-header text-center">
-                    <span>Latest Posts</span>
+    <div class="container background-dark-guitar">    
+        <div class="row-fullwidth">    
+            <div class="content">
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                    <div class="info-box box-postings">
+                        <div class="box-header">
+                            <span>Latest Posts</span>
+                        </div>
+                        <div class="box-body latest-posts">
+                            <ul class="home-content-main-text">
+                                <% mostRecentPosts.forEach(function(post){ %>
+                                    <li><a class="text-black" href="message-board/<%= post._id %>"><%= post.postHeading %></a></li>
+                                <% }) %>    
+                            </ul>    
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-success center-block"><a class="home-button-text" href="/message-board">See More Posts</a><i class="glyphicon glyphicon-chevron-right"></i></button>
                 </div>
-                <div class="box-body latest-posts">
-                    <ul>
-                        <li>Lorem ipsum dolor sit amet, taciti metus justo. Hac non nullam purus nulla praesent pellentesque <span>4 hrs ago</span></li>
-                        <li>Lorem ipsum dolor sit amet, taciti metus justo. Hac non nullam <span>5 hrs ago</span></li>
-                        <li>Lorem ipsum dolor sit amet, taciti metus justo. Hac non nullam purus nulla praesent pellentesque, blah blah blah <span>6 hrs ago</span></li>
-                        <li>Lorem ipsum dolor sit amet <span>10 hrs ago</span></li>
-                    </ul>
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                    <div class="info-box box-shows">
+                        <div class="box-header">
+                            <span>Upcoming Events</span>
+                        </div>
+                        <div class="box-body upcoming-shows">
+                            <ul class="home-content-main-text">
+                                <% mostRecentEvents.forEach(function(event){ %>
+                                    <li><%= event.eventTitle %></li>
+                                <% }) %>    
+                            </ul>
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-success center-block"><a class="home-button-text" href="/events">See More Events</a><i class="glyphicon glyphicon-chevron-right"></i></button>
                 </div>
             </div>
-            <button type="button" class="btn btn-success center-block">See More Posts <i class="glyphicon glyphicon-chevron-right"></i></button>
-        </div>
-        <div class="col-xs-12 col-md-6 col-lg-6 col-xl-6">
-            <div class="info-box box-shows">
-                <div class="box-header text-center">
-                    <span>Upcoming Shows</span>
-                </div>
-                <div class="box-body upcoming-shows">
-                    <ul>
-                        <li>Lorem ipsum dolor sit amet, taciti metus justo. Hac non nullam purus nulla praesent pellentesque <span>4 hrs ago</span></li>
-                        <li>Lorem ipsum dolor sit amet, taciti metus justo. Hac non nullam <span>5 hrs ago</span></li>
-                        <li>Lorem ipsum dolor sit amet, taciti metus justo. Hac non nullam purus nulla praesent pellentesque, blah blah blah <span>6 hrs ago</span></li>
-                        <li>Lorem ipsum dolor sit amet <span>10 hrs ago</span></li>
-                    </ul>
-                </div>
-            </div>
-            <button type="button" class="btn btn-success center-block">See More Shows <i class="glyphicon glyphicon-chevron-right"></i></button>
-        </div>
-    </div>
+        </div>      

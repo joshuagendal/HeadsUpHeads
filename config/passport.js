@@ -6,13 +6,13 @@ const shortid = require('shortid');
 const bcrypt = require('bcrypt');
 
 passport.serializeUser((user, done) => {
-    done(null, user.id);
+  done(null, user.id);
 });
 
 passport.deserializeUser((id, done) => {
-    User.findById(id, (err, user) => {
-        done(err, user);
-    });
+  User.findById(id, (err, user) => {
+    done(err, user);
+  });
 });
 
 passport.use('local.signup', new LocalStrategy({
@@ -73,8 +73,9 @@ passport.use('local.signup', new LocalStrategy({
                 req.flash('signupSuccessMsg', 'Thanks for signing up with Heads Up Heads! Please check your email for an email verification link!');
                 let htmlData = `            
                    <b>
-                       Hello ${username} please verify your account by clicking this link
-                       <a href="http://localhost:3000/verifyuser?token=${userShortId}">here</a>
+                       And we're glad glad glad that you're alive, ${username}! Please click
+                       <a href="http://headsupheads.herokuapp.com/verifyuser?token=${userShortId}">here</a> 
+                       to verify your email address!
                    </b>
                 `;
                 let subject = "Please verify your email";

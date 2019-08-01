@@ -5,7 +5,7 @@ body, html
 
 .logo-background {
     width: 100%;
-    height: 100%;
+    height: 100vh;
     background-image: url(../img/background_phish_cropped.jpg);
     background-attachment: fixed;
     background-position: center;
@@ -16,6 +16,13 @@ body, html
 .logo {
     margin-top: 10em;
     margin-bottom: 2em;
+    height: 250px;
+}
+
+@media (max-width:415px) {
+    .logo {
+        margin-top: 2em;
+    }
 }
 
 .logo-subtitle {
@@ -24,9 +31,43 @@ body, html
     color: white;
 }
 
+@media (max-width:800px) and (min-width:515px) {
+    .logo-subtitle {
+        font-size: 1.64em;
+    }
+    .logo {
+        height: 200px;
+    }
+    .logo-background {
+        margin-top: 4em;
+    }  
+    .scroll-btn {
+        font-size: 4em !important;
+    }
+}
+
+@media (max-width:514px) {
+    .logo-subtitle {
+        font-size: 1em;
+    }
+    .logo {
+        height: 150px;
+    }
+    .logo-background {
+        margin-top: 4em;
+    }
+    .scroll-btn {
+        font-size: 3em !important;
+    }
+}
+
+
+
 .scroll-btn {
+    cursor: pointer;
     margin-top: .6em;
     color: white;
+    transition: all 0.3s ease;
     font-size: 5em;
 }
 
@@ -42,7 +83,6 @@ body, html
     /*background-color: #dd5306;*/
     background-image: url(../img/threepnto.png);
     width: 100%;
-    min-height: 75%;
 }
 
     .content button {
@@ -54,39 +94,110 @@ body, html
 .info-box {
     /*background-color: white;*/
     background-image: url(../img/koa.png);
-    min-height: 20em;
-    margin-top: 2em;
+    min-height: 350px;
+    margin-top: 30px;
     border: 1px solid black;
     font-size: 1.3em;
 }
 
 .box-header {
-    padding: .5em;
-    font-size: 2.5em;
+    margin: 15px 0px 10px 0px;
+    font-size: 2em;
+    text-align: center;
     text-decoration: underline;
 }
 
-@media(max-width: 1024px) {
+.home-content-main-text {
+    font-size: 0.9em;
+    padding: 0px 20px;
+    margin-bottom: 0px;
+    list-style: none;
+} 
+
+ .home-button-text {
+    color: white;
+    font-size: 1em; 
+} 
+
+@media (max-width:1075px) and (min-width:901px) {
+    .home-content-main-text {
+        font-size: 0.85em ;
+    }
     .box-header {
-        font-size: 1.55em !important;
+        font-size: 1.85em;
+        margin: 15px 0px 20px 0px;
+    }
+    /* .info-box {
+        margin-top: 15px;
+    } */
+} 
+
+@media (max-width:900px) and (min-width:515px) {
+    .home-content-main-text {
+        font-size: 0.67em ;
+    }
+    .box-header {
+        font-size: 1.5em;
+        margin: 25px 0px;
+    }
+    .info-box {
+        min-height: 325px;
     }
 }
 
+@media (max-width:514px) {
+    .home-content-main-text {
+        font-size: 0.63em ;
+    }
+    .box-header {
+        font-size: 1.15em;
+        margin: 15px 0px;
+    }
+    .info-box {
+        min-height: 230px;
+    }
+    .home-button-text {
+        font-size: 0.84em;
+    }
+    /* .content button {
+        margin-bottom: 0em;
+    } */
+}
+
+
+.scroll-btn:hover {
+    transform: translate(0,-10px);
+    color: green;
+}
+
+/*@media(max-width: 1024px) {
+    .box-header {
+        font-size: 1.55em !important;
+    }
+}*/
+
+.margin-top-sixty-five {
+    margin-top: 65px;
+}
+
 .box-body {
-    padding: 0em .5em 0em .5em;
+    padding: 0em .5em 0em .5em; 
     overflow-wrap: break-word;
 }
 
     .box-body ul {
         list-style: none;
-        padding-bottom: 1em;
+        /* padding-bottom: 1em; */
     }
 
         .box-body ul li {
-            margin-bottom: .4em;
-            font-size: 1em;
+            margin-bottom: 1.4em;
+            /* font-size: 1em; */
         }
+
             .box-body ul li span {
             color: gray;
-
         }
+
+
+

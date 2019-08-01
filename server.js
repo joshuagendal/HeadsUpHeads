@@ -2,8 +2,7 @@ var express = require('express');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var validator = require('express-validator');
-// var ejs = require('ejs');
-// var engine = require('ejs-mate');
+var ejs = require('ejs');
 var session = require('express-session');
 var MongoStore = require('connect-mongo')(session);
 var passport = require('passport');
@@ -11,6 +10,7 @@ var methodOverride = require('method-override');
 var flash = require('connect-flash');
 var mongoose = require('mongoose');
 var path = require('path');
+var asynch = require('async');
 
 var app = express();
 
@@ -29,9 +29,10 @@ app.use(methodOverride('_method'));
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
-
+        
 app.use(validator());
 
+// MongoStore (connect-mongo) config
 app.use(session({
     secret: 'testkey',
     resave: false,
@@ -44,31 +45,36 @@ app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
 
+
+
+// This app.use function below is used to declare global variables - AKA variables that are
+// available from ALL ROUTES.
+
+// LEVEL OF AUTHENTICATION:
+// 3. currentUser : signed up, email auth, admin auth -- completely authorized
+// 2. notAuthByAdminUser: signed up, email auth, !admin auth
+// 1. notEmailAuthUser: signed up, !email auth, !admin auth
 app.use(function(req, res, next){                           
-    if(req.isAuthenticated()){
-        if(req.user.userVerifiedByAdmin === true) {         // LEVEL OF AUTHENTICATION:
-            res.locals.currentUser = req.user;              // 3. currentUser : signed up, email auth, admin auth
-            res.locals.notAuthByAdminUser = false;          // 2. notAuthByAdminUser: signed up, email auth, !admin auth
-            res.locals.notEmailAuthUser = false;            // 1. notEmailAuthUser: signed up, !email auth, !admin auth
-        } else {                                            
-            res.locals.notAuthByAdminUser = true; 
-            res.locals.currentUser = false;
-            res.locals.notEmailAuthUser = false;
-        }
-    }
-    else {
-        res.locals.notEmailAuthUser = true;
-        res.locals.currentUser = false;
-        res.locals.notAuthByAdminUser = false;    
-    }
+  if(req.isAuthenticated()) {
+		if(req.user.userVerifiedByAdmin === true) {         
+			res.locals.currentUser = req.user;              
+			res.locals.notAuthByAdminUser = false;          
+			res.locals.notEmailAuthUser = false;            
+		} else {                                            
+			res.locals.notAuthByAdminUser = true; 
+			res.locals.currentUser = false;
+			res.locals.notEmailAuthUser = false;
+		}
+  } else {
+		res.locals.notEmailAuthUser = true;
+		res.locals.currentUser = false;
+		res.locals.notAuthByAdminUser = false;    
+	}
 
-    // res.locals.mustBeLoggedInErrMsg = req.flash('mustBeLoggedInError');
-    // res.locals.postSuccessMessage = req.flash('msgBrdPostSuccessMsg');
-    res.locals.error = req.flash('error');
-    res.locals.success = req.flash('success');
-
-    // res.locals.isVerifiedByAdmin = req.user.userVerifiedByAdmin;
-    next();
+	res.locals.error = req.flash('error');
+	res.locals.success = req.flash('success');
+	
+	next();
 });
 
 

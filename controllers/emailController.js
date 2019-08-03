@@ -164,7 +164,7 @@ const sendPasswordResetEmail = (req, res) => {
     console.log(status);
   });
 
-  res.send("gets to end of route");
+  res.send("<h1>Please check your email for a password reset link!</h1>");
 };
 
 module.exports = {

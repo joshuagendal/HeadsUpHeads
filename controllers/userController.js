@@ -125,9 +125,9 @@ let postNewPassword = (req, res) => {
     user.password = newPwd;
     user.save((err, updatedUser) => {
       if (err) {
-        'error in postNewPassword user save block'
+        console.log('error in postNewPassword user save block');
       }
-      res.send(updatedUser);
+      res.send('<h1>Thank you for updating your password. Click <a href="headsupheads.com">HERE</a> to login with your new password.</h1>');
     });
   });
 };

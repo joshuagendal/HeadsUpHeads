@@ -151,20 +151,45 @@ const verifyAdmin = (req, res) => {
 const sendPasswordResetEmail = (req, res) => {
   console.log("HIT SENDPASSWORDRESETEMAIL ROUTE");
   const userEmail = req.body.email;
+  console.log("USER EMAIL: ", userEmail);
 
-  const htmlData = `
-    <h4>Hello ${userEmail}. Please click the following Link</h4>
-    <h1>
-      <a href="http://headsupheads.com/harpua/reset-password/${userEmail}">HERE</a>
-    </h1>
-  `;
-  const subject = "Reset Heads Up Password";
-  sendEmail(htmlData, userEmail, subject, (err, status) => {
-    console.log("RESET PASSWORD EMAIL SENT");
-    console.log(status);
-  });
-
-  res.send("<h1>Please check your email for a password reset link!</h1>");
+  // Query DB for user w/ email address.
+  User.findOne(
+    {
+      email: userEmail
+    },
+    (err, user) => {
+      if (err) {
+        console.log("DB ERROR");
+        res.send("<h1> Database Error</h1> ");
+      } else {
+        if (user) {
+          const htmlData = `
+            <h4>Hello ${userEmail}. Please click the following Link</h4>
+            <h1>
+              <a href="http://headsupheads.com/harpua/reset-password/${userEmail}">HERE</a>
+            </h1>
+          `;
+          const subject = "Reset Heads Up Password";
+          sendEmail(htmlData, userEmail, subject, (err, status) => {
+            console.log("RESET PASSWORD EMAIL SENT");
+            console.log(status);
+          });
+          res.send(
+            "<h1>Please check your email for a password reset link!</h1>"
+          );
+        } else {
+          const errMsg = `
+          <h3>${userEmail} is not an email associated with an account. Please click 
+          <a href="/password-reset">here</a> to go back to the password reset page and 
+          enter the proper email address associated with your account</h3>
+        `;
+          console.log(errMsg);
+          res.send(errMsg);
+        }
+      }
+    }
+  );
 };
 
 module.exports = {

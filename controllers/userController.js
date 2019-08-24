@@ -104,13 +104,11 @@ let getPasswordResetForm = (req, res) => {
 let getNewPasswordForm = (req, res) => {
   // change to adding email in body from client?
   const userEmail = req.params.email;
-  console.log("!!EMAIL!!: ", userEmail);
   res.render("user/newPasswordForm", { userEmail });
 };
 
 // POST NEW PASSWORD
 let postNewPassword = (req, res) => {
-  console.log("POST NEW PASSWORD ROUTE");
   const email = req.params.email;
 
   // prettier-ignore
